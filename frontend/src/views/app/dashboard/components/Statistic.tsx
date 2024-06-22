@@ -67,7 +67,7 @@ const StatisticIcon = ({ type }: { type?: string }) => {
 
 const StatisticCard = ({ data = {} }: { data: Partial<Statistic> }) => {
     return (
-        <Card>
+        <Card bordered>
             <div className="flex items-center gap-4">
                 <StatisticIcon type={data.name} />
                 <div>
