@@ -6,44 +6,22 @@ import {
 } from '@/services/SalesService'
 import { ArtistState } from '@/@types/artist'
 import { apiAddArtist, apiGetArtistProfile } from '@/services/ArtistService'
+import { CaseStudyState } from '@/@types/casestudy'
+import { apiGetSingleCaseStudy } from '@/services/CaseStudy'
 
-type ProductData = {
-    id?: string
-    name?: string
-    productCode?: string
-    img?: string
-    imgList?: {
-        id: string
-        name: string
-        img: string
-    }[]
-    category?: string
-    price?: number
-    stock?: number
-    status?: number
-    costPerItem?: number
-    bulkDiscountPrice?: number
-    description?: string
-    taxRate?: 6
-    tags?: string[]
-    brand?: string
-    vendor?: string
-}
-
-export type ArtistEditState = {
+export type CaseStudyEditState = {
     loading: boolean
-    artistData: ArtistState
+    caseStudyData: CaseStudyState
 }
 
-type GetArtistProfileResponse = ArtistState
 
-export const SLICE_NAME = 'artistEditSlice'
+export const SLICE_NAME = 'caseStudyEditSlice'
 
-export const getArtistProfile = createAsyncThunk(
-    SLICE_NAME + '/getArtistProfile',
+export const getSingleCaseStudy = createAsyncThunk(
+    SLICE_NAME + '/getSingleCaseStudy',
     async (data: { id: string }) => {
-        const response = await apiGetArtistProfile<
-            GetArtistProfileResponse,
+        const response = await apiGetSingleCaseStudy<
+            CaseStudyState,
             { id: string }
         >(data)
         return response.data
@@ -64,9 +42,9 @@ export const deleteProduct = async <T, U extends Record<string, unknown>>(
     return response.data
 }
 
-const initialState: ArtistEditState = {
+const initialState: CaseStudyEditState = {
     loading: true,
-    artistData: {},
+    caseStudyData: {},
 }
 
 const artistEditSlice = createSlice({
@@ -75,11 +53,11 @@ const artistEditSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getArtistProfile.fulfilled, (state, action) => {
-                state.artistData = action.payload
+            .addCase(getSingleCaseStudy.fulfilled, (state, action) => {
+                state.caseStudyData = action.payload
                 state.loading = false
             })
-            .addCase(getArtistProfile.pending, (state) => {
+            .addCase(getSingleCaseStudy.pending, (state) => {
                 state.loading = true
             })
     },

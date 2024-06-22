@@ -9,8 +9,8 @@ const appRoute: Routes = [
    
     {
         key: 'app.addartist',
-        path: `${APP_PREFIX_PATH}/artists/add`,
-        component: lazy(() => import('@/views/app/Artists/ArtistNew')),
+        path: `${APP_PREFIX_PATH}/casestudies/add`,
+        component: lazy(() => import('@/views/app/CaseStudy/CaseStudyNew')),
         authority: [ADMIN, USER],
         meta: {
             layout: 'classic'
@@ -18,8 +18,8 @@ const appRoute: Routes = [
     },
     {
         key: 'app.editartist',
-        path: `${APP_PREFIX_PATH}/artists/edit/:id`,
-        component: lazy(() => import('@/views/app/Artists/ArtistEdit')),
+        path: `${APP_PREFIX_PATH}/casestudies/edit/:id`,
+        component: lazy(() => import('@/views/app/CaseStudy/CaseStudyEdit')),
         authority: [ADMIN, USER],
         meta: {
             layout: 'classic'
@@ -81,8 +81,8 @@ const appRoute: Routes = [
     },
     {
         key: 'app.artists',
-        path: `${APP_PREFIX_PATH}/artists`,
-        component: lazy(() => import('@/views/app/Artists/ArtistList/ArtistList')),
+        path: `${APP_PREFIX_PATH}/casestudies`,
+        component: lazy(() => import('@/views/app/CaseStudy/CaseStudyList')),
         authority: [ADMIN, USER],
         meta: {
             layout: 'classic'

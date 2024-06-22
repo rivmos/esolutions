@@ -5,16 +5,15 @@ import DataTable from '@/components/shared/DataTable'
 import { HiEye, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi'
 import { FiPackage } from 'react-icons/fi'
 import {
-    getProducts,
     setTableData,
-    setSelectedArtist,
+    setSelectedCaseStudy,
     toggleDeleteConfirmation,
     useAppDispatch,
     useAppSelector,
-    getArtists,
+    getCaseStudies,
 } from '../store'
 import useThemeClass from '@/utils/hooks/useThemeClass'
-import ProductDeleteConfirmation from './ArtistDeleteConfirmation'
+import CaseStudyDeleteConfirmation from './CaseStudyDeleteConfirmation'
 import { useNavigate } from 'react-router-dom'
 import cloneDeep from 'lodash/cloneDeep'
 import type {
@@ -23,18 +22,8 @@ import type {
     ColumnDef,
 } from '@/components/shared/DataTable'
 
-import { ArtistState } from '@/@types/artist'
+import { CaseStudyState } from '@/@types/casestudy'
 
-type Product = {
-    id: string
-    name: string
-    productCode: string
-    img: string
-    category: string
-    price: number
-    stock: number
-    status: number
-}
 
 const inventoryStatusColor: Record<
     number,
@@ -61,13 +50,13 @@ const inventoryStatusColor: Record<
     },
 }
 
-const ActionColumn = ({ row }: { row: ArtistState }) => {
+const ActionColumn = ({ row }: { row: CaseStudyState }) => {
     const dispatch = useAppDispatch()
     const { textTheme } = useThemeClass()
     const navigate = useNavigate()
 
     const onEdit = () => {
-        navigate(`/app/artists/edit/${row.id}`)
+        navigate(`/app/casestudies/edit/${row.id}`)
     }
 
     const onView = () => {
@@ -76,7 +65,7 @@ const ActionColumn = ({ row }: { row: ArtistState }) => {
 
     const onDelete = () => {
         dispatch(toggleDeleteConfirmation(true))
-        dispatch(setSelectedArtist(row.id))
+        dispatch(setSelectedCaseStudy(row.id))
     }
 
     return (
@@ -124,19 +113,19 @@ const ArtistTable = () => {
     const dispatch = useAppDispatch()
 
     const { pageIndex, pageSize, sort, query, total } = useAppSelector(
-        (state) => state.artistListSlice.data.tableData
+        (state) => state.caseStudyListSlice.data.tableData
     )
 
     const filterData = useAppSelector(
-        (state) => state.artistListSlice.data.filterData
+        (state) => state.caseStudyListSlice.data.filterData
     )
 
     const loading = useAppSelector(
-        (state) => state.artistListSlice.data.loading
+        (state) => state.caseStudyListSlice.data.loading
     )
 
     const data = useAppSelector(
-        (state) => state.artistListSlice.data.artistList
+        (state) => state.caseStudyListSlice.data.caseStudyList
     )
 
     useEffect(() => {
@@ -157,10 +146,10 @@ const ArtistTable = () => {
 
     const fetchData = () => {
         // dispatch(getProducts({ pageIndex, pageSize, sort, query, filterData }))
-        dispatch(getArtists({ pageIndex, pageSize, query }))
+        dispatch(getCaseStudies({ pageIndex, pageSize, query }))
     }
 
-    const columns: ColumnDef<ArtistState>[] = useMemo(
+    const columns: ColumnDef<CaseStudyState>[] = useMemo(
         () => [
             // {
             //     header: 'Name',
@@ -171,11 +160,11 @@ const ArtistTable = () => {
             //     },
             // },
             {
-                header: 'Name',
-                accessorKey: 'name',
+                header: 'Title',
+                accessorKey: 'title',
                 cell: (props) => {
                     const row = props.row.original
-                    return <span className="capitalize">{row.name}</span>
+                    return <span className="capitalize">{row.title}</span>
                 },
             },
             // {
@@ -205,11 +194,11 @@ const ArtistTable = () => {
             //     },
             // },
             {
-                header: 'Website',
-                accessorKey: 'website',
+                header: 'Description',
+                accessorKey: 'description',
                 cell: (props) => {
-                    const {website} = props.row.original
-                    return <span>{website}</span>
+                    const {description} = props.row.original
+                    return <span>{description}</span>
                 },
             },
             {
@@ -258,7 +247,7 @@ const ArtistTable = () => {
                 onSelectChange={onSelectChange}
                 onSort={onSort}
             />
-            <ProductDeleteConfirmation />
+            <CaseStudyDeleteConfirmation />
         </>
     )
 }

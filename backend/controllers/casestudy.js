@@ -62,7 +62,7 @@ casestudyRouter.get('/:id', (req, res) => {
         res.json(casestudy)
     }).catch(error => {
         res.json({
-            message: `The Artist Doesn't Exist`
+            message: `The Case Study Doesn't Exist`
         })
     })
 })
@@ -103,7 +103,7 @@ casestudyRouter.post('/save', uploadAvatar.single('image'),async (req, res) => {
             // Update artworks logic here, if necessary.
         } else {
             // Create new casestudy
-            casestudy = new CaseStudy({ name, bio, website, artworks, image:uploadedImage });
+            casestudy = new CaseStudy({ title, description, content, image:uploadedImage });
         }
 
         const savedArtist = await casestudy.save();
@@ -143,18 +143,18 @@ casestudyRouter.delete('/delete', verifyTokenMiddleware, async (req, res) => {
         // }
         // res.send('Artist deleted successfully');
 
-        const artist = await CaseStudy.findById(id);
+        const casestudy = await CaseStudy.findById(id);
     
-        if (!artist) {
-          return res.status(404).json({ message: "Artist not found" });
+        if (!casestudy) {
+          return res.status(404).json({ message: "Case study not found" });
         }
     
         // Delete associated artworks
         await CaseStudy.deleteOne({ _id: id })
     
-        res.json({ message: "Artist and associated artworks deleted successfully" });
+        res.json({ message: "Case study deleted successfully" });
     } catch (error) {
-        console.error("Error deleting artist and their artwork: ", error); // Example of logging the error
+        console.error("Error deleting case study: ", error); // Example of logging the error
         res.status(500).send(error.message);
     }
 });

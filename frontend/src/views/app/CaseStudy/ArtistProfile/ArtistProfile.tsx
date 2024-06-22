@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import reducer, { getArtistProfile, useAppDispatch, useAppSelector } from '../ArtistEdit/store';
+import reducer, { getArtistProfile, useAppDispatch, useAppSelector } from '../CaseStudyEdit/store';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { injectReducer } from '@/store';
 import Profile from '@/components/template/Profile';

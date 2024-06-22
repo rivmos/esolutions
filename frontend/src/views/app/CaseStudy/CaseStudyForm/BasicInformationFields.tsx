@@ -21,9 +21,9 @@ const BasicInformationFields = (props: BasicInformationFields) => {
     return (
         <AdaptableCard divider className="mb-4">
             <h5>Basic Information</h5>
-            <p className="mb-6">Section to config basic artist information</p>
+            <p className="mb-6">Section to config basic case study information</p>
             <FormItem
-                label="Artist Name"
+                label="Title"
                 invalid={(errors.title && touched.title) as boolean}
                 errorMessage={errors.title}
             >
@@ -36,7 +36,7 @@ const BasicInformationFields = (props: BasicInformationFields) => {
                 />
             </FormItem>
             <FormItem
-                label="Website"
+                label="Description"
                 invalid={(errors.description && touched.description) as boolean}
                 errorMessage={errors.description}
             >

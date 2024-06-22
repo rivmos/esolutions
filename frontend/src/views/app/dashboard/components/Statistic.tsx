@@ -44,14 +44,6 @@ const GrowShrink = ({ value }: { value: number }) => {
 
 const StatisticIcon = ({ type }: { type?: string }) => {
     switch (type) {
-        case 'Artists':
-            return (
-                <Avatar
-                    size={55}
-                    className="bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-100"
-                    icon={<HiUserCircle />}
-                />
-            )
         case 'Enquiries':
             return (
                 <Avatar
@@ -60,20 +52,12 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                     icon={<HiMail />}
                 />
             )
-        case 'Artworks':
+        case 'Case Studies':
             return (
                 <Avatar
                     size={55}
                     className="bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100"
                     icon={<HiDocumentText />}
-                />
-            )
-        case 'Categories':
-            return (
-                <Avatar
-                    size={55}
-                    className="bg-amber-100 text-amber-600 dark:bg-amber-500/20 dark:text-amber-100"
-                    icon={<MdCategory />}
                 />
             )
         default:

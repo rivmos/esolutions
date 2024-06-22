@@ -4,16 +4,9 @@ import {
     apiDeleteSalesProducts,
 } from '@/services/SalesService'
 import type { TableQueries } from '@/@types/common'
-import { ArtistState } from '@/@types/artist'
-import { apiDeleteArtist, apiGetArtists } from '@/services/ArtistService'
+import { CaseStudies, GetCaseStudyResponse } from '@/@types/casestudy'
+import { apiGetCaseStudies, apiDeleteCaseStudy } from '@/services/CaseStudy'
 
-
-type Artists = ArtistState[]
-
-type GetArtistsResponse = {
-    data: Artists
-    total: number
-}
 
 type FilterQueries = {
     name: string
@@ -22,55 +15,37 @@ type FilterQueries = {
     productStatus: number
 }
 
-export type SalesProductListState = {
+export type CaseStudyListState = {
     loading: boolean
     deleteConfirmation: boolean
-    selectedArtist: string
+    selectedCaseStudy: string
     tableData: TableQueries
     filterData: FilterQueries
-    artistList: Artists
+    caseStudyList: CaseStudies
 }
 
 type GetSalesProductsRequest = TableQueries & { filterData?: FilterQueries }
-type GetArtistsRequest = {
+type GetCaseStudyRequest = {
     pageIndex?: number
     pageSize?: number
     query?: string
 }
-export const SLICE_NAME = 'artistListSlice'
+export const SLICE_NAME = 'caseStudyListSlice'
 
-export const getProducts = createAsyncThunk(
-    SLICE_NAME + '/getProducts',
-    async (data: GetSalesProductsRequest) => {
-        const response = await apiGetSalesProducts<
-            GetArtistsResponse,
-            GetSalesProductsRequest
+export const getCaseStudies = createAsyncThunk(
+    SLICE_NAME + '/getCaseStudies',
+    async (data:GetCaseStudyRequest) => {
+        const response = await apiGetCaseStudies<
+            GetCaseStudyResponse,
+            GetCaseStudyRequest
         >(data)
         return response.data
     }
 )
 
-export const getArtists = createAsyncThunk(
-    SLICE_NAME + '/getArtists',
-    async (data:GetArtistsRequest) => {
-        const response = await apiGetArtists<
-            GetArtistsResponse,
-            GetArtistsRequest
-        >(data)
-        return response.data
-    }
-)
-
-export const deleteProduct = async (data: { id: string | string[] }) => {
-    const response = await apiDeleteSalesProducts<
-        boolean,
-        { id: string | string[] }
-    >(data)
-    return response.data
-}
 
 export const deleteArtist = async (data: { id: string | string[] }) => {
-    const response = await apiDeleteArtist<
+    const response = await apiDeleteCaseStudy<
         boolean,
         { id: string | string[] }
     >(data)
@@ -89,11 +64,11 @@ export const initialTableData: TableQueries = {
     },
 }
 
-const initialState: SalesProductListState = {
+const initialState: CaseStudyListState = {
     loading: false,
     deleteConfirmation: false,
-    selectedArtist: '',
-    artistList: [],
+    selectedCaseStudy: '',
+    caseStudyList: [],
     tableData: initialTableData,
     filterData: {
         name: '',
@@ -107,8 +82,8 @@ const artistListSlice = createSlice({
     name: `${SLICE_NAME}/state`,
     initialState,
     reducers: {
-        updateProductList: (state, action) => {
-            state.artistList = action.payload
+        updateCaseStudyList: (state, action) => {
+            state.caseStudyList = action.payload
         },
         setTableData: (state, action) => {
             state.tableData = action.payload
@@ -119,29 +94,29 @@ const artistListSlice = createSlice({
         toggleDeleteConfirmation: (state, action) => {
             state.deleteConfirmation = action.payload
         },
-        setSelectedArtist: (state, action) => {
-            state.selectedArtist = action.payload
+        setSelectedCaseStudy: (state, action) => {
+            state.selectedCaseStudy = action.payload
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getArtists.fulfilled, (state, action) => {
-                state.artistList = action.payload.data
+            .addCase(getCaseStudies.fulfilled, (state, action) => {
+                state.caseStudyList = action.payload.data
                 state.tableData.total = action.payload.total
                 state.loading = false
             })
-            .addCase(getArtists.pending, (state) => {
+            .addCase(getCaseStudies.pending, (state) => {
                 state.loading = true
             })
     },
 })
 
 export const {
-    updateProductList,
+    updateCaseStudyList,
     setTableData,
     setFilterData,
     toggleDeleteConfirmation,
-    setSelectedArtist,
+    setSelectedCaseStudy,
 } = artistListSlice.actions
 
 export default artistListSlice.reducer

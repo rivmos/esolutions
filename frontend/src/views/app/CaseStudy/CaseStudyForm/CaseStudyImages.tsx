@@ -11,12 +11,12 @@ import { Field, FieldProps, FieldInputProps, FormikProps } from 'formik'
 import { baseUrl } from '@/configs/app.config'
 
 type FormModel = {
-    avatar: string
+    image: string
     [key: string]: unknown
 }
 
 type ImageListProps = {
-    avatar: string
+    image: string
     onImageDelete: (img: string) => void
 }
 
@@ -25,7 +25,7 @@ type ProductImagesProps = {
 }
 
 const ImageList = (props: ImageListProps) => {
-    const { avatar, onImageDelete } = props
+    const { image, onImageDelete } = props
 
     const [selectedImg, setSelectedImg] = useState<string>({} as string)
     const [viewOpen, setViewOpen] = useState(false)
@@ -63,24 +63,24 @@ const ImageList = (props: ImageListProps) => {
         <>
 
             <div
-                key={avatar}
+                key={image}
                 className="group relative rounded border p-2 flex"
             >
                 <img
                     className="rounded max-h-[140px] max-w-full"
-                    src={`${baseUrl}/uploads/avatar/${avatar}`}
-                    alt={avatar}
+                    src={`${baseUrl}/uploads/content/${image}`}
+                    alt={image}
                 />
                 <div className="absolute inset-2 bg-gray-900/[.7] group-hover:flex hidden text-xl items-center justify-center">
                     <span
                         className="text-gray-100 hover:text-gray-300 cursor-pointer p-1.5"
-                        onClick={() => onViewOpen(avatar)}
+                        onClick={() => onViewOpen(image)}
                     >
                         <HiEye />
                     </span>
                     <span
                         className="text-gray-100 hover:text-gray-300 cursor-pointer p-1.5"
-                        onClick={() => onDeleteConfirmation(avatar)}
+                        onClick={() => onDeleteConfirmation(image)}
                     >
                         <HiTrash />
                     </span>
@@ -95,7 +95,7 @@ const ImageList = (props: ImageListProps) => {
                 <h5 className="mb-4">{selectedImg}</h5>
                 <img
                     className="w-full"
-                    src={`${baseUrl}/uploads/avatar/${avatar}`}
+                    src={`${baseUrl}/uploads/content/${image}`}
                     alt={selectedImg}
                 />
             </Dialog>
@@ -176,16 +176,16 @@ const ProductImages = (props: ProductImagesProps) => {
 
     return (
         <AdaptableCard className="mb-4">
-            <h5>Avatar Image</h5>
-            <p className="mb-6">Add or change avatar of the artist</p>
+            <h5>Case Study Image</h5>
+            <p className="mb-6">Add or change image of the case study</p>
             <FormItem>
-                <Field name="avatar">
+                <Field name="image">
                     {({ field, form }: FieldProps) => {
-                        if (values.avatar) {
+                        if (values.image) {
                             return (
                                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                                     <ImageList
-                                        avatar={values.avatar}
+                                        image={values.image}
                                         onImageDelete={(img: string) =>
                                             handleImageDelete(form, field, img)
                                         }

@@ -3,24 +3,22 @@ import Notification from '@/components/ui/Notification'
 import ConfirmDialog from '@/components/shared/ConfirmDialog'
 import {
     toggleDeleteConfirmation,
-    deleteProduct,
-    getProducts,
     useAppDispatch,
     useAppSelector,
     deleteArtist,
-    getArtists,
+    getCaseStudies,
 } from '../store'
 
 const ArtistDeleteConfirmation = () => {
     const dispatch = useAppDispatch()
     const dialogOpen = useAppSelector(
-        (state) => state.artistListSlice.data.deleteConfirmation
+        (state) => state.caseStudyListSlice.data.deleteConfirmation
     )
     const selectedProduct = useAppSelector(
-        (state) => state.artistListSlice.data.selectedArtist
+        (state) => state.caseStudyListSlice.data.selectedCaseStudy
     )
     const tableData = useAppSelector(
-        (state) => state.artistListSlice.data.tableData
+        (state) => state.caseStudyListSlice.data.tableData
     )
 
     const onDialogClose = () => {
@@ -34,7 +32,7 @@ const ArtistDeleteConfirmation = () => {
 
         if (success) {
             // dispatch(getProducts(tableData))
-            dispatch(getArtists(tableData))
+            dispatch(getCaseStudies(tableData))
             toast.push(
                 <Notification
                     title={'Successfuly Deleted'}
@@ -54,7 +52,7 @@ const ArtistDeleteConfirmation = () => {
         <ConfirmDialog
             isOpen={dialogOpen}
             type="danger"
-            title="Delete product"
+            title="Delete Case Study"
             confirmButtonColor="red-600"
             onClose={onDialogClose}
             onRequestClose={onDialogClose}
@@ -62,8 +60,8 @@ const ArtistDeleteConfirmation = () => {
             onConfirm={onDelete}
         >
             <p>
-                Are you sure you want to delete this artist? All record related
-                to this artist like artworks will be deleted as well. This action cannot be
+                Are you sure you want to delete this case study? All record related
+                to this case study will be deleted as well. This action cannot be
                 undone.
             </p>
         </ConfirmDialog>

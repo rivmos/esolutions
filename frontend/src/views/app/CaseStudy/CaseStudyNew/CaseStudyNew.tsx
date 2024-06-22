@@ -1,18 +1,17 @@
-import ArtistForm, {
+import CaseStudyForm, {
     FormModel,
     SetSubmitting,
-} from '@/views/app/Artists/ArtistForm'
+} from '@/views/app/CaseStudy/CaseStudyForm'
 import toast from '@/components/ui/toast'
 import Notification from '@/components/ui/Notification'
 import { useNavigate } from 'react-router-dom'
-import { apiCreateSalesProduct } from '@/services/SalesService'
-import { apiAddArtist } from '@/services/ArtistService'
+import { apiAddCaseStudy } from '@/services/CaseStudy'
 
-const ArtistNew = () => {
+const CaseStudyNew = () => {
     const navigate = useNavigate()
 
-    const addProduct = async (data: FormModel) => {
-        const response = await apiAddArtist<boolean, FormModel>(data)
+    const addCaseStudy = async (data: FormModel) => {
+        const response = await apiAddCaseStudy<boolean, FormModel>(data)
         return response.data
     }
 
@@ -22,7 +21,7 @@ const ArtistNew = () => {
     ) => {
         setSubmitting(true)
         console.log(values)
-        const success = await addProduct(values)
+        const success = await addCaseStudy(values)
         setSubmitting(false)
         if (success) {
             toast.push(
@@ -31,23 +30,23 @@ const ArtistNew = () => {
                     type="success"
                     duration={2500}
                 >
-                    Artist successfuly added
+                    Case study successfully added
                 </Notification>,
                 {
                     placement: 'top-center',
                 }
             )
-            navigate('/app/artists/')
+            navigate('/app/casestudies/')
         }
     }
 
     const handleDiscard = () => {
-        navigate('/app/artists/')
+        navigate('/app/casestudies/')
     }
 
     return (
         <>
-            <ArtistForm
+            <CaseStudyForm
                 type="new"
                 onFormSubmit={handleFormSubmit}
                 onDiscard={handleDiscard}
@@ -56,4 +55,4 @@ const ArtistNew = () => {
     )
 }
 
-export default ArtistNew
+export default CaseStudyNew

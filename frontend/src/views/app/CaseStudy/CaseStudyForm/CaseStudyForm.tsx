@@ -10,7 +10,7 @@ import cloneDeep from 'lodash/cloneDeep'
 import { HiOutlineTrash } from 'react-icons/hi'
 import { AiOutlineSave } from 'react-icons/ai'
 import * as Yup from 'yup'
-import ProductImages from './ProductImages'
+import CaseStudyImages from './CaseStudyImages'
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 type FormikRef = FormikProps<any>
@@ -42,8 +42,8 @@ type CaseStudyForm = {
 const { useUniqueId } = hooks
 
 const validationSchema = Yup.object().shape({
-    title: Yup.string().required('Artist Name Required'),
-    description: Yup.string().required('Website Required'),
+    title: Yup.string().required('Title Required'),
+    description: Yup.string().required('Description Required'),
     content: Yup.string().required('Content Required'),
 })
 
@@ -143,7 +143,7 @@ const CaseStudyForm = forwardRef<FormikRef, CaseStudyForm>((props, ref) => {
             
                                 </div>
                                 <div className="lg:col-span-1">
-                                    <ProductImages values={values} />
+                                    <CaseStudyImages values={values} />
                                 </div>
                             </div>
                             <StickyFooter

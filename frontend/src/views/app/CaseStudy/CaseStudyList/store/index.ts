@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import reducers, { SLICE_NAME, ArtistEditState } from './artistEditSlice'
+import reducers, { SLICE_NAME, CaseStudyListState } from './caseStudyListSlice'
 import { useSelector } from 'react-redux'
 
 import type { TypedUseSelectorHook } from 'react-redux'
@@ -12,11 +12,11 @@ const reducer = combineReducers({
 export const useAppSelector: TypedUseSelectorHook<
     RootState & {
         [SLICE_NAME]: {
-            data: ArtistEditState
+            data: CaseStudyListState
         }
     }
 > = useSelector
 
-export * from './artistEditSlice'
+export * from './caseStudyListSlice'
 export { useAppDispatch } from '@/store'
 export default reducer

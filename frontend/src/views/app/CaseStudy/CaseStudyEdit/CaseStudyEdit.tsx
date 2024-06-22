@@ -4,7 +4,7 @@ import DoubleSidedImage from '@/components/shared/DoubleSidedImage'
 import toast from '@/components/ui/toast'
 import Notification from '@/components/ui/Notification'
 import reducer, {
-    getArtistProfile,
+    getSingleCaseStudy,
     updateProduct,
     deleteProduct,
     useAppSelector,
@@ -13,30 +13,30 @@ import reducer, {
 import { injectReducer } from '@/store'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import ArtistForm, {
+import CaseStudyForm, {
     FormModel,
     SetSubmitting,
     OnDeleteCallback,
-} from '@/views/app/Artists/ArtistForm'
+} from '@/views/app/CaseStudy/CaseStudyForm'
 import isEmpty from 'lodash/isEmpty'
 
-injectReducer('artistEditSlice', reducer)
+injectReducer('caseStudyEditSlice', reducer)
 
-const ProductEdit = () => {
+const CaseStudyEdit = () => {
     const dispatch = useAppDispatch()
 
     const location = useLocation()
     const navigate = useNavigate()
 
     const productData = useAppSelector(
-        (state) => state.artistEditSlice.data.artistData
+        (state) => state.caseStudyEditSlice.data.caseStudyData
     )
     const loading = useAppSelector(
-        (state) => state.artistEditSlice.data.loading
+        (state) => state.caseStudyEditSlice.data.loading
     )
 
     const fetchData = (data: { id: string }) => {
-        dispatch(getArtistProfile(data))
+        dispatch(getSingleCaseStudy(data))
     }
 
     const handleFormSubmit = async (
@@ -52,7 +52,7 @@ const ProductEdit = () => {
     }
 
     const handleDiscard = () => {
-        navigate('/app/artists')
+        navigate('/app/casestudies')
     }
 
     const handleDelete = async (setDialogOpen: OnDeleteCallback) => {
@@ -76,7 +76,7 @@ const ProductEdit = () => {
                 placement: 'top-center',
             }
         )
-        navigate('/app/artists')
+        navigate('/app/casestudies')
     }
 
     useEffect(() => {
@@ -93,7 +93,7 @@ const ProductEdit = () => {
             <Loading loading={loading}>
                 {!isEmpty(productData) && (
                     <>
-                        <ArtistForm
+                        <CaseStudyForm
                             type="edit"
                             initialData={productData}
                             onFormSubmit={handleFormSubmit}
@@ -117,4 +117,4 @@ const ProductEdit = () => {
     )
 }
 
-export default ProductEdit
+export default CaseStudyEdit

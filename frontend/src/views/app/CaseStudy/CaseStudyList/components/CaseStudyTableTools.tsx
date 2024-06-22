@@ -1,13 +1,13 @@
 import Button from '@/components/ui/Button'
 import { HiDownload, HiPlusCircle } from 'react-icons/hi'
-import ArtistTableSearch from './ArtistTableSearch'
-import ArtistFilter from './ArtistFilter'
+import CaseStudySearch from './CaseStudySearch'
+import ArtistFilter from './CaseStudyFilter'
 import { Link } from 'react-router-dom'
 
 const ArtistTableTools = () => {
     return (
         <div className="flex flex-col lg:flex-row lg:items-center">
-            <ArtistTableSearch />
+            <CaseStudySearch />
             {/* <ArtistFilter />
             <Link
                 download
@@ -21,10 +21,10 @@ const ArtistTableTools = () => {
             </Link> */}
             <Link
                 className="block lg:inline-block ml-2 md:mb-0 mb-4"
-                to="/app/artists/add"
+                to="/app/casestudies/add"
             >
                 <Button block variant="solid" size="sm" icon={<HiPlusCircle />}>
-                    Add Artist
+                    Add Case Study
                 </Button>
             </Link>
         </div>

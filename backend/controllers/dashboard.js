@@ -1,23 +1,17 @@
-const Artwork = require('../models/artwork')
-const Artist = require('../models/artist')
-const Category = require('../models/category')
+const CaseStudy = require('../models/casestudy')
 const Enquiry = require('../models/enquiry')
 
 const dashboardRouter = require('express').Router()
 
 dashboardRouter.get('/', async (req, res) => {
     try {
-        const [totalArtists, totalArtworks, totalCategories, totalEnquiries] = await Promise.all([
-            Artist.countDocuments({}),
-            Artwork.countDocuments({}),
-            Category.countDocuments({}),
+        const [totalCaseStudies, totalEnquiries] = await Promise.all([
+            CaseStudy.countDocuments({}),
             Enquiry.countDocuments({})
         ])
 
         res.json([
-            { "name": "Artists", "value": totalArtists },
-            { "name": "Artworks", "value": totalArtworks },
-            { "name": "Categories", "value": totalCategories },
+            { "name": "Case Studies", "value": totalCaseStudies },
             { "name": "Enquiries", "value": totalEnquiries }
         ]);
     }
