@@ -106,11 +106,14 @@ const FooterContent = () => {
                                 <Link to="/terms-conditions" className="hover:underline">Terms & Conditions</Link>
                             </li>
                             <li className="mb-4">
-                                <Link to="/faq" className="hover:underline">FAQ</Link>
+                                <Link to="/sign-in" className="hover:underline">Sign In</Link>
                             </li>
                             <li>
                                 <Link to="/contact-us" className="hover:underline">Contact Us</Link>
                             </li>
+                            {/* <li>
+                                <Link to="/sign-in" className="hover:underline">Sign In</Link>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
