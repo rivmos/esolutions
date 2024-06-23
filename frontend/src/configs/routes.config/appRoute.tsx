@@ -133,7 +133,7 @@ const appRoute: Routes = [
     {
         key: 'app.dashboard',
         path: `${APP_PREFIX_PATH}/dashboard`,
-        component: lazy(() => import('@/views/app/Dashboard/Dashboard')),
+        component: lazy(() => import('@/views/app/dashboard/Dashboard')),
         authority: [ADMIN, USER],
         meta: {
             layout: 'classic'
