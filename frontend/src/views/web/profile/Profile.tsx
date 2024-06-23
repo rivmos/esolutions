@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import reducer, { getArtistProfile, useAppDispatch, useAppSelector } from '@/views/app/Artists/ArtistEdit/store';
 import { useLocation } from 'react-router-dom';
 import { injectReducer } from '@/store';
-import Profile from '@/components/template/Profile';
+// import Profile from '@/components/template/Profile';
 
 injectReducer('artistEditSlice', reducer)
 
@@ -29,7 +29,8 @@ const ArtistProfile = () => {
     }, [location.pathname])
 
     return (
-        <Profile artistData={artistData} webVersion/>
+        // <Profile artistData={artistData} webVersion/>
+        <div></div>
     );
 };
 

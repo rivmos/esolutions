@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import { Button } from '@/components/ui';
-import { getAllArtists, useAppDispatch, useAppSelector } from '@/store';
+import { useAppDispatch, useAppSelector } from '@/store';
 import { Link } from 'react-router-dom';
 import useResponsive from '@/utils/hooks/useResponsive';
 import { baseUrl } from '@/configs/app.config';
@@ -14,9 +14,9 @@ import { baseUrl } from '@/configs/app.config';
 const ShopByArtist = () => {
     const dispatch = useAppDispatch()
     useEffect(() => {
-        dispatch(getAllArtists())
+        // dispatch(getAllArtists())
     }, [])
-    const artists = useAppSelector(state => state.base.common.allArtists)
+    // const artists = useAppSelector(state => state.base.common.allArtists)
     const { larger } = useResponsive()
 
     return (
@@ -32,7 +32,7 @@ const ShopByArtist = () => {
                     onSwiper={(swiper) => { }}
                     className='my-4 md:my-8 lg:my-16 h-[300px]'
                 >
-                    {
+                    {/* {
                         artists?.map((artist, index) => {
                             return (
                                 <SwiperSlide key={artist.id} className='cursor-pointer'>
@@ -47,7 +47,7 @@ const ShopByArtist = () => {
                                 </SwiperSlide>
                             )
                         })
-                    }
+                    } */}
                 </Swiper>
                 <div className='flex justify-center'>
                     <Button variant='solid' className='bg-orange-900'>View All Artists</Button>
