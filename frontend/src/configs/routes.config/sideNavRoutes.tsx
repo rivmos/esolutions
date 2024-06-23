@@ -7,7 +7,7 @@ const sideNavRoutes: Routes = [
     {
         key: 'app.dashboard',
         path: `${APP_PREFIX_PATH}/dashboard`,
-        component: lazy(() => import('@/views/app/Dashboard/Dashboard')),
+        component: lazy(() => import('@/views/app/dashboard/Dashboard')),
         authority: [],
         meta: {
             layout: 'classic'
