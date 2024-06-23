@@ -4,7 +4,7 @@ const logger = require('../utils/logger')
 const jwt = require('jsonwebtoken')
 const getTokenFrom = require('../utils/auth').getTokenFrom
 const config = require('../utils/config')
-const { upload, uploadAvatar } = require('../utils/middleware')
+const { upload, uploadCaseStudy } = require('../utils/middleware')
 const { verifyTokenMiddleware } = require('../utils/auth')
 const pagination = require('../utils/pagination')
 
@@ -42,7 +42,7 @@ casestudyRouter.post('/', async (req, res) => {
 
 casestudyRouter.get('/all', async (req, res) => {
     try {
-        const casestudies = await CaseStudy.find({})
+        const casestudies = await CaseStudy.find({}).select('title description image')
         res.json(casestudies)
     }
     catch (error) {
@@ -68,7 +68,7 @@ casestudyRouter.get('/:id', (req, res) => {
 })
 
 
-casestudyRouter.post('/save', uploadAvatar.single('image'),async (req, res) => {
+casestudyRouter.post('/save', uploadCaseStudy.single('image'),async (req, res) => {
     const decodedToken = jwt.verify(getTokenFrom(req), config.JWTSECRET);
     if (!decodedToken.id) {
         return res.status(401).json({ error: 'token invalid' });
@@ -118,20 +118,6 @@ casestudyRouter.post('/save', uploadAvatar.single('image'),async (req, res) => {
     }
 });
 
-
-casestudyRouter.get('/:artistId/artworks', async (req, res) => {
-    try {
-        const artist = await CaseStudy.findById(req.params.artistId).populate('artworks');
-        if (!artist) {
-            return res.status(404).json({ error: 'Artist not found' });
-        }
-
-        const artworks = artist.artworks;
-        res.json(artworks);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
 
 casestudyRouter.delete('/delete', verifyTokenMiddleware, async (req, res) => {
     const { id } = req.body

@@ -8,6 +8,7 @@ import {
     HiCalendar,
     HiOutlineTrendingUp,
     HiOutlineTrendingDown,
+    HiOutlineMail,
 } from 'react-icons/hi'
 import { MdCategory } from "react-icons/md";
 
@@ -20,9 +21,9 @@ const GrowShrink = ({ value }: { value: number }) => {
                 className={classNames(
                     'rounded-full p-1',
                     value > 0 &&
-                        'bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100',
+                    'bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100',
                     value < 0 &&
-                        'text-red-600 bg-red-100 dark:text-red-100 dark:bg-red-500/20'
+                    'text-red-600 bg-red-100 dark:text-red-100 dark:bg-red-500/20'
                 )}
             >
                 {value > 0 && <HiOutlineTrendingUp />}
@@ -58,6 +59,15 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                     size={55}
                     className="bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100"
                     icon={<HiDocumentText />}
+                />
+            )
+
+        case 'Subscribers':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20 dark:text-yellow-100"
+                    icon={<HiOutlineMail />}
                 />
             )
         default:

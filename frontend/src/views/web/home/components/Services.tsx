@@ -6,19 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import { Button } from '@/components/ui';
-import { getAllArtists, useAppDispatch, useAppSelector } from '@/store';
-import { Link } from 'react-router-dom';
-import useResponsive from '@/utils/hooks/useResponsive';
-import { baseUrl } from '@/configs/app.config';
+
 
 const Services = () => {
-    const dispatch = useAppDispatch()
-    useEffect(() => {
-        dispatch(getAllArtists())
-    }, [])
-    const artists = useAppSelector(state => state.base.common.allArtists)
-    const { larger } = useResponsive()
-
     return (
         <>
             <div className='!py-16 md:!py-20 lg:!py-20 bg-neutral-200'>

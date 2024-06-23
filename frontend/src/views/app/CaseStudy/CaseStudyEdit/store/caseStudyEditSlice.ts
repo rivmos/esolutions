@@ -7,7 +7,7 @@ import {
 import { ArtistState } from '@/@types/artist'
 import { apiAddArtist, apiGetArtistProfile } from '@/services/ArtistService'
 import { CaseStudyState } from '@/@types/casestudy'
-import { apiGetSingleCaseStudy } from '@/services/CaseStudy'
+import { apiAddCaseStudy, apiGetSingleCaseStudy } from '@/services/CaseStudy'
 
 export type CaseStudyEditState = {
     loading: boolean
@@ -31,7 +31,7 @@ export const getSingleCaseStudy = createAsyncThunk(
 export const updateProduct = async <T, U extends Record<string, unknown>>(
     data: U
 ) => {
-    const response = await apiAddArtist<T, U>(data)
+    const response = await apiAddCaseStudy<T, U>(data)
     return response.data
 }
 

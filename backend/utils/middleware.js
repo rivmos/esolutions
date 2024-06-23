@@ -46,6 +46,14 @@ const avatarStorage = multer.diskStorage({
     cb(null, Date.now() + '-' + file.originalname);
   }
 });
+const caseStudyStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '..', '/uploads/casestudies'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
 
 const bannerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -60,6 +68,7 @@ const bannerStorage = multer.diskStorage({
 const uploadArtwork = multer({ storage: artworkStorage });
 const uploadCategory = multer({ storage: categoryStorage });
 const uploadAvatar = multer({ storage: avatarStorage });
+const uploadCaseStudy = multer({ storage: caseStudyStorage });
 const uploadBanner = multer({ storage: bannerStorage });
 
 module.exports = {
@@ -68,5 +77,6 @@ module.exports = {
   uploadArtwork,
   uploadCategory,
   uploadAvatar,
+  uploadCaseStudy,
   uploadBanner
 }

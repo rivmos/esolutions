@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import reducer, { getArtistProfile, useAppDispatch, useAppSelector } from '../CaseStudyEdit/store';
+import reducer, { getSingleCaseStudy, useAppDispatch, useAppSelector } from '../CaseStudyEdit/store';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { injectReducer } from '@/store';
-import Profile from '@/components/template/Profile';
+import CaseStudyPage from '@/components/template/CaseStudyPage';
 
-injectReducer('artistEditSlice', reducer)
+injectReducer('caseStudyEditSlice', reducer)
 
 const ArtistProfile = () => {
     const dispatch = useAppDispatch()
@@ -12,15 +12,15 @@ const ArtistProfile = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    const artistData = useAppSelector(
-        (state) => state.artistEditSlice.data.artistData
+    const caseStudyData = useAppSelector(
+        (state) => state.caseStudyEditSlice.data.caseStudyData
     )
     const loading = useAppSelector(
-        (state) => state.artistEditSlice.data.loading
+        (state) => state.caseStudyEditSlice.data.loading
     )
 
     const fetchData = (data: { id: string }) => {
-        dispatch(getArtistProfile(data))
+        dispatch(getSingleCaseStudy(data))
     }
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const ArtistProfile = () => {
     }, [location.pathname])
 
     return (
-        <Profile artistData={artistData}/>
+        <CaseStudyPage caseStudyData={caseStudyData} webVersion/>
     );
 };
 

@@ -60,7 +60,7 @@ const ActionColumn = ({ row }: { row: CaseStudyState }) => {
     }
 
     const onView = () => {
-        navigate(`/app/profile/${row.id}`)
+        navigate(`/web/casestudy/${row?.id}`)
     }
 
     const onDelete = () => {

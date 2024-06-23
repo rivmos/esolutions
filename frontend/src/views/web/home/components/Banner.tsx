@@ -6,21 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import { Button } from '@/components/ui';
-import { getAllBanners, useAppSelector, useAppDispatch } from '@/store';
+import { useAppSelector, useAppDispatch } from '@/store';
 import useResponsive from '@/utils/hooks/useResponsive';
 import { baseUrl } from '@/configs/app.config';
 
 const Banner = () => {
-
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(getAllBanners())
-  }, [])
-
-  const allBanners = useAppSelector(state => state.base.common.allBanners)
-
-  const { larger } = useResponsive()
 
   return (
     <div className="relative object-cover">

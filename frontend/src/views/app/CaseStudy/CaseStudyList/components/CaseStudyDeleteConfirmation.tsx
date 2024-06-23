@@ -39,7 +39,7 @@ const ArtistDeleteConfirmation = () => {
                     type="success"
                     duration={2500}
                 >
-                    Artist successfuly deleted
+                    Case study successfuly deleted
                 </Notification>,
                 {
                     placement: 'top-center',

@@ -68,7 +68,7 @@ const ImageList = (props: ImageListProps) => {
             >
                 <img
                     className="rounded max-h-[140px] max-w-full"
-                    src={`${baseUrl}/uploads/content/${image}`}
+                    src={`${baseUrl}/uploads/casestudies/${image}`}
                     alt={image}
                 />
                 <div className="absolute inset-2 bg-gray-900/[.7] group-hover:flex hidden text-xl items-center justify-center">
@@ -95,7 +95,7 @@ const ImageList = (props: ImageListProps) => {
                 <h5 className="mb-4">{selectedImg}</h5>
                 <img
                     className="w-full"
-                    src={`${baseUrl}/uploads/content/${image}`}
+                    src={`${baseUrl}/uploads/casestudies/${image}`}
                     alt={selectedImg}
                 />
             </Dialog>

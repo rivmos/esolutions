@@ -13,6 +13,16 @@ const webRoute: Routes = [
             layout: 'web',
         },
     },
+    
+    {
+        key: 'web.casestudypage',
+        path: `${WEB_PREFIX_PATH}/casestudy/:id`,
+        component: lazy(() => import('@/views/app/CaseStudy/CaseStudyArticle')),
+        authority: [],
+        meta: {
+            layout: 'classic'
+        }
+    },
     {
         key: 'web.paintings',
         path: '/web/paintings',

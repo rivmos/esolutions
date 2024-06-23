@@ -10,6 +10,7 @@ import reducer from './store'
 import ShopByTheme from './components/ShopByTheme'
 import Services from './components/Services'
 import CaseStudies from './components/CaseStudies'
+import Insights from './components/Insights'
 
 injectReducer('home', reducer)
 
@@ -21,6 +22,7 @@ const Home = () => {
       <About />
       <Services />
       <CaseStudies />
+      <Insights />
       {/* <Testimonials /> */}
       {/* <ShopByArtist /> */}
       {/* <Stats /> */}
