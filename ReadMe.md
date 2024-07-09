@@ -1,5 +1,3 @@
-Here's the Markdown version of a README file for the eSolutions website repository:
-
 ```markdown
 # eSolutions Website
 
