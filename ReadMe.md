@@ -43,7 +43,7 @@ eSolutions is a leading software company that provides cutting-edge solutions to
 - **Others:**
   - Redux (for state management)
   - Tailwind CSS (for styling)
-  - Webpack (for module bundling)
+  - Vite (for module bundling)
 
 ## Getting Started
 
@@ -58,20 +58,26 @@ To get a local copy of the project up and running, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/esolutions-website.git
+    git clone https://github.com/rivmos/esolutions.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd esolutions-website
+    cd esolutions-main
     ```
-3. Install dependencies:
+3. Open frontend and backend in separate termimal tabs:
     ```sh
-    npm install
+    cd frontend
     ```
     or
     ```sh
-    yarn install
+    cd backend
     ```
+4. Install dependencies in both the folders:
+    ```sh
+    npm install
+    ```
+
+
 
 ## Usage
 
@@ -83,7 +89,7 @@ To get a local copy of the project up and running, follow these steps:
     ```sh
     yarn start
     ```
-2. Open your browser and navigate to `http://localhost:3000` to see the website in action.
+2. Open your browser and navigate to `http://localhost:5173` to see the website in action.
 
 ## Contributing
 
@@ -99,7 +105,7 @@ Please make sure to follow the [code of conduct](CODE_OF_CONDUCT.md) and the [co
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+All Rights Reserved &copy;2024
 
 ## Contact
 
