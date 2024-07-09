@@ -1,4 +1,3 @@
-```markdown
 # eSolutions Website
 
 Welcome to the official repository for the eSolutions website. This project contains the source code for the eSolutions company website, showcasing our services, portfolio, team, and contact information.
@@ -110,4 +109,3 @@ For any questions, suggestions, or feedback, feel free to contact us at:
 - **Website:** [www.esolutions.com](http://www.esolutions.com)
 - **LinkedIn:** [eSolutions](https://www.linkedin.com/company/esolutions)
 - **Twitter:** [@eSolutions](https://twitter.com/esolutions)
-```
