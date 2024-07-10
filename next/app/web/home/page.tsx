@@ -1,9 +1,18 @@
 import Image from "next/image";
+import Banner from "./components/Banner";
+import About from "./components/About"
+import Services from "./components/Services"
+import CaseStudies from "./components/CaseStudies"
+import Insights from "./components/Insights";
 
 export default function Home() {
   return (
     <main>
-      This is home page
+      <Banner />
+      <About />
+      <Services />
+      <CaseStudies />
+      <Insights />
     </main>
   );
 }
