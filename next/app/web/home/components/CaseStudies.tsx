@@ -1,14 +1,22 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Link from 'next/link';
 import { shortenText } from '@/app/lib/utils/string';
+import { fetchCaseStudies } from '@/app/services/casestudies';
 
 const CaseStudies = () => {
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        fetchCaseStudies().then(res => setData(res.data))
+    }, [])
+
     return (
         <div className='container mx-auto py-12 md:py-16 lg:py-20 px-4'>
             <h2 className="text-3xl font-bold mb-4 text-center tracking-tight sm:text-4xl">Case Studies</h2>
@@ -33,7 +41,7 @@ const CaseStudies = () => {
                     },
                 }}
             >
-                {[{id:1, title: 'Case Study Dummy', image: 'image-name.png', description: 'this is description'}, {id:1, title: 'Case Study Dummy', image: 'image-name.png', description: 'this is description'}]?.map(
+                {data?.map(
                     (item, index) => {
                         return (
                             <SwiperSlide key={index}>

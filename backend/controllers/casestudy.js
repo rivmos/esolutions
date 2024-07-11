@@ -9,6 +9,20 @@ const { newCaseStudySchema } = require('../schemas/casestudy')
 const { paginationSchema } = require('../schemas/common')
 const mongoose = require('mongoose')
 
+casestudyRouter.get('/all', async (req, res) => {
+    try {
+        const casestudies = await CaseStudy.find({}).select('title description image')
+        res.json(casestudies)
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Server error',
+            error: error.message
+        });
+    }
+})
+
 casestudyRouter.use(verifyTokenMiddleware)
 
 casestudyRouter.post('/', async (req, res) => {
@@ -43,19 +57,7 @@ casestudyRouter.post('/', async (req, res) => {
 })
 
 
-casestudyRouter.get('/all', async (req, res) => {
-    try {
-        const casestudies = await CaseStudy.find({}).select('title description image')
-        res.json(casestudies)
-    }
-    catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Server error',
-            error: error.message
-        });
-    }
-})
+
 
 
 casestudyRouter.get('/:id', async (req, res) => {
