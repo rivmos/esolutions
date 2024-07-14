@@ -35,10 +35,10 @@ const CaseStudies = () => {
                         slidesPerView: 1,
                     },
                     768: {
-                        slidesPerView: 2,
+                        slidesPerView: 1,
                     },
                     1024: {
-                        slidesPerView: 3,
+                        slidesPerView: 2,
                     },
                 }}
             >
@@ -62,9 +62,9 @@ const CaseStudies = () => {
                 )}
             </Swiper>
             <div className='flex justify-center mt-8'>
-                <button className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition">
+                <Link href="/web/casestudies" className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition">
                     View Case Study
-                </button>
+                </Link>
             </div>
         </div>
     );
