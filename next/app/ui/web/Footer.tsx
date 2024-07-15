@@ -56,19 +56,19 @@ const Footer = () => {
                             <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Explore</h2>
                             <ul className="text-white">
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/collections" className="hover:underline font-light">Web Development</Link>
+                                    <Link href="/web/services/webdev" className="hover:underline font-light">Web Development</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/artists" className="hover:underline font-light">Mobile App Design & Development</Link>
+                                    <Link href="/web/mobiledev" className="hover:underline font-light">Mobile App Design & Development</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/artists" className="hover:underline font-light">Designing Services</Link>
+                                    <Link href="/web/services/design" className="hover:underline font-light">Designing Services</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/exhibitions" className="hover:underline font-light">Video & Animation Services</Link>
+                                    <Link href="/web/services/video" className="hover:underline font-light">Video & Animation Services</Link>
                                 </li>
                                 <li>
-                                    <Link href="/events" className="hover:underline font-light">Digital Marketing & Analytics Services</Link>
+                                    <Link href="/web/services/digitalmarketing" className="hover:underline font-light">Digital Marketing & Analytics Services</Link>
                                 </li>
                             </ul>
                         </div>
@@ -76,16 +76,16 @@ const Footer = () => {
                             <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Quick Links</h2>
                             <ul className="text-white">
                                 <li className="mb-2 lg:mb-4">
-                                    <a href="https://instagram.com/kalai" className="hover:underline font-light">About Us</a>
+                                    <Link href="/web/aboutus" className="hover:underline font-light">About Us</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <a href="https://facebook.com/kalai" className="hover:underline font-light">Services</a>
+                                    <Link href="/web/services" className="hover:underline font-light">Services</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <a href="https://twitter.com/kalai" className="hover:underline font-light">Case Studies</a>
+                                    <Link href="/web/casestudies" className="hover:underline font-light">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <a href="https://youtube.com/kalai" className="hover:underline font-light">Portfolio</a>
+                                    <Link href="/web/portfolio" className="hover:underline font-light">Portfolio</Link>
                                 </li>
                             </ul>
                         </div>

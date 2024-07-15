@@ -64,8 +64,8 @@ const Services = () => {
                     })}
                 </Swiper>
                 <div className='flex justify-center mt-8'>
-                    <Link href="/services">
-                        <button className='text-white bg-primaryColor rounded-md py-2 px-6 bg-blue-700'>
+                    <Link href="/web/services">
+                        <button className='text-white bg-primaryColor rounded-md py-2 px-6'>
                             View Services
                         </button>
                     </Link>

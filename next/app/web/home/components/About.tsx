@@ -10,7 +10,7 @@ const About = () => {
       <p className="text-sm md:text-base lg:text-lg mb-8 w-full md:w-3/4 lg:w-2/3 mx-auto">
         As a dedicated digital marketing services company, we stand at the forefront in marketing the business, paving the way for public awareness, and revenue generation. Our services are focused on not only generating ROI but also building relations based on authenticity, honesty, trust, and personal touch that the customers are looking for.
       </p>
-      <Link href="/portfolio">
+      <Link href="/web/aboutus">
           <button className='text-white bg-primaryColor rounded-md py-3 px-6'>
             Read More
           </button>

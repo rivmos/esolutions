@@ -15,7 +15,7 @@ export default function Layout({ children, content, ...rest }: SimpleProps) {
 
     return (
         <div className="h-full">
-            <Container className="flex flex-col flex-auto items-center justify-center min-w-0 h-full">
+            <Container className="flex flex-col flex-auto items-center justify-center min-w-0 h-screen">
                 <Card
                     className="min-w-[320px] md:min-w-[450px]"
                     bodyClass="md:p-10"

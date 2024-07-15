@@ -1,77 +1,68 @@
-import React, { useEffect } from 'react'
-// Import Swiper React components
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+"use client"
 
-// Import Swiper styles
+import React, { useEffect, useState } from 'react';
+import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
-import { Button } from '@/components/ui';
-import { getAllBanners, useAppSelector, useAppDispatch } from '@/store';
-import useResponsive from '@/utils/hooks/useResponsive';
-import { baseUrl } from '@/configs/app.config';
+import 'swiper/css/pagination';
+import Link from 'next/link';
+import { fetchCaseStudies } from '@/app/services/casestudies';
+import { CaseStudiesState } from '@/app/lib/@types/casestudy';
+import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 
-const Banner = () => {
+const Testimonials = () => {
+    const swiper = useSwiper();
+    const [data, setData] = useState<CaseStudiesState>([])
 
-  const dispatch = useAppDispatch()
+    useEffect(() => {
+        fetchCaseStudies().then(res => setData(res.data))
+    }, [])
 
-  useEffect(() => {
-    dispatch(getAllBanners())
-  }, [])
-
-  const allBanners = useAppSelector(state => state.base.common.allBanners)
-
-  const { larger } = useResponsive()
-
-  return (
-    <div className="relative">
-
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={0}
-        autoplay
-        slidesPerView={1}
-        onSlideChange={() => { }}
-        onSwiper={(swiper) => { }}
-        className='h-[500px] lg:h-[700px]'
-      >
-        {
-          allBanners?.map(banner => {
-            return (
-              <SwiperSlide key={banner.id} className='z-[2]'>
-                <img src={`${baseUrl}/uploads/banner/${banner.img}`} className='w-full h-full object-cover' />
-              </SwiperSlide>
-            )
-          })
-        }
-      </Swiper>
-      <div className="absolute top-0 left-0 right-0 z-[1] h-full opacity-40 bg-gray-600">
-
-      </div>
-
-      <div className="absolute top-[50%] -translate-y-[50%] left-0 right-0 z-[3] mx-auto container">
-        <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Elevate Your Art Journey.
-        </h2>
-        <p className="mt-6 text-base md:text-lg text-gray-300 w-1/2">
-          Forge a closer bond to the art world by interacting directly with the creators. Learn about their processes, visions, and stories behind each masterpiece.
-
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row lg:items-center justify-center gap-x-6 lg:justify-start">
-          <Button
-            variant='solid'
-            className='hover:!text-gray-900 bg-orange-900 !px-2 !py-1'
-          >
-            Get started
-          </Button>
-          <a href="#" className="flex items-center gap-2 text-sm font-semibold leading-6 text-white">
-            Discover more <span aria-hidden="true">→</span>
-          </a>
+    return (
+        <div className='py-12 md:py-16 lg:py-20 px-4 bg-gray-50 bg-testimonialOverlay bg-no-repeat bg-center'>
+            <h2 className="text-3xl font-bold mb-4 text-center tracking-tight sm:text-4xl">What Our Clients Say About Us</h2>
+            <div className='relative'>
+                <Swiper
+                    slidesPerView={1}
+                    slidesPerGroup={1}
+                    pagination={{
+                        dynamicBullets: true,
+                    }}
+                    modules={[Pagination]}
+                    className="h-auto"
+                    spaceBetween={24}
+                >
+                    {data?.map((item, index) => (
+                        <SwiperSlide key={index}>
+                            <div className='flex flex-col items-center rounded-lg p-8 relative max-w-4xl mx-auto'>
+                                <div className='flex gap-6'>
+                                    {/* <div className='h-24 mt-2 w-1 bg-gray-50 border-l-[1px] border-primaryColor'></div> */}
+                                    <p className='text-lg text-left mb-4 border-l-[1px] px-2'>{item.description + ' ' + item.description + ' ' + item.description + ' ' + item.description}</p>
+                                </div>
+                                <div className='text-right'>
+                                    <p className='mt-8 uppercase text-primaryColor'>- author</p>
+                                    <p className='text-xs'>position</p>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <div>
+                    <div className="text-blue-500 absolute left-8 md:left-16 lg:left-20 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slidePrev()}>
+                        <IoIosArrowRoundBack size={40} />
+                    </div>
+                    <div className="text-blue-500 absolute right-8 md:right-16 lg:right-20 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slideNext()}>
+                        <IoIosArrowRoundForward size={40} />
+                    </div>
+                </div>
+            </div>
+            {/* <div className='flex justify-center mt-8'>
+                <Link href="/web/casestudies" className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition">
+                    View Case Study
+                </Link>
+            </div> */}
         </div>
-      </div>
-
-    </div>
-
-  )
+    );
 }
 
-export default Banner
+export default Testimonials;

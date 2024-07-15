@@ -49,7 +49,7 @@ const Insights = () => {
                                 <label className='text-center'>{dayjs(item.date).format('MMMM D, YYYY')} - {item.category}</label>
                                 <h6 className='text-center text-2xl my-2'>{item.title}</h6>
                                 <div className='flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden'>
-                                    <Link href={`/web/insight/${item.title}`} className='underline'>
+                                    <Link href={`/web/insights/${item.title}`} className='underline'>
                                         Read More
                                     </Link>
                                 </div>
@@ -58,7 +58,7 @@ const Insights = () => {
                     ))}
                 </Swiper>
                 <div className='flex justify-center mt-8'>
-                    <Link href="/insights">
+                    <Link href="/web/insights">
                         <button className="border !border-blue-600 !text-blue-600 py-2 px-4 rounded !hover:bg-blue-600 !hover:text-white transition mt-8">
                             View All Insights
                         </button>
