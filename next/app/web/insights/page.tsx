@@ -5,13 +5,16 @@ import dayjs from "dayjs";
 const data = [
   { title: 'Title One', date: new Date(), category: 'Ecommerce', image: '1.png' },
   { title: 'Title Two', date: new Date(), category: 'Ecommerce', image: '2.png' },
+  { title: 'Title Three', date: new Date(), category: 'Ecommerce', image: '3.png' },
+  { title: 'Title One', date: new Date(), category: 'Ecommerce', image: '1.png' },
+  { title: 'Title Two', date: new Date(), category: 'Ecommerce', image: '2.png' },
   { title: 'Title Three', date: new Date(), category: 'Ecommerce', image: '3.png' }
 ];
 
 export default function Page() {
   return (
     <div>
-      <Banner title='Insights' isShort bannerImage='/img/banner/casestudies-bg.jpg' bannerImageAlt='Insights Banner Image' />
+      <Banner title='Insights' isShort bannerImage='/img/banner/laptop-bg.png' bannerImageAlt='Insights Banner Image' />
       <div className='container mx-auto py-12 md:py-16 lg:py-20 px-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {data?.map(

@@ -99,7 +99,7 @@ const Footer = () => {
                                     <Link href="/terms-conditions" className="hover:underline font-light">Terms & Conditions</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/sign-in" className="hover:underline font-light">Sign In</Link>
+                                    <Link href="/auth/signin" className="hover:underline font-light">Sign In</Link>
                                 </li>
                                 <li>
                                     <Link href="/contact-us" className="hover:underline font-light">Contact Us</Link>

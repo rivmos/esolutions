@@ -34,12 +34,12 @@ const Testimonials = () => {
                 >
                     {data?.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className='flex flex-col items-center rounded-lg p-8 relative max-w-4xl mx-auto'>
+                            <div className='flex flex-col rounded-lg p-8 relative max-w-4xl mx-auto'>
                                 <div className='flex gap-6'>
-                                    {/* <div className='h-24 mt-2 w-1 bg-gray-50 border-l-[1px] border-primaryColor'></div> */}
-                                    <p className='text-lg text-left mb-4 border-l-[1px] px-2'>{item.description + ' ' + item.description + ' ' + item.description + ' ' + item.description}</p>
+                                    <div className='border-l-[1px] border-primaryColor pl-4 text-4xl text-primaryColor'>"</div>
+                                    <p className='text-lg text-left mb-4'>{item.description + ' ' + item.description + ' ' + item.description + ' ' + item.description}</p>
                                 </div>
-                                <div className='text-right'>
+                                <div className='!text-right'>
                                     <p className='mt-8 uppercase text-primaryColor'>- author</p>
                                     <p className='text-xs'>position</p>
                                 </div>
