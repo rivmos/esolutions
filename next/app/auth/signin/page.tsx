@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 
 const Basic = () => (
   <div>
-    <h1>Anywhere in your app!</h1>
+    {/* <h1 className='mb-4'>Welcome Back</h1> */}
     <Formik
       initialValues={{ email: '', password: '' }}
     //   validate={values => {
@@ -40,19 +40,21 @@ const Basic = () => (
           <input
             type="email"
             name="email"
+            placeholder='Enter Email'
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
-            className='border-[1px] rounded-md'
+            className='border-[1px] rounded-md p-2'
           />
           {errors.email && touched.email && errors.email}
           <input
             type="password"
             name="password"
+            placeholder='Enter Password'
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
-            className='border-[1px] rounded-md'
+            className='border-[1px] rounded-md p-2'
           />
           {errors.password && touched.password && errors.password}
           <button type="submit" className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition" disabled={isSubmitting}>

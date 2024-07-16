@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { GrStatusGood } from "react-icons/gr";
 
@@ -53,9 +54,9 @@ const WhyESolutions = () => {
           <p className="text-gray-700 text-lg px-4 font-semibold md:font-bold my-8">
             If you have any questions or would like to know more about our services, don't hesitate to contact us.
           </p>
-          <button className="bg-primaryColor text-white py-2 px-6 rounded-md transition hover:bg-primaryColor">
+          <Link href="/web/contactus" className="bg-primaryColor text-white py-2 px-6 rounded-md transition hover:bg-primaryColor">
             Get In Touch
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function Layout({ children, content, ...rest }: SimpleProps) {
                     className="min-w-[320px] md:min-w-[450px]"
                     bodyClass="md:p-10"
                 >
-                    <div className="flex justify-center">
+                    <div className="flex justify-center mb-4 p-4 rounded-xl">
                         <Logo />
                     </div>
                     <div className="text-center">
