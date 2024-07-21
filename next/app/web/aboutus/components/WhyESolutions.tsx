@@ -52,7 +52,7 @@ const WhyESolutions = () => {
         </div>
         <div className="text-center mt-12">
           <p className="text-gray-700 text-lg px-4 font-semibold md:font-bold my-8">
-            If you have any questions or would like to know more about our services, don't hesitate to contact us.
+            If you have any questions or would like to know more about our services, don&apos;t hesitate to contact us.
           </p>
           <Link href="/web/contactus" className="bg-primaryColor text-white py-2 px-6 rounded-md transition hover:bg-primaryColor">
             Get In Touch

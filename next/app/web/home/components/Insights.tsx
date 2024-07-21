@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Link from 'next/link';
 import dayjs from 'dayjs';
+import Image from 'next/image';
 
 const Insights = () => {
     const insightsData = [
@@ -45,7 +46,7 @@ const Insights = () => {
                     {insightsData.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className='flex flex-col bg-white h-auto'>
-                                <div><img src={`/img/services/${item.image}`} className='w-full py-8 h-96 object-cover' alt={item.title} /></div>
+                                <div><Image src={`/img/services/${item.image}`} className='w-full py-8 h-96 object-cover' alt={item.title} /></div>
                                 <label className='text-center'>{dayjs(item.date).format('MMMM D, YYYY')} - {item.category}</label>
                                 <h6 className='text-center text-2xl my-2'>{item.title}</h6>
                                 <div className='flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden'>

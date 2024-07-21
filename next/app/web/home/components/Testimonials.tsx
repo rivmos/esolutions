@@ -36,7 +36,7 @@ const Testimonials = () => {
                         <SwiperSlide key={index}>
                             <div className='flex flex-col rounded-lg p-8 relative max-w-4xl mx-auto'>
                                 <div className='flex gap-6'>
-                                    <div className='border-l-[1px] border-primaryColor pl-4 text-4xl text-primaryColor'>"</div>
+                                    <div className='border-l-[1px] border-primaryColor pl-4 text-4xl text-primaryColor'>&quot;</div>
                                     <p className='text-lg text-left mb-4'>{item.description + ' ' + item.description + ' ' + item.description + ' ' + item.description}</p>
                                 </div>
                                 <div className='!text-right'>

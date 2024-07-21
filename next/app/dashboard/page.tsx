@@ -5,7 +5,7 @@ import Statistics from '../ui/dashboard/statistics';
 import type { Statistic } from '../lib/@types/dashboard';
 import { fetchDashboardStats } from '../services/dashboard';
 
-export default async function Page() {
+export default function Page() {
 
   const [data, setData] = useState<Statistic[]>([])
 

@@ -25,7 +25,7 @@ const Board = ({title, description, image, imageAlt ,cards} : {title:string, des
                 {
                     cards.map(card => {
                         return(
-                            <div className="border-l-2 pl-4 md:pl-6">
+                            <div key={card.title} className="border-l-2 pl-4 md:pl-6">
                                 <h3 className="text-lg md:text-2xl font-semibold mb-3">{card.title}</h3>
                                 <p className="text-sm md:text-base">
                                     {card.description}
