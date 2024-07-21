@@ -23,7 +23,7 @@ casestudyRouter.get('/all', async (req, res) => {
     }
 })
 
-casestudyRouter.use(verifyTokenMiddleware)
+// casestudyRouter.use(verifyTokenMiddleware)
 
 casestudyRouter.post('/', async (req, res) => {
     const { error } = paginationSchema.validate(req.body);

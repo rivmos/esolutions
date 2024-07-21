@@ -1,27 +1,11 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { AuthOptions, User } from "next-auth";
+import { AuthOptions } from "next-auth";
 import prisma from '@/app/lib/prismadb'
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 import NextAuth from "next-auth/next";
-import { JWT } from "next-auth/jwt";
+import type { User } from "@prisma/client";
 
-// import type {User} from '@prisma/client'
-
-// Define your custom session and user types
-interface CustomUser extends User {
-    id: string;
-    role: string;
-}
-
-interface CustomSession {
-    user: CustomUser;
-}
-
-interface CustomJWT extends JWT {
-    id: string;
-    role: string;
-}
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),

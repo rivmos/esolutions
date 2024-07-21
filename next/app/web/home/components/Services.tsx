@@ -48,7 +48,7 @@ const Services = () => {
                     ].map((item, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className='flex flex-col bg-white p-4'>
+                                <div className='flex flex-col bg-white p-4 rounded-xl'>
                                     <div>
                                         <img src={`/img/services/${item.image}`} className='w-full' alt={item.serviceName} />
                                     </div>

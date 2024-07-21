@@ -59,7 +59,7 @@ const Footer = () => {
                                     <Link href="/web/services/webdev" className="hover:underline font-light">Web Development</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
-                                    <Link href="/web/mobiledev" className="hover:underline font-light">Mobile App Design & Development</Link>
+                                    <Link href="/web/services/mobiledev" className="hover:underline font-light">Mobile App Design & Development</Link>
                                 </li>
                                 <li className="mb-2 lg:mb-4">
                                     <Link href="/web/services/design" className="hover:underline font-light">Designing Services</Link>

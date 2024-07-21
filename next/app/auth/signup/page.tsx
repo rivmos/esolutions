@@ -9,7 +9,7 @@ const page = () => (
   <div>
     <h1 className='mb-4'>Sign Up</h1>
     <Formik
-      initialValues={{ username: '', password: '' }}
+      initialValues={{ username: '', email:'', password: '' }}
       onSubmit={async (values, { setSubmitting }) => {
         axios.post('/api/register', values).then(res => console.log(res.data)).catch(error => console.log(error))
       }}
@@ -36,6 +36,16 @@ const page = () => (
             className='border-[1px] rounded-md p-2'
           />
           {errors.username && touched.username && errors.username}
+          <input
+            type="email"
+            name="email"
+            placeholder='Enter email'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
+            className='border-[1px] rounded-md p-2'
+          />
+          {errors.email && touched.email && errors.email}
           <input
             type="password"
             name="password"

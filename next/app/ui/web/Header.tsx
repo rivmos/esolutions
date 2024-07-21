@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Logo from '../Logo'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+import { RiDashboardFill } from 'react-icons/ri'
 
 export default function Header() {
     const path = usePathname()
@@ -22,7 +23,7 @@ export default function Header() {
 
     return (
         <div className='shadow-xl'>
-            {JSON.stringify(session)}
+            {/* {JSON.stringify(session)} */}
             <nav className="mx-auto flex container items-center justify-between px-4 h-20 md:h-32" aria-label="Global">
                 <div className="flex items-center">
                     <Logo />
@@ -39,6 +40,7 @@ export default function Header() {
                 </div>
                 <div className='hidden lg:flex lg:items-center text-black gap-4'>
                     <div className="lg:flex items-center lg:gap-x-12">
+                        {session && <Link href="/dashboard" className="flex items-center gap-2"><RiDashboardFill />{`Admin`}</Link>}
                         <Link href="aboutus" className="hover:text-primaryColor transition-colors duration-300">About Us</Link>
                         <Link href="services" className="hover:text-primaryColor transition-colors duration-300">Services</Link>
                         <Link href="casestudies" className="hover:text-primaryColor transition-colors duration-300">Case Studies</Link>
@@ -64,6 +66,7 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
+                                {session && <div className='flex gap-2 items-center'><RiDashboardFill /> <LinkComponent path='/dashboard' linkTxt={`Admin`} /></div>}
                                 <LinkComponent path='aboutus' linkTxt='About Us' />
                                 <LinkComponent path='services' linkTxt='Services' />
                                 <LinkComponent path='casestudies' linkTxt='Case Studies' />
