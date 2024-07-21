@@ -6,11 +6,14 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Logo from '../Logo'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 export default function Header() {
     const path = usePathname()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+    const session = useSession()
+    
     const LinkComponent = ({ path, linkTxt } : {path:string, linkTxt:string}) => (
         <Link href={path} className="hover:text-primaryColor -mx-3 block rounded-lg px-3 py-2" onClick={() => setMobileMenuOpen(false)}>
             {linkTxt}
@@ -19,6 +22,7 @@ export default function Header() {
 
     return (
         <div className='shadow-xl'>
+            {JSON.stringify(session)}
             <nav className="mx-auto flex container items-center justify-between px-4 h-20 md:h-32" aria-label="Global">
                 <div className="flex items-center">
                     <Logo />

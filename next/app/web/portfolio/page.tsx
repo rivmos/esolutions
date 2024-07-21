@@ -1,9 +1,10 @@
+import Banner from "@/app/ui/web/Banner";
 import Image from "next/image";
 
 export default function Page() {
   return (
-    <main>
-      This is portfolio page
-    </main>
+    <>
+       <Banner title='Portfolio' isShort bannerImage='/img/banner/laptop-bg.png' bannerImageAlt='Portfolio Banner Image' />
+    </>
   );
 }

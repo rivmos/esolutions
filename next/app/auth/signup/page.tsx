@@ -3,33 +3,17 @@
 import React from 'react';
 import { Formik } from 'formik';
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+import axios from 'axios';
 
-
-const signin = () => {
-
- return ( <div>
-    <h1 className='mb-4'>Sign In</h1>
+const page = () => (
+  <div>
+    <h1 className='mb-4'>Sign Up</h1>
     <Formik
       initialValues={{ username: '', password: '' }}
-    //   validate={values => {
-    //     const errors = {};
-    //     if (!values.username) {
-    //       errors.username = 'Required';
-    //     } else if (
-    //       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
-    //     ) {
-    //       errors.username = 'Invalid username address';
-    //     }
-    //     return errors;
-    //   }}
       onSubmit={async (values, { setSubmitting }) => {
-        const res = await signIn('credentials', values)
-        if(res?.ok){
-          redirect('/web/home')
-        }
+        axios.post('/api/register', values).then(res => console.log(res.data)).catch(error => console.log(error))
       }}
+      
     >
       {({
         values,
@@ -68,8 +52,8 @@ const signin = () => {
         </form>
       )}
     </Formik>
-    <Link href="/auth/signup">Sign Up</Link>
-  </div>)
-}
+    <Link href="/auth/signin">Sign In</Link>
+  </div>
+);
 
-export default signin;
+export default page;

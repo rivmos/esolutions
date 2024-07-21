@@ -1,9 +1,10 @@
+import Banner from "@/app/ui/web/Banner";
 import Image from "next/image";
 
 export default function Page() {
   return (
-    <main>
-      This is services page
-    </main>
+    <>
+       <Banner title='Services' isShort bannerImage='/img/banner/laptop-bg.png' bannerImageAlt='Services Banner Image' />
+    </>
   );
 }
