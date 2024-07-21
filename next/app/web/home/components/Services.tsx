@@ -51,7 +51,7 @@ const Services = () => {
                             <SwiperSlide key={index}>
                                 <div className='flex flex-col bg-white p-4 rounded-xl'>
                                     <div>
-                                        <Image src={`/img/services/${item.image}`} className='w-full' alt={item.serviceName} />
+                                        <Image width={400} height={400} src={`/img/services/${item.image}`} className='w-full' alt={item.serviceName} />
                                     </div>
                                     <div className='text-center py-4 space-y-2'>
                                         <h6 className='text-lg font-medium'>{item.serviceName}</h6>

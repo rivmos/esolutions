@@ -23,7 +23,7 @@ export default function Page() {
             (item, index) => {
               return (
                 <div key={index} className='flex flex-col bg-white h-auto'>
-                  <div><Image src={`/img/services/${item.image}`} className='w-full py-8 h-96 object-cover' alt={item.title} /></div>
+                  <div><Image width={400} height={400} src={`/img/services/${item.image}`} className='w-full py-8 h-96 object-cover' alt={item.title} /></div>
                   <label className='text-center'>{dayjs(item.date).format('MMMM D, YYYY')} - {item.category}</label>
                   <h6 className='text-center text-2xl my-2'>{item.title}</h6>
                   <div className='flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden'>
