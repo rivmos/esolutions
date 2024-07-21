@@ -1,17 +1,11 @@
 
 "use client"
-import { cloneElement } from 'react'
 import Container from '@/app/ui/common/Container'
 import Card from '@/app/ui/common/card'
 import Logo from '@/app/ui/Logo'
-import type { ReactNode, ReactElement } from 'react'
-import type { CommonProps } from '@/app/lib/@types/common'
+import type { ReactNode } from 'react'
 
-interface SimpleProps extends CommonProps {
-    content?: ReactNode
-}
-
-export default function Layout({ children, content, ...rest }: SimpleProps) {
+export default function Layout({ children}: {children: ReactNode}) {
 
     return (
         <div className="h-full">
@@ -24,13 +18,7 @@ export default function Layout({ children, content, ...rest }: SimpleProps) {
                         <Logo />
                     </div>
                     <div className="text-center">
-                        {content}
-                        {children
-                            ? cloneElement(children as ReactElement, {
-                                contentClassName: 'text-center',
-                                ...rest,
-                            })
-                            : null}
+                        {children}
                     </div>
                 </Card>
             </Container>
