@@ -63,14 +63,6 @@ export const authOptions: AuthOptions = {
     session: {
         strategy: 'jwt'
     },
-    callbacks: {
-        async session({ session, token, user }) {
-            // Send properties to the client, like an access_token and user id from a provider.
-            session.user.username = user?.username
-
-            return session
-        }
-    },
     secret: process.env.NEXTAUTH_SECRET
 }
 
