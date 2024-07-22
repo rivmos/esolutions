@@ -4,10 +4,12 @@ import React from 'react';
 import { Formik } from 'formik';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 
 
 const signin = () => {
+
+const router = useRouter()
 
  return ( <div>
     <h1 className='mb-4'>Sign In</h1>
@@ -25,10 +27,9 @@ const signin = () => {
     //     return errors;
     //   }}
       onSubmit={async (values, { setSubmitting }) => {
-        const res = await signIn('credentials', values)
-        if(res?.ok){
-          redirect('/web/home')
-        }
+        const res = await signIn('credentials', values).then(() => {
+          router.push('/web/home')
+        })
       }}
     >
       {({
