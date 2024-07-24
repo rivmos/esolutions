@@ -19,11 +19,16 @@ import axios from "axios";
 import { useEffect } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { CaseStudy } from "@prisma/client";
 
-const CaseStudyForm = () => {
+const CaseStudyForm = ({data} : {data?:CaseStudy}) => {
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
-    defaultValues: {
+    defaultValues: data?.id ? {
+      title: data?.title as string,
+      description: data?.description as string,
+      content: data?.content as string,
+    } : {
       title: "",
       description: "",
       content: "",

@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from 'next/server'
-import {schema} from '@/app/dashboard/casestudies/z-schema'
+import {schema} from '@/app/dashboard/casestudies/add/z-schema'
 import prisma from '@/app/lib/prismadb'
 
 export async function POST (req:NextRequest) {

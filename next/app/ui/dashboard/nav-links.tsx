@@ -15,7 +15,7 @@ const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Case Studies',
-    href: '/dashboard/casestudies',
+    href: '/dashboard/casestudies/list',
     icon: DocumentDuplicateIcon,
   },
 ];
