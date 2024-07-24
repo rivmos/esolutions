@@ -26,7 +26,7 @@ export default async function RootLayout({
         <NextTopLoader />
         <SessionProvider session={session}>
           {children}
-        </SessionProvider>
+        </SessionProvider> 
       </body>
     </html>
   );

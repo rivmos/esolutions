@@ -4,18 +4,18 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 export type BannerProps = {
-    overlayImage?:string
-    overlayImageAlt?:string
-    bannerImage?:string
-    bannerImageAlt?:string
-    title?:string
-    description?:string
-    btnText?:string
-    btnPath?:string
-    isShort?:boolean
+  overlayImage?: string
+  overlayImageAlt?: string
+  bannerImage?: string
+  bannerImageAlt?: string
+  title?: string
+  description?: string
+  btnText?: string
+  btnPath?: string
+  isShort?: boolean
 }
 
-const Banner = ({overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, title, description, btnText, btnPath, isShort} : BannerProps) => {
+const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, title, description, btnText, btnPath, isShort }: BannerProps) => {
   return (
     <div className="relative">
       {bannerImage && <Image
@@ -23,10 +23,10 @@ const Banner = ({overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, tit
         height={850}
         src={bannerImage}
         alt={bannerImageAlt ?? 'Banner Image'}
-        className={clsx('w-full object-cover', {'h-[400px] md:h-[600px] lg:h-[800px]' : !isShort}, {'h-[200px] md:h-[300px] lg:h-[400px]' : isShort})}
+        className={clsx('w-full object-cover', { 'h-[400px] md:h-[600px] lg:h-[800px]': !isShort }, { 'h-[200px] md:h-[300px] lg:h-[400px]': isShort })}
       />}
       <div className='absolute top-0 left-0 w-full h-full'>
-       {overlayImage && <Image
+        {overlayImage && <Image
           width={1350}
           height={850}
           src={overlayImage}
@@ -42,13 +42,15 @@ const Banner = ({overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, tit
         {description && <p className="mt-6 text-sm md:text-base lg:text-lg text-gray-300 mx-auto text-center w-full md:w-3/4 lg:w-1/2">
           {description}
         </p>}
-        {btnPath && <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6">
-          <Link href={btnPath}>
-            <button className='text-[#fff] bg-primaryColor rounded-md p-3'>
-              {btnText}
-            </button>
-          </Link>
-        </div>}
+        {btnPath && (
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
+            <Link href={btnPath}>
+              <button className="text-white bg-primaryColor rounded-md px-4 py-2 sm:px-6 sm:py-3">
+                {btnText}
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )

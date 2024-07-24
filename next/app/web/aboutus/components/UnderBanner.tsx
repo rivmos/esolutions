@@ -1,7 +1,7 @@
 const UnderBanner = () => {
     return (
         <div className="container mx-auto py-12 md:py-24 lg:py-36 px-6 text-center">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-12"> The Future of Digital Services is Here!!!</h2>
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-12"> The Future of Digital Services is Here!!!</h2>
             <p className="text-sm md:text-base lg:text-lg mb-6">
                 In the ever-changing digital landscape, businesses are faced with a vast and dynamic environment. The advent of digital services has revolutionized the way brands engage with their audiences, and leading this revolution is eSolutions, a digital marketing powerhouse. What sets us apart is our ability to adapt to the latest trends and shifts in the digital world, ensuring that our clients stay ahead of the game.
             </p>
