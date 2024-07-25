@@ -31,7 +31,7 @@ const Spinner = forwardRef((props: SpinnerProps, ref) => {
     // const { themeColor, primaryColorLevel } = useConfig()
 
     const spinnerColor =
-        color || (enableTheme && `text-primaryColor`)
+        color || (enableTheme && `text-blue-600`)
 
     const spinnerStyle = {
         height: size,

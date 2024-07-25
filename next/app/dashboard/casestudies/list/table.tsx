@@ -2,6 +2,17 @@
 import * as React from 'react'
 
 import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
@@ -9,43 +20,54 @@ import {
 } from '@tanstack/react-table'
 import { CaseStudy } from '@prisma/client'
 import Link from 'next/link'
+import { HiEye, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi'
 
-type Person = {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
-  status: string
-  progress: number
-}
+
 
 const columnHelper = createColumnHelper<CaseStudy>()
-
 const columns = [
-  // columnHelper.accessor('id', {
-  //   cell: info => info.getValue(),
-  //   footer: info => info.column.id,
-  // }),
   columnHelper.accessor(row => row.title, {
     id: 'title',
     cell: info => <i>{info.getValue()}</i>,
     header: () => <span>Title</span>,
   }),
   columnHelper.accessor('description', {
+    id: 'description', // Ensure this id is unique
     header: () => 'Description',
     cell: info => info.renderValue(),
   }),
   columnHelper.accessor('description', {
-    header: () => 'Description',
-    cell: ({row}) => {
-      return(
-        <Link href={`/dashboard/casestudies/${row.original.id}`}>Edit</Link>
+    id: 'actions', // Changed this id to be unique
+    header: () => 'Actions',
+    cell: ({ row }) => {
+      return (
+        <div className='flex items-center gap-2'>
+          <span
+            className={`cursor-pointer p-2`}
+          >
+            <Link href={`/dashboard/casestudies/${row.original.id}`}><HiOutlinePencil /></Link>
+          </span>
+          <span
+            className={`cursor-pointer p-2 hover:text-gray-400`}
+            
+          >
+            <Link href={`/web/casestudies/${row.original.id}`}><HiEye /></Link>
+            
+          </span>
+          <span
+            className="cursor-pointer p-2 hover:text-red-500"
+            onClick={() => {}}
+          >
+            <HiOutlineTrash />
+          </span>
+        </div>
       )
     },
   }),
 ]
 
-function Table(props : {data:CaseStudy[]}) {
+
+function CaseStudyTable(props: { data: CaseStudy[] }) {
   const [data, _setData] = React.useState(() => [...props.data])
   const rerender = React.useReducer(() => ({}), {})[1]
 
@@ -57,57 +79,38 @@ function Table(props : {data:CaseStudy[]}) {
 
   return (
     <div className="p-2">
-      <table>
-        <thead>
+      <Table>
+        <TableHeader>
           {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
+            <TableRow key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th key={header.id}>
+                <TableHead key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                </TableHead>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </thead>
-        <tbody>
+        </TableHeader>
+        <TableBody>
           {table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
+            <TableRow key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td key={cell.id}>
+                <TableCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
+                </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </tbody>
-        <tfoot>
-          {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
-      </table>
+        </TableBody>
+      </Table>
       <div className="h-4" />
-      <button onClick={() => rerender()} className="border p-2">
-        Rerender
-      </button>
     </div>
   )
 }
 
-export default Table
+export default CaseStudyTable

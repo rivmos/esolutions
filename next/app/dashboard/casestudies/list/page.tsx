@@ -1,15 +1,30 @@
 import React from 'react'
 import Table from './table'
 import prisma from '@/app/lib/prismadb'
+import StickyFooter from '@/app/ui/common/StickyFooter'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 const Page = async () => {
 
   const data = await prisma.caseStudy.findMany()
 
   return (
-    <div className="p-2 block max-w-full overflow-x-scroll overflow-y-hidden">
-      <Table data={data}/>
-    </div>
+    <>
+      <div>
+        <h1 className={`mb-4 text-xl md:text-2xl`}>
+          Case Studies
+        </h1>
+        <Table data={data} />
+      </div>
+      <StickyFooter className='flex justify-end'>
+        <Link href="add">
+          <Button>
+            Add New
+          </Button>
+        </Link>
+      </StickyFooter>
+    </>
   )
 }
 

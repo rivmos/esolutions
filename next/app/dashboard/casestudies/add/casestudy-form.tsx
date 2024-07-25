@@ -20,11 +20,18 @@ import { useEffect } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { CaseStudy } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import NextTopLoader from "nextjs-toploader";
+
 
 const CaseStudyForm = ({data} : {data?:CaseStudy}) => {
+
+  const router = useRouter()
+
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: data?.id ? {
+      id: data?.id,
       title: data?.title as string,
       description: data?.description as string,
       content: data?.content as string,
@@ -40,7 +47,10 @@ const CaseStudyForm = ({data} : {data?:CaseStudy}) => {
     // formData.append('title', data.title)
     // formData.append('description', data.description)
     // formData.append('content', data.content)
-    axios.post('/api/casestudy', data).then(res => console.log(res.data))
+    axios.post('/api/casestudy/save', data).then(res => {
+      router.push('/dashboard/casestudies/list')
+      router.refresh()
+    })
   }
 
 
@@ -81,20 +91,6 @@ const CaseStudyForm = ({data} : {data?:CaseStudy}) => {
             )}
           />
         </div>
-        {/* <FormField
-          control={form.control}
-          name="content"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Content</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>Your content</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
 
         <FormField
           control={form.control}
@@ -117,3 +113,127 @@ const CaseStudyForm = ({data} : {data?:CaseStudy}) => {
 };
 
 export default CaseStudyForm
+
+
+
+// "use client";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm } from "react-hook-form";
+// import { Button } from "@/components/ui/button";
+// import {
+//   Form,
+//   FormControl,
+//   FormDescription,
+//   FormField,
+//   FormItem,
+//   FormLabel,
+//   FormMessage,
+// } from "@/components/ui/form";
+// import { Input } from "@/components/ui/input";
+// import { z } from "zod";
+
+// import { schema } from "./z-schema";
+// import axios from "axios";
+// import { useEffect } from "react";
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+// import { CaseStudy } from "@prisma/client";
+// import { useRouter } from "next/navigation";
+// import NextTopLoader from "nextjs-toploader";
+// import ImageUpload from "./image-upload";
+
+
+// const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
+
+//   const router = useRouter()
+
+//   const form = useForm<z.output<typeof schema>>({
+//     resolver: zodResolver(schema),
+//     defaultValues: data?.id ? {
+//       id: data?.id,
+//       title: data?.title as string,
+//       description: data?.description as string,
+//       content: data?.content as string,
+//     } : {
+//       title: "",
+//       description: "",
+//       content: "",
+//     },
+//   });
+
+//   const onSubmit = async (data: z.infer<typeof schema>) => {
+//     axios.post('/api/casestudy/save', data).then(res => {
+//       router.push('/dashboard/casestudies/list')
+//       router.refresh()
+//     })
+//   }
+
+
+//   useEffect(() => {
+//     console.log(form.formState.errors)
+//   }, [form.formState.errors])
+
+//   return (
+//     <Form {...form}>
+//       <div className="h-screen">
+//         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 h-full">
+//           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+
+//             <div className="flex flex-col gap-2 lg:col-span-3">
+//               <FormField
+//                 control={form.control}
+//                 name="title"
+//                 render={({ field }) => (
+//                   <FormItem className="w-full">
+//                     <FormLabel>Title</FormLabel>
+//                     <FormControl>
+//                       <Input placeholder="" {...field} />
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
+//               <FormField
+//                 control={form.control}
+//                 name="description"
+//                 render={({ field }) => (
+//                   <FormItem className="w-full">
+//                     <FormLabel>Description</FormLabel>
+//                     <FormControl>
+//                       <Input placeholder="" {...field} />
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
+
+
+//               <FormField
+//                 control={form.control}
+//                 name="content"
+//                 render={({ field }) => (
+//                   <FormItem>
+//                     <FormLabel>Content</FormLabel>
+//                     <FormControl>
+//                       <ReactQuill theme="snow" value={field.value} onChange={field.onChange} />
+//                     </FormControl>
+//                     <FormMessage />
+//                   </FormItem>
+//                 )}
+//               />
+//             </div>
+//             <div>
+//               <ImageUpload />
+//             </div>
+//           </div>
+//         </form>
+//         <div className="text-end sticky bottom-0 bg-white py-4">
+//           <Button type="submit">Submit</Button>
+//         </div>
+//       </div>
+//     </Form>
+//   );
+// };
+
+// export default CaseStudyForm

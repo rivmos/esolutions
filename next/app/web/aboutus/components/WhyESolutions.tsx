@@ -19,31 +19,31 @@ const WhyESolutions = () => {
           </div>
           <div className="space-y-4 border-l-[1px] px-4 lg:px-16">
             <div className="flex items-center space-x-4">
-              <div className="bg-primaryColor text-white p-0 md:p-1 rounded-full">
+              <div className="bg-blue-600 text-white p-0 md:p-1 rounded-full">
                 <GrStatusGood />
               </div>
               <span className="font-medium">Highly Skilled and Experienced Team</span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="bg-primaryColor text-white p-0 md:p-1 rounded-full">
+              <div className="bg-blue-600 text-white p-0 md:p-1 rounded-full">
                 <GrStatusGood />
               </div>
               <span className="font-medium">Quality Focused</span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="bg-primaryColor text-white p-0 md:p-1 rounded-full">
+              <div className="bg-blue-600 text-white p-0 md:p-1 rounded-full">
                 <GrStatusGood />
               </div>
               <span className="font-medium">100% Customer Satisfaction</span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="bg-primaryColor text-white p-0 md:p-1 rounded-full">
+              <div className="bg-blue-600 text-white p-0 md:p-1 rounded-full">
                 <GrStatusGood />
               </div>
               <span className="font-medium">Competitive Pricing</span>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="bg-primaryColor text-white p-0 md:p-1 rounded-full">
+              <div className="bg-blue-600 text-white p-0 md:p-1 rounded-full">
                 <GrStatusGood />
               </div>
               <span className="font-medium">Services Customized to the Needs of Our Clients</span>
@@ -54,7 +54,7 @@ const WhyESolutions = () => {
           <p className="text-gray-700 text-lg px-4 font-semibold md:font-bold my-8">
             If you have any questions or would like to know more about our services, don&apos;t hesitate to contact us.
           </p>
-          <Link href="/web/contactus" className="bg-primaryColor text-white py-2 px-6 rounded-md transition hover:bg-primaryColor">
+          <Link href="/web/contactus" className="bg-blue-600 text-white py-2 px-6 rounded-md transition hover:bg-blue-600">
             Get In Touch
           </Link>
         </div>

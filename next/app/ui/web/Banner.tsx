@@ -19,6 +19,7 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
   return (
     <div className="relative">
       {bannerImage && <Image
+        priority={false}
         width={1920}
         height={850}
         src={bannerImage}
@@ -27,6 +28,7 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
       />}
       <div className='absolute top-0 left-0 w-full h-full'>
         {overlayImage && <Image
+          priority={false}
           width={1350}
           height={850}
           src={overlayImage}
@@ -45,7 +47,7 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
         {btnPath && (
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
             <Link href={btnPath}>
-              <button className="text-white bg-primaryColor rounded-md px-4 py-2 sm:px-6 sm:py-3">
+              <button className="text-white bg-blue-600 rounded-md px-4 py-2 sm:px-6 sm:py-3">
                 {btnText}
               </button>
             </Link>

@@ -19,7 +19,7 @@ export default function Header() {
     const session = useSession()
 
     const LinkComponent = ({ href, linkText, className }: { href: string, linkText: string, className?: string }) => (
-        <Link href={href} className={clsx(`hover:text-primaryColor ${className}`, { 'text-primaryColor': path.includes(linkText.replace(/\s+/g, '').toLowerCase()) })} onClick={() => setIsClose(true)}>
+        <Link href={href} className={clsx(`hover:text-blue-600 ${className}`, { 'text-blue-600': path.includes(linkText.replace(/\s+/g, '').toLowerCase()) })} onClick={() => setIsClose(true)}>
             {linkText}
         </Link>
     )
@@ -46,12 +46,12 @@ export default function Header() {
                             <IoIosCloseCircleOutline size={28} className='hover:cursor-pointer' />
                         </button>
                         {session.data?.user?.email && <LinkComponent href="/dashboard" linkText="Dashboard" />}
-                        <LinkComponent href="aboutus" linkText="About Us" />
-                        <LinkComponent href="services" linkText="Services" />
-                        <LinkComponent href="casestudies" linkText="Case Studies" />
-                        <LinkComponent href="portfolio" linkText="Portfolio" />
-                        <LinkComponent href="insights" linkText="Insights" />
-                        <LinkComponent href="contactus" className="hover:text-[#fff] text-primaryColor border-primaryColor border-[1px] p-2 rounded-md hover:bg-primaryColor transition-colors duration-300" linkText="Contact Us" />
+                        <LinkComponent href="/web/aboutus" linkText="About Us" />
+                        <LinkComponent href="/web/services" linkText="Services" />
+                        <LinkComponent href="/web/casestudies" linkText="Case Studies" />
+                        <LinkComponent href="/web/portfolio" linkText="Portfolio" />
+                        <LinkComponent href="/web/insights" linkText="Insights" />
+                        <LinkComponent href="/web/contactus" className="hover:text-[#fff] text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
                     </div>
                 </div>
             </nav>
@@ -74,12 +74,12 @@ export default function Header() {
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6 flex flex-col items-start gap-8">
                                 {session.data?.user?.email && <LinkComponent href="/dashboard" linkText="Dashboard" />}
-                                <LinkComponent href="aboutus" linkText="About Us" />
-                                <LinkComponent href="services" linkText="Services" />
-                                <LinkComponent href="casestudies" linkText="Case Studies" />
-                                <LinkComponent href="portfolio" linkText="Portfolio" />
-                                <LinkComponent href="insights" linkText="Insights" />
-                                <LinkComponent href="contactus" className="hover:text-[#fff] text-primaryColor border-primaryColor border-[1px] p-2 rounded-md hover:bg-primaryColor transition-colors duration-300" linkText="Contact Us" />
+                                <LinkComponent href="/web/aboutus" linkText="About Us" />
+                                <LinkComponent href="/web/services" linkText="Services" />
+                                <LinkComponent href="/web/casestudies" linkText="Case Studies" />
+                                <LinkComponent href="/web/portfolio" linkText="Portfolio" />
+                                <LinkComponent href="/web/insights" linkText="Insights" />
+                                <LinkComponent href="/web/contactus" className="hover:text-[#fff] text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
 
                             </div>
                         </div>

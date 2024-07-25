@@ -66,7 +66,7 @@ const Services = () => {
                 </Swiper>
                 <div className='flex justify-center mt-8'>
                     <Link href="/web/services">
-                        <button className='text-white bg-primaryColor rounded-md py-2 px-6'>
+                        <button className='text-white bg-blue-600 rounded-md py-2 px-6'>
                             View Services
                         </button>
                     </Link>

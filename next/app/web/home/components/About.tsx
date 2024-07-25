@@ -11,7 +11,7 @@ const About = () => {
     As a dedicated digital marketing services company, we stand at the forefront in marketing the business, paving the way for public awareness, and revenue generation. Our services are focused on not only generating ROI but also building relations based on authenticity, honesty, trust, and personal touch that the customers are looking for.
   </p>
   <Link href="/web/aboutus">
-    <button className="text-white bg-primaryColor rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-primaryColor-dark transition-colors duration-300">
+    <button className="text-white bg-blue-600 rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300">
       Read More
     </button>
   </Link>

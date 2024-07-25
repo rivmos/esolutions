@@ -1,5 +1,6 @@
 import { CaseStudy } from "@prisma/client";
 import CaseStudyForm from "../add/casestudy-form";
+import prisma from '@/app/lib/prismadb'
 
 export default async function Page({ params }: { params: { id: string } }) {
 
