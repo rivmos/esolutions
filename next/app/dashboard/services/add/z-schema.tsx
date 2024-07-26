@@ -5,5 +5,6 @@ export const schema = z.object({
     name: z.string().min(1, "Service name is required"),
     description: z.string().min(1, "Description is required"),
     // tags: z.array(z.string()),
+    image: z.string(),
     isActive: z.boolean().default(true),
   });

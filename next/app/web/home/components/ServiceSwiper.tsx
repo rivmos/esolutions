@@ -7,6 +7,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import type { Service } from '@prisma/client'
+import Link from 'next/link';
 
 const ServiceSwiper = ({ data }: { data: Service[] }) => {
     return (
@@ -42,13 +43,15 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
                     <SwiperSlide key={index}>
                         <div className='flex flex-col shadow-sm p-4 my-8 rounded-xl bg-white'>
                             <div>
-                                <Image width={400} height={400} src={`/img/upload/upload-widget.png`} className='w-full' alt={item.name} />
+                                <Image width={400} height={400} src={item.image ?? '/img/upload-widget/upload.png'} className='w-full h-52 object-cover' alt={item.name} />
                             </div>
-                            <div className='text-center py-4 space-y-2'>
-                                <h6 className='text-lg font-medium'>{item.name}</h6>
-                                <button className="underline border-0 text-blue-600">
-                                    View
-                                </button>
+                            <div className='text-left py-4 space-y-2'>
+                                <h6 className='text-lg font-medium h-20 text-left'>{item.name}</h6>
+                                <Link href={`/web/services`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-200'>
+                                    <span className='border-[1px] p-2 rounded-lg hover:border-blue-600 transition-colors duration-500'>
+                                        View
+                                    </span>
+                                </Link>
                             </div>
                         </div>
                     </SwiperSlide>

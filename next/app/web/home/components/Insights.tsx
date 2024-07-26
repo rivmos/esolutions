@@ -55,14 +55,14 @@ const Insights = () => {
                                         alt={item.title}
                                     />
                                 </div>
-                                <label className="text-center mt-4 text-sm md:text-base lg:text-lg">
+                                <label className="text-center mt-4 text-sm md:text-base">
                                     {dayjs(item.date).format('MMMM D, YYYY')} - {item.category}
                                 </label>
-                                <h6 className="text-center text-xl md:text-2xl lg:text-3xl my-2">
+                                <h6 className="text-center text-xl md:text-2xl lg:text-2xl my-2">
                                     {item.title}
                                 </h6>
                                 <div className="flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden">
-                                    <Link href={`/web/insights/${item.title}`} className="underline text-sm md:text-base lg:text-lg">
+                                    <Link href={`/web/insights/${item.title}`} className="underline text-sm ">
                                         Read More
                                     </Link>
                                 </div>
