@@ -29,7 +29,7 @@ const socialLinks = [
 
 const FooterEnd = () => {
     return (
-        <div className='flex flex-col gap-2 justify-center py-8 bg-neutral-200'>
+        <div className='flex flex-col gap-2 justify-center py-8 bg-zinc-100'>
             <div className='flex justify-center gap-2'>
                 {
                     socialLinks.map((social, index) => (
@@ -85,7 +85,7 @@ const Footer = () => {
                                     <Link href="/web/casestudies" className="hover:underline font-light">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/portfolio" className="hover:underline font-light">Portfolio</Link>
+                                    <Link href="/web/insights" className="hover:underline font-light">Insights</Link>
                                 </li>
                             </ul>
                         </div>

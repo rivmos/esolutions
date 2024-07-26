@@ -1,1 +1,0 @@
-export const baseUrl = 'https://esolutions.onrender.com/api' 

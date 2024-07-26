@@ -67,3 +67,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+h1 {
+  @apply text-xl font-semibold
+}
+
+#blog-content p {
+  @apply text-sm lg:text-base
+}
+
+/* src/components/UnderlineText.module.css */
+.underline-animation::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-full h-[2px] bg-blue-300 transition-transform duration-300;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.underline-animation:hover::after {
+  @apply bg-blue-600;
+  transform: scaleX(1);
+}

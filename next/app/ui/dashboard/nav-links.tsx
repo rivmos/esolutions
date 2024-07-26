@@ -4,7 +4,10 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  ChatBubbleBottomCenterIcon,
+  ServerIcon
 } from '@heroicons/react/24/outline';
+import { MdSupportAgent } from "react-icons/md";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -17,6 +20,16 @@ const links = [
     name: 'Case Studies',
     href: '/dashboard/casestudies/list',
     icon: DocumentDuplicateIcon,
+  },
+  {
+    name: 'Enquiries',
+    href: '/dashboard/enquiries/list',
+    icon: ChatBubbleBottomCenterIcon,
+  },
+  {
+    name: 'Services',
+    href: '/dashboard/services/list',
+    icon: ServerIcon,
   },
 ];
 

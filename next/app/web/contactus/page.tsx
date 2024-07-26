@@ -2,6 +2,7 @@
 
 import Banner from "@/app/ui/web/Banner";
 import { Formik, Form, Field } from "formik";
+import ContactUsForm from "./contactus-form";
 
 export default function Page() {
   return (
@@ -88,46 +89,8 @@ export default function Page() {
             </div>
             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
 
-              <div className={'bg-gradient-to-r from-white to-transparent'}>
-                <Formik
-                  initialValues={{ name: '', email: '', mobile: '', message: '' }}
-
-                  onSubmit={async (values, { setSubmitting, resetForm }) => {
-                    // Handle form submission
-                  }}
-                >
-                  {({ touched, errors, isSubmitting }) => (
-                    <Form>
-
-                      <Field
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                      />
-
-                      <Field
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                      />
-
-                      <Field
-                        type="number"
-                        name="mobile"
-                        placeholder="Mobile"
-                      />
-
-                      <Field
-                        textArea
-                        type="text"
-                        name="message"
-                        placeholder="Message"
-                      />
-
-                    </Form>
-                  )}
-                </Formik>
-
+              <div className={'bg-gradient-to-r from-white to-transparent p-4 rounded-xl h-full'}>
+                  <ContactUsForm />
               </div>
             </div>
           </div>

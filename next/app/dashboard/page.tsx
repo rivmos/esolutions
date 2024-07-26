@@ -1,17 +1,17 @@
-"use client"
-
-import { useEffect, useState } from 'react';
 import Statistics from '../ui/dashboard/statistics';
-import type { Statistic } from '../lib/@types/dashboard';
-import { fetchDashboardStats } from '../services/dashboard';
+import prisma from '@/app/lib/prismadb'
 
-export default function Page() {
+export default async function Page() {
 
-  const [data, setData] = useState<Statistic[]>([])
+  const casestudies = await prisma.caseStudy.count()
+  const enquiries = await prisma.enquiry.count()
+  const services = await prisma.service.count()
 
-  useEffect(() => {
-    fetchDashboardStats().then(res => setData(res.data))
-  }, [])
+  const data = [
+    {name:'Case Studies', value: casestudies},
+    {name:'Enquiries', value: enquiries},
+    {name:'Services', value: services},
+  ]
 
   return (
     <div>

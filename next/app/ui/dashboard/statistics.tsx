@@ -1,23 +1,19 @@
-import clsx from 'clsx'
-import Card from '@/app/ui/common/card/Card'
 import {
-    HiUserCircle,
     HiMail,
     HiDocumentText,
-    HiCalendar,
-    HiOutlineTrendingUp,
-    HiOutlineTrendingDown,
     HiOutlineMail,
 } from 'react-icons/hi'
+import { SiAmazonsimpleemailservice } from "react-icons/si";
 import { ReactNode } from 'react'
+import Link from 'next/link'
 
 type Statistic = {
-    name:string,
-    value:string
+    name: string,
+    value: number
 }
 
-const Avatar = ({size, className, icon} : {size: number, className: string, icon: ReactNode}) => {
-    return(
+const Avatar = ({ size, className, icon }: { size: number, className: string, icon: ReactNode }) => {
+    return (
         <div className={`${className} rounded-full p-2 h-${size}`}>
             {icon}
         </div>
@@ -43,6 +39,15 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                 />
             )
 
+        case 'Services':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20 dark:text-yellow-100"
+                    icon={<SiAmazonsimpleemailservice />}
+                />
+            )
+
         case 'Subscribers':
             return (
                 <Avatar
@@ -58,8 +63,8 @@ const StatisticIcon = ({ type }: { type?: string }) => {
 
 const StatisticCard = ({ data = {} }: { data: Partial<Statistic> }) => {
     return (
-        <Card bordered>
-            <div className="flex items-center gap-4">
+        <Link href={data.name === 'Case Studies' ? '/dashboard/casestudies/list' : data.name === 'Enquiries' ? '/dashboard/enquiries/list' : data.name === 'Services' ? '/dashboard/services/list' : ''}>
+            <div className="flex items-center gap-4 border-[1px] rounded-xl p-4 h-24 hover:bg-indigo-50 transition-colors duration-300">
                 <StatisticIcon type={data.name} />
                 <div>
                     <div className="flex gap-1.5 items-center">
@@ -68,11 +73,11 @@ const StatisticCard = ({ data = {} }: { data: Partial<Statistic> }) => {
                     </div>
                 </div>
             </div>
-        </Card>
+        </Link>
     )
 }
 
-const Statistic = ({ data = [] }: { data?: Partial<Statistic>[] }) => {
+const Statistic = ({ data = [] }: { data?: Statistic[] }) => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
             {data.map((card) => (

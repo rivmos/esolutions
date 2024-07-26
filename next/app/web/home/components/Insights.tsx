@@ -20,7 +20,7 @@ const Insights = () => {
 
     return (
         <div className='bg-white'>
-            <div className='container mx-auto !py-16 md:!py-20 lg:!py-20'>
+            <div className='container mx-auto !py-12 md:!py-20 lg:!py-20'>
                 <h2 className="text-3xl font-bold text-center tracking-tight sm:text-4xl mb-12">Insights</h2>
                 <Swiper
                     slidesPerView={1}
@@ -45,26 +45,40 @@ const Insights = () => {
                 >
                     {insightsData.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className='flex flex-col bg-white h-auto'>
-                                <div><Image  width={400} height={400} src={`/img/services/${item.image}`} className='w-full py-8 h-96 object-cover' alt={item.title} /></div>
-                                <label className='text-center'>{dayjs(item.date).format('MMMM D, YYYY')} - {item.category}</label>
-                                <h6 className='text-center text-2xl my-2'>{item.title}</h6>
-                                <div className='flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden'>
-                                    <Link href={`/web/insights/${item.title}`} className='underline'>
+                            <div className="flex flex-col bg-white h-auto p-4 sm:p-6 md:p-8 lg:p-10">
+                                <div className="flex justify-center">
+                                    <Image
+                                        width={400}
+                                        height={400}
+                                        src={`/img/services/${item.image}`}
+                                        className="w-full object-cover"
+                                        alt={item.title}
+                                    />
+                                </div>
+                                <label className="text-center mt-4 text-sm md:text-base lg:text-lg">
+                                    {dayjs(item.date).format('MMMM D, YYYY')} - {item.category}
+                                </label>
+                                <h6 className="text-center text-xl md:text-2xl lg:text-3xl my-2">
+                                    {item.title}
+                                </h6>
+                                <div className="flex flex-col justify-between flex-1 text-center px-4 space-y-2 overflow-hidden">
+                                    <Link href={`/web/insights/${item.title}`} className="underline text-sm md:text-base lg:text-lg">
                                         Read More
                                     </Link>
                                 </div>
                             </div>
+
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className='flex justify-center mt-8'>
+                <div className="flex justify-center mt-8">
                     <Link href="/web/insights">
-                        <button className="border !border-blue-600 !text-blue-600 py-2 px-4 rounded !hover:bg-blue-600 !hover:text-white transition mt-8">
+                        <button className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition duration-300 mt-8 text-sm md:text-base lg:text-lg">
                             View All Insights
                         </button>
                     </Link>
                 </div>
+
             </div>
         </div>
     );

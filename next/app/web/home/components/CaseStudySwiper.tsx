@@ -8,52 +8,54 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Link from 'next/link';
-import type {CaseStudy} from '@prisma/client'
+import type { CaseStudy } from '@prisma/client'
 
 
-const CaseStudySwiper = ({data} : {data: CaseStudy[]}) => {
-  return (
-    <Swiper
-    slidesPerView={1}
-    slidesPerGroup={1}
-    pagination={{
-        dynamicBullets: true,
-    }}
-    modules={[Pagination]}
-    className="h-auto"
-    spaceBetween={24}
-    breakpoints={{
-        640: {
-            slidesPerView: 1,
-        },
-        768: {
-            slidesPerView: 1,
-        },
-        1024: {
-            slidesPerView: 2,
-        },
-    }}
->
-    {data?.map(
-        (item, index) => {
-            return (
-                <SwiperSlide key={index}>
-                    <div className='flex flex-col bg-white border-2 h-full p-4 md:p-8'>
-                        <h6 className='text-center font-semibold mb-4'>{item.title}</h6>
-                        <div><Image width={400} height={400} src={'/img/data.png'} className='w-full h-48 md:h-96 object-cover mb-4' alt={item.title as string} /></div>
-                        <div className='flex flex-col justify-between flex-1 text-center space-y-4'>
-                            <div className='overflow-y-auto max-h-24'>{shortenText(item?.description as string)}</div>
-                            <Link href={`/web/casestudies/${item?.id}`} className='underline text-blue-600 hover:text-blue-800'>
-                                Read More
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-            );
-        }
-    )}
-</Swiper>
-  )
+const CaseStudySwiper = ({ data }: { data: CaseStudy[] }) => {
+    return (
+        <Swiper
+            slidesPerView={1}
+            slidesPerGroup={1}
+            pagination={{
+                dynamicBullets: true,
+            }}
+            modules={[Pagination]}
+            className="h-auto"
+            spaceBetween={24}
+            breakpoints={{
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 1,
+                },
+                1024: {
+                    slidesPerView: 2,
+                },
+            }}
+        >
+            {data?.map(
+                (item, index) => {
+                    return (
+                        <SwiperSlide key={index}>
+                            <div className='flex flex-col select-none bg-white border-zinc-200 rounded-md shadow-sm border-[1px] h-full p-4 md:p-8'>
+                                <h6 className='text-left font-semibold'>{item.title}</h6>
+                                <div className='overflow-y-auto mb-2'>{shortenText(item?.description as string)}</div>
+                                <div><Image width={400} height={400} src={item.image ?? '/img/data.png'} className='w-full h-48 md:h-96 object-cover mb-4 rounded-md' alt={item.title as string} /></div>
+                                <div className='flex items-start justify-between'>
+                                    <Link href={`/web/casestudies/${item?.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-200'>
+                                        <span className='border-[1px] p-2 rounded-lg hover:border-blue-600 transition-colors duration-500'>
+                                            Read More
+                                        </span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    );
+                }
+            )}
+        </Swiper>
+    )
 }
 
 export default CaseStudySwiper

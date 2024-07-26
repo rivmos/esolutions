@@ -7,27 +7,27 @@ declare global {
 }
 
 interface ImageUpladProps {
-    onChange?: (value: string) => void
-    value?: string
+    onChange: (value: string) => void
+    value: string
 }
 
 const ImageUpload = (props: ImageUpladProps) => {
     const { onChange, value } = props;
 
-    const handleUpload = useCallback(() => {
-
+    const handleUpload = useCallback((result: any) => {
+        onChange(result.info.secure_url)
     }, [onChange])
 
     return (
         <div>
 
-            <CldUploadWidget uploadPreset="<Your Upload Preset>">
+            <CldUploadWidget uploadPreset="slpqem9l" onSuccess={(result) => handleUpload(result)}>
                 {({ open }) => {
                     return (
                         <>
                             <div className="grid grid-cols-1 space-y-2 !cursor-pointer" onClick={() => open()}>
                                 <label className="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
-                                <div className="flex items-center justify-center w-full">
+                                {value ? <Image src={value} width={400} height={400} alt='Uploaded Image' /> : <div className="flex items-center justify-center w-full">
                                     <label className="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
                                         <div className="h-full w-full text-center flex flex-col justify-center items-center  ">
                                             <div className="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
@@ -37,7 +37,7 @@ const ImageUpload = (props: ImageUpladProps) => {
                                         </div>
                                         {/* <input type="file" className="hidden" /> */}
                                     </label>
-                                </div>
+                                </div>}
                             </div>
                             <p className="text-sm text-gray-300">
                                 <span>File type: doc,pdf,types of images</span>

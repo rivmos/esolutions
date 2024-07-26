@@ -18,7 +18,7 @@ model CaseStudy {
   title       String
   image       String?
   description String?
-  content     String?
+  content     String
 }
 
 model User {
@@ -26,4 +26,21 @@ model User {
   username      String? @unique
   email         String? @unique
   hashedPassword String?
+}
+
+model Enquiry {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  first   String
+  last    String?
+  email   String
+  mobile  String
+  message String
+}
+
+model Service {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String
+  tags          String[]   
+  isActive      Boolean    @default(true)
 }

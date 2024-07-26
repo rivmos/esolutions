@@ -49,9 +49,8 @@ export default function Header() {
                         <LinkComponent href="/web/aboutus" linkText="About Us" />
                         <LinkComponent href="/web/services" linkText="Services" />
                         <LinkComponent href="/web/casestudies" linkText="Case Studies" />
-                        <LinkComponent href="/web/portfolio" linkText="Portfolio" />
                         <LinkComponent href="/web/insights" linkText="Insights" />
-                        <LinkComponent href="/web/contactus" className="hover:text-[#fff] text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
+                        <LinkComponent href="/web/contactus" className="hover:text-white text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
                     </div>
                 </div>
             </nav>
@@ -77,10 +76,9 @@ export default function Header() {
                                 <LinkComponent href="/web/aboutus" linkText="About Us" />
                                 <LinkComponent href="/web/services" linkText="Services" />
                                 <LinkComponent href="/web/casestudies" linkText="Case Studies" />
-                                <LinkComponent href="/web/portfolio" linkText="Portfolio" />
+                                {/* <LinkComponent href="/web/portfolio" linkText="Portfolio" /> */}
                                 <LinkComponent href="/web/insights" linkText="Insights" />
-                                <LinkComponent href="/web/contactus" className="hover:text-[#fff] text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
-
+                                <LinkComponent href="/web/contactus" className="hover:text-white text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
                             </div>
                         </div>
                     </div>
