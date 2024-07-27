@@ -17,10 +17,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
 import { schema } from "./z-schema";
 import axios from "axios";
-import { useEffect } from "react";
-import type { Service } from "@prisma/client";
+import { useEffect, useState } from "react";
+import type { Service, Tag } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import { Checkbox } from "@/components/ui/checkbox";
 import ImageUpload from "../../casestudies/add/image-upload";
 import {
   MultiSelector,
@@ -32,8 +31,9 @@ import {
 } from "@/components/extension/multi-select";
 
 
-const ServiceForm = ({ data }: { data?: Service }) => {
+const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
   const router = useRouter();
+
 
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
@@ -43,24 +43,22 @@ const ServiceForm = ({ data }: { data?: Service }) => {
         name: data.name,
         description: data.description,
         image: data.image,
-        tags: data.tags || [],
+        tagIds: data.tagIds || [],
         isActive: data.isActive,
       }
       : {
         name: "",
         description: "",
         image: "",
-        tags: [],
+        tagIds: [],
         isActive: true,
       },
   });
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
-    console.log(data)
     axios.post("/api/service/save", data).then((res) => {
       router.push('/dashboard/services/list')
       router.refresh()
-      console.log(res)
     });
   };
 
@@ -99,18 +97,7 @@ const ServiceForm = ({ data }: { data?: Service }) => {
                 </FormItem>
               )}
             />
-            {/* <FormField
-              control={form.control}
-              name="tags"
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormControl>
-                    <Input placeholder="Enter Tags (comma separated)" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
+
             <FormField
               control={form.control}
               name="isActive"
@@ -129,36 +116,36 @@ const ServiceForm = ({ data }: { data?: Service }) => {
               )}
             />
 
-<FormField
-          control={form.control}
-          name="tags"
-          render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel>Tags</FormLabel>
-              <MultiSelector
-                onValuesChange={field.onChange}
-                values={field.value}
-              >
-                <MultiSelectorTrigger>
-                  <MultiSelectorInput />
-                </MultiSelectorTrigger>
-                <MultiSelectorContent>
-                  <MultiSelectorList>
-                    {['main', 'web dev'].map((tag) => (
-                      <MultiSelectorItem key={tag} value={tag}>
-                        <div className="flex items-center space-x-2">
-                          <span>{tag}</span>
-                        </div>
-                      </MultiSelectorItem>
-                    ))}
-                  </MultiSelectorList>
-                </MultiSelectorContent>
-              </MultiSelector>
+            <FormField
+              control={form.control}
+              name="tagIds"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Tags</FormLabel>
+                  <MultiSelector
+                    onValuesChange={field.onChange}
+                    values={field.value}
+                  >
+                    <MultiSelectorTrigger>
+                      <MultiSelectorInput />
+                    </MultiSelectorTrigger>
+                    <MultiSelectorContent>
+                      <MultiSelectorList>
+                        {tags.map((tag) => (
+                          <MultiSelectorItem key={tag.id} value={tag.id}>
+                            <div className="flex items-center space-x-2">
+                              <span>{tag.name}</span>
+                            </div>
+                          </MultiSelectorItem>
+                        ))}
+                      </MultiSelectorList>
+                    </MultiSelectorContent>
+                  </MultiSelector>
 
-              <FormMessage />
-            </FormItem>
-            )}
-        />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
           </div>
 

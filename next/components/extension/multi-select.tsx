@@ -160,6 +160,7 @@ const MultiSelectorTrigger = forwardRef<
   const mousePreventDefault = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -273,6 +274,7 @@ const MultiSelectorItem = forwardRef<
   const mousePreventDefault = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isIncluded = Options.includes(value);

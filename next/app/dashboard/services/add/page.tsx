@@ -1,10 +1,14 @@
 import React from 'react'
 import ServiceForm from './service-form'
+import prisma from '@/app/lib/prismadb'
 
-const Page = () => {
+const Page = async () => {
+
+  const tags = await prisma.tag.findMany()
+
   return (
     <div>
-        <ServiceForm />
+        <ServiceForm tags={tags}/>
     </div>
   )
 }

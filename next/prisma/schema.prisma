@@ -14,7 +14,7 @@ datasource db {
 }
 
 model CaseStudy {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   image       String?
   description String?
@@ -22,14 +22,14 @@ model CaseStudy {
 }
 
 model User {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  username      String @unique
-  email         String @unique
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  username       String  @unique
+  email          String  @unique
   hashedPassword String?
 }
 
 model Enquiry {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
   first   String
   last    String?
   email   String
@@ -38,10 +38,19 @@ model Enquiry {
 }
 
 model Service {
-  id            String     @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  description   String
-  image         String
-  tags          String[]   
-  isActive      Boolean    @default(true)
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  image       String
+  // tags          String[]   
+  tagIds      String[] @db.ObjectId
+  tags        Tag[]    @relation(fields: [tagIds], references: [id])
+  isActive    Boolean  @default(true)
+}
+
+model Tag {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  serviceIds  String[]  @db.ObjectId
+  services Service[] @relation(fields: [serviceIds], references: [id])
 }

@@ -4,32 +4,15 @@ import React from 'react';
 import { Formik } from 'formik';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-import {useRouter} from 'next/navigation';
-
 
 const signin = () => {
-
-const router = useRouter()
 
  return ( <div>
     <h1 className='mb-4'>Sign In</h1>
     <Formik
       initialValues={{ username: '', password: '' }}
-    //   validate={values => {
-    //     const errors = {};
-    //     if (!values.username) {
-    //       errors.username = 'Required';
-    //     } else if (
-    //       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.username)
-    //     ) {
-    //       errors.username = 'Invalid username address';
-    //     }
-    //     return errors;
-    //   }}
       onSubmit={async (values, { setSubmitting }) => {
-        const res = await signIn('credentials', values).then(() => {
-          router.push('/web/home')
-        })
+        const res = await signIn('credentials', values)
       }}
     >
       {({

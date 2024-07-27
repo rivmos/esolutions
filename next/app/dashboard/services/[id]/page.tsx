@@ -1,8 +1,10 @@
 import { Service } from "@prisma/client";
-import CaseStudyForm from "../add/service-form";
+import ServiceForm from "../add/service-form";
 import prisma from '@/app/lib/prismadb'
 
 export default async function Page({ params }: { params: { id: string } }) {
+
+  const tags = await prisma?.tag.findMany()
 
   const data = await prisma?.service.findUnique({
     where: {
@@ -12,7 +14,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <CaseStudyForm data={data as Service}/>
+      <ServiceForm data={data as Service} tags={tags}/>
     </div>
   )
 }

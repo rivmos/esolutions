@@ -40,9 +40,17 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
     // formData.append('title', data.title)
     // formData.append('description', data.description)
     // formData.append('content', data.content)
-    axios.post('/api/enquiry/save', data).then(res => {
-      form.reset()
-    })
+
+    try {
+        // Save the enquiry to the database
+        await axios.post('/api/enquiry/save', data);
+        // Send the confirmation email
+        await axios.post('/api/mail', data);
+        form.reset();
+    }
+    catch(error) {
+      console.error('Error submitting form:', error);
+    }
   }
 
 

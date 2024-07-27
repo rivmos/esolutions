@@ -40,6 +40,7 @@ const TestimonialSwiper = ({ data }: { data: CaseStudy[] }) => {
                     (item, index) => {
                         return (
                             <Swiper
+                            key={item.id}
                                 slidesPerView={1}
                                 slidesPerGroup={1}
                                 pagination={{

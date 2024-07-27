@@ -5,7 +5,8 @@ import {
   HomeIcon,
   DocumentDuplicateIcon,
   ChatBubbleBottomCenterIcon,
-  ServerIcon
+  ServerIcon,
+  TagIcon
 } from '@heroicons/react/24/outline';
 import { MdSupportAgent } from "react-icons/md";
 import Link from 'next/link';
@@ -30,6 +31,11 @@ const links = [
     name: 'Services',
     href: '/dashboard/services/list',
     icon: ServerIcon,
+  },
+  {
+    name: 'Tags',
+    href: '/dashboard/tags/list',
+    icon: TagIcon,
   },
 ];
 
