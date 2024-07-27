@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { shortenText } from '@/app/lib/utils/string';
 import Image from 'next/image';
 import Banner from '@/app/ui/web/Banner';
+import prisma from '@/app/lib/prismadb'
+
 
 export default async function Page() {
 

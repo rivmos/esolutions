@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { shortenText } from '@/app/lib/utils/string';
 import Image from 'next/image';
+import prisma from '@/app/lib/prismadb'
 
 export default async function Page() {
 
