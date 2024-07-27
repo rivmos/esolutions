@@ -22,6 +22,15 @@ import type { Service } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { Checkbox } from "@/components/ui/checkbox";
 import ImageUpload from "../../casestudies/add/image-upload";
+import {
+  MultiSelector,
+  MultiSelectorContent,
+  MultiSelectorInput,
+  MultiSelectorItem,
+  MultiSelectorList,
+  MultiSelectorTrigger,
+} from "@/components/extension/multi-select";
+
 
 const ServiceForm = ({ data }: { data?: Service }) => {
   const router = useRouter();
@@ -34,22 +43,24 @@ const ServiceForm = ({ data }: { data?: Service }) => {
         name: data.name,
         description: data.description,
         image: data.image,
-        // tags: data.tags || [],
+        tags: data.tags || [],
         isActive: data.isActive,
       }
       : {
         name: "",
         description: "",
         image: "",
-        // tags: [],
+        tags: [],
         isActive: true,
       },
   });
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
+    console.log(data)
     axios.post("/api/service/save", data).then((res) => {
       router.push('/dashboard/services/list')
       router.refresh()
+      console.log(res)
     });
   };
 
@@ -117,6 +128,38 @@ const ServiceForm = ({ data }: { data?: Service }) => {
                 </FormItem>
               )}
             />
+
+<FormField
+          control={form.control}
+          name="tags"
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormLabel>Tags</FormLabel>
+              <MultiSelector
+                onValuesChange={field.onChange}
+                values={field.value}
+              >
+                <MultiSelectorTrigger>
+                  <MultiSelectorInput />
+                </MultiSelectorTrigger>
+                <MultiSelectorContent>
+                  <MultiSelectorList>
+                    {['main', 'web dev'].map((tag) => (
+                      <MultiSelectorItem key={tag} value={tag}>
+                        <div className="flex items-center space-x-2">
+                          <span>{tag}</span>
+                        </div>
+                      </MultiSelectorItem>
+                    ))}
+                  </MultiSelectorList>
+                </MultiSelectorContent>
+              </MultiSelector>
+
+              <FormMessage />
+            </FormItem>
+            )}
+        />
+
           </div>
 
           <div className="lg:col-span-1">
