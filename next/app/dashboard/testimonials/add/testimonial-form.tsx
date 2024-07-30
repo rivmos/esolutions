@@ -15,14 +15,12 @@ import { z } from "zod";
 import { schema } from "./z-schema";
 import axios from "axios";
 import { useEffect } from "react";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { CaseStudy } from "@prisma/client";
+import { Testimonial } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import ImageUpload from "./image-upload";
+import { Textarea } from "@/components/ui/textarea";
 
 
-const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
+const TestimonialForm = ({ data }: { data?: Testimonial }) => {
 
   const router = useRouter()
 
@@ -30,15 +28,13 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
     resolver: zodResolver(schema),
     defaultValues: data?.id ? {
       id: data?.id,
-      title: data?.title as string,
-      description: data?.description as string,
-      content: data?.content as string,
-      image: data?.image as string,
+      name: data?.name as string,
+      position: data?.position as string,
+      message: data?.message as string,
     } : {
-      title: "",
-      description: "",
-      content: "",
-      image: ""
+      name: "",
+      position: "",
+      message: "",
     },
   });
 
@@ -47,8 +43,8 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
     // formData.append('title', data.title)
     // formData.append('description', data.description)
     // formData.append('content', data.content)
-    axios.post('/api/casestudy/save', data).then(res => {
-      router.push('/dashboard/casestudies/list')
+    axios.post('/api/testimonial/save', data).then(res => {
+      router.push('/dashboard/testimonials/list')
       router.refresh()
     })
   }
@@ -61,15 +57,12 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-          <div className="lg:col-span-3">
-
             <FormField
               control={form.control}
-              name="title"
+              name="name"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -79,10 +72,10 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
             />
             <FormField
               control={form.control}
-              name="description"
+              name="position"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel>Position</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -93,34 +86,17 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
 
             <FormField
               control={form.control}
-              name="content"
+              name="message"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Content</FormLabel>
                   <FormControl>
-                    <ReactQuill theme="snow" value={field.value} onChange={field.onChange} />
+                    <Textarea {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-          </div>
-          <div className="lg:col-span-1">
-            <FormField
-              control={form.control}
-              name="image"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Content</FormLabel>
-                  <FormControl>
-                    <ImageUpload value={field.value} onChange={field.onChange} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
 
         <Button type="submit">Submit</Button>
       </form>
@@ -128,4 +104,4 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
   );
 };
 
-export default CaseStudyForm
+export default TestimonialForm

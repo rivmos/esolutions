@@ -54,3 +54,26 @@ model Tag {
   serviceIds  String[]  @db.ObjectId
   services Service[] @relation(fields: [serviceIds], references: [id])
 }
+
+
+model Testimonial {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  position   String?
+  message    String
+}
+
+model Subscriber {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String   @unique
+  name       String
+}
+
+model Blog {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  image       String?
+  description String?
+  content     String
+}
+

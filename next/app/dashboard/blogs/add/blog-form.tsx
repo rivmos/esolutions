@@ -17,12 +17,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { CaseStudy } from "@prisma/client";
+import { Blog } from "@prisma/client";
 import { useRouter } from "next/navigation";
-import ImageUpload from "./image-upload";
+import ImageUpload from "../../casestudies/add/image-upload";
 
 
-const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
+const BlogForm = ({ data }: { data?: Blog }) => {
 
   const router = useRouter()
 
@@ -47,8 +47,8 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
     // formData.append('title', data.title)
     // formData.append('description', data.description)
     // formData.append('content', data.content)
-    axios.post('/api/casestudy/save', data).then(res => {
-      router.push('/dashboard/casestudies/list')
+    axios.post('/api/blog/save', data).then(res => {
+      router.push('/dashboard/blogs/list')
       router.refresh()
     })
   }
@@ -128,4 +128,4 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
   );
 };
 
-export default CaseStudyForm
+export default BlogForm

@@ -6,7 +6,10 @@ import {
   DocumentDuplicateIcon,
   ChatBubbleBottomCenterIcon,
   ServerIcon,
-  TagIcon
+  TagIcon,
+  ChatBubbleBottomCenterTextIcon,
+  ChartBarIcon,
+  BuildingLibraryIcon
 } from '@heroicons/react/24/outline';
 import { MdSupportAgent } from "react-icons/md";
 import Link from 'next/link';
@@ -23,6 +26,11 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   {
+    name: 'Blogs',
+    href: '/dashboard/blogs/list',
+    icon: BuildingLibraryIcon,
+  },
+  {
     name: 'Enquiries',
     href: '/dashboard/enquiries/list',
     icon: ChatBubbleBottomCenterIcon,
@@ -31,6 +39,16 @@ const links = [
     name: 'Services',
     href: '/dashboard/services/list',
     icon: ServerIcon,
+  },
+  {
+    name: 'Testinomials',
+    href: '/dashboard/testimonials/list',
+    icon: ChartBarIcon,
+  },
+  {
+    name: 'Subscribers',
+    href: '/dashboard/subscribers/list',
+    icon: ChatBubbleBottomCenterTextIcon,
   },
   {
     name: 'Tags',

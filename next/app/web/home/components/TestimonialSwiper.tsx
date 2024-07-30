@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import type { CaseStudy } from '@prisma/client'
+import type { Testimonial } from '@prisma/client'
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 
 
 
-const TestimonialSwiper = ({ data }: { data: CaseStudy[] }) => {
+const TestimonialSwiper = ({ data }: { data: Testimonial[] }) => {
     const swiper = useSwiper();
 
     return (
@@ -55,11 +55,11 @@ const TestimonialSwiper = ({ data }: { data: CaseStudy[] }) => {
                                         <div className='flex flex-col rounded-lg p-8 relative max-w-4xl mx-auto'>
                                             <div className='flex gap-6'>
                                                 <div className='border-l-[1px] border-primaryColor pl-4 text-4xl text-blue-600'>&quot;</div>
-                                                <p className='text-sm md:text-base lg:text:lg text-left mb-4'>{item.description + ' ' + item.description + ' ' + item.description + ' ' + item.description}</p>
+                                                <p className='text-sm md:text-base lg:text:lg text-left mb-4'>{item.message}</p>
                                             </div>
                                             <div className='!text-right'>
-                                                <p className='mt-8 uppercase text-blue-600'>- author</p>
-                                                <p className='text-xs'>position</p>
+                                                <p className='mt-8 uppercase text-blue-600'>- {item.name}</p>
+                                                <p className='text-xs'>{item.position}</p>
                                             </div>
                                         </div>
                                     </SwiperSlide>
