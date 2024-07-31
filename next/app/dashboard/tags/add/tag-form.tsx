@@ -46,7 +46,7 @@ const TagForm = ({ data }: { data?: Tag }) => {
     // formData.append('content', data.content)
     axios.post('/api/tag/save', data).then(res => {
       router.push('/dashboard/tags/list')
-      toast({description:"Toast Added Successfully", variant:'success'})
+      toast({description:"Tag Added Successfully", variant:'success'})
       router.refresh()
     })
   }
