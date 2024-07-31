@@ -15,8 +15,11 @@ import { z } from "zod";
 import { schema } from "@/app/dashboard/subscribers/add/z-schema";
 import axios from "axios";
 import { useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const NewsletterForm = () => {
+
+  const {toast} = useToast()
 
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
@@ -36,6 +39,7 @@ const NewsletterForm = () => {
         // Save the enquiry to the database
         await axios.post('/api/subscriber/save', data);
         form.reset();
+        toast({description:"Subscribed Successfully", variant:'success'})
     }
     catch(error) {
       console.error('Error submitting form:', error);

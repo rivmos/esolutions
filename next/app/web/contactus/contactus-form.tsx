@@ -18,11 +18,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import type { Enquiry } from '@prisma/client'
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const ContactUsForm = ({ data }: { data?: Enquiry }) => {
 
-  const router = useRouter()
+  const {toast} = useToast()
 
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
@@ -47,6 +48,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
         // Send the confirmation email
         await axios.post('/api/mail', data);
         form.reset();
+        toast({description:"Enquiry Sent Successfully", variant:'success'})
     }
     catch(error) {
       console.error('Error submitting form:', error);

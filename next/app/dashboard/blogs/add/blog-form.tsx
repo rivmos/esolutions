@@ -20,10 +20,12 @@ import 'react-quill/dist/quill.snow.css';
 import { Blog } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import ImageUpload from "../../casestudies/add/image-upload";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const BlogForm = ({ data }: { data?: Blog }) => {
 
+  const {toast} = useToast()
   const router = useRouter()
 
   const form = useForm<z.output<typeof schema>>({
@@ -49,6 +51,7 @@ const BlogForm = ({ data }: { data?: Blog }) => {
     // formData.append('content', data.content)
     axios.post('/api/blog/save', data).then(res => {
       router.push('/dashboard/blogs/list')
+      toast({description:"Blog Saved Successfully", variant:'success'})
       router.refresh()
     })
   }

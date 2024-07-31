@@ -29,9 +29,12 @@ import {
   MultiSelectorList,
   MultiSelectorTrigger,
 } from "@/components/extension/multi-select";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
+
+  const {toast} = useToast()
   const router = useRouter();
 
 
@@ -58,6 +61,7 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
   const onSubmit = async (data: z.infer<typeof schema>) => {
     axios.post("/api/service/save", data).then((res) => {
       router.push('/dashboard/services/list')
+      toast({description:"Service Added Successfully", variant:'success'})
       router.refresh()
     });
   };

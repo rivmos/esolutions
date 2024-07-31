@@ -20,10 +20,12 @@ import 'react-quill/dist/quill.snow.css';
 import { CaseStudy } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import ImageUpload from "./image-upload";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
 
+  const {toast} = useToast()
   const router = useRouter()
 
   const form = useForm<z.output<typeof schema>>({
@@ -49,6 +51,7 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
     // formData.append('content', data.content)
     axios.post('/api/casestudy/save', data).then(res => {
       router.push('/dashboard/casestudies/list')
+      toast({description:"Case Study Added Successfully", variant:'success'})
       router.refresh()
     })
   }

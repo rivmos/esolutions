@@ -2,6 +2,10 @@ import {
     HiMail,
     HiDocumentText,
     HiOutlineMail,
+    HiTag,
+    HiUser,
+    HiPencil,
+    HiUserGroup
 } from 'react-icons/hi'
 import { SiAmazonsimpleemailservice } from "react-icons/si";
 import { ReactNode } from 'react'
@@ -43,7 +47,7 @@ const StatisticIcon = ({ type }: { type?: string }) => {
             return (
                 <Avatar
                     size={55}
-                    className="bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20 dark:text-yellow-100"
+                    className="bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-100"
                     icon={<SiAmazonsimpleemailservice />}
                 />
             )
@@ -52,8 +56,36 @@ const StatisticIcon = ({ type }: { type?: string }) => {
             return (
                 <Avatar
                     size={55}
-                    className="bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20 dark:text-yellow-100"
-                    icon={<HiOutlineMail />}
+                    className="bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-100"
+                    icon={<HiUserGroup />}
+                />
+            )
+
+        case 'Blogs':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-100"
+                    icon={<HiPencil />}
+                />
+            )
+
+        case 'Testimonials':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-100"
+                    icon={<HiUser />}
+                />
+            )
+
+
+        case 'Tags':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-pink-100 text-pink-600 dark:bg-pink-500/20 dark:text-pink-100"
+                    icon={<HiTag />}
                 />
             )
         default:
@@ -63,7 +95,7 @@ const StatisticIcon = ({ type }: { type?: string }) => {
 
 const StatisticCard = ({ data = {} }: { data: Partial<Statistic> }) => {
     return (
-        <Link href={data.name === 'Case Studies' ? '/dashboard/casestudies/list' : data.name === 'Enquiries' ? '/dashboard/enquiries/list' : data.name === 'Services' ? '/dashboard/services/list' : ''}>
+        <Link href={`/dashboard/${data?.name?.replace(/\s+/g, '').toLowerCase()}/list`}>
             <div className="flex items-center gap-4 border-[1px] rounded-xl p-4 h-24 hover:bg-indigo-50 transition-colors duration-300">
                 <StatisticIcon type={data.name} />
                 <div>

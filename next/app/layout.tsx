@@ -4,6 +4,7 @@ import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import SessionProvider from "@/app/components/SessionProvider"
 import { getServerSession } from "next-auth";
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           {children}
         </SessionProvider> 
+        <Toaster />
       </body>
     </html>
   );

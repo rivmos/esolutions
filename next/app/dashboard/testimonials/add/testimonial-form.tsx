@@ -18,10 +18,12 @@ import { useEffect } from "react";
 import { Testimonial } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 
 
 const TestimonialForm = ({ data }: { data?: Testimonial }) => {
 
+  const {toast} = useToast()
   const router = useRouter()
 
   const form = useForm<z.output<typeof schema>>({
@@ -45,6 +47,7 @@ const TestimonialForm = ({ data }: { data?: Testimonial }) => {
     // formData.append('content', data.content)
     axios.post('/api/testimonial/save', data).then(res => {
       router.push('/dashboard/testimonials/list')
+      toast({description:"Testimonial Added Successfully", variant:'success'})
       router.refresh()
     })
   }

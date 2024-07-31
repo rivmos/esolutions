@@ -19,10 +19,12 @@ import 'react-quill/dist/quill.snow.css';
 import { Tag } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import prisma from '@/app/lib/prismadb'
+import { useToast } from "@/components/ui/use-toast";
 
 
 const TagForm = ({ data }: { data?: Tag }) => {
 
+  const {toast} = useToast()
   const router = useRouter()
 
   const [tag, setTags] = useState<Tag[]>([])
@@ -44,6 +46,7 @@ const TagForm = ({ data }: { data?: Tag }) => {
     // formData.append('content', data.content)
     axios.post('/api/tag/save', data).then(res => {
       router.push('/dashboard/tags/list')
+      toast({description:"Toast Added Successfully", variant:'success'})
       router.refresh()
     })
   }
