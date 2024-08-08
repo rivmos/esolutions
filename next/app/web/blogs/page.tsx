@@ -15,36 +15,25 @@ export default async function Page() {
           {data?.map(
             (item, index) => {
               return (
-                // <div key={index} className='flex flex-col bg-white shadow-sm rounded-xl h-full p-4 md:p-8'>
-                //   <h6 className='text-center font-semibold mb-4'>{item.title}</h6>
-                //   <div><Image src={item.image ?? '/img/upload-widget/upload.png'} width={400} height={200} className='w-full object-cover mb-4 rounded-sm' alt={item.title as string} /></div>
-                //   <div className='flex flex-col justify-between flex-1 text-center space-y-4'>
-                //     <div className='overflow-y-auto max-h-24'>{shortenText(item?.description as string)}</div>
-                //     <Link href={`/web/blogs/${item?.id}`} className='underline text-blue-600 hover:text-blue-800 text-sm'>
-                //       Read More
-                //     </Link>
-                //   </div>
-                // </div>
-
-<div className='flex flex-col shadow-lg p-5 my-8 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
-<div>
-    <Image
-        width={400}
-        height={400}
-        src={item.image as string}
-        className='w-full h-52 object-cover rounded-t-2xl'
-        alt={item.title}
-    />
-</div>
-<div className='text-left py-4 space-y-3'>
-    <h6 className='text-lg font-semibold h-20'>{item.title}</h6>
-    <Link href={`/web/blogs/${item.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-300'>
-        <span className='border-2 p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
-            Read More
-        </span>
-    </Link>
-</div>
-</div>
+                <div className='flex flex-col shadow-lg p-5 my-8 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
+                  <div>
+                    <Image
+                      width={400}
+                      height={400}
+                      src={item.image as string}
+                      className='w-full h-52 object-cover rounded-t-2xl'
+                      alt={item.title}
+                    />
+                  </div>
+                  <div className='text-left py-4 space-y-3'>
+                    <h6 className='text-lg font-semibold h-20'>{item.title}</h6>
+                    <Link href={`/web/blogs/${item.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-300'>
+                      <span className='border-2 p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
+                        Read More
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               );
             }
           )}
