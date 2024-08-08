@@ -10,6 +10,7 @@ export default async function Page() {
   const testimonials = await prisma.testimonial.count()
   const subscribers = await prisma.subscriber.count()
   const tags = await prisma.tag.count()
+  const bannerslides = await prisma.bannerSlide.count()
 
   const data = [
     {name:'Case Studies', value: casestudies},
@@ -19,6 +20,7 @@ export default async function Page() {
     {name:'Testimonials', value: testimonials},
     {name:'Subscribers', value: subscribers},
     {name:'Tags', value: tags},
+    {name:'Banner Slides', value: bannerslides},
   ]
 
   return (

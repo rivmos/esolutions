@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
+import BannerTitle from './BannerTitle'
 
 export type BannerProps = {
   overlayImage?: string
@@ -38,9 +39,10 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
       </div>
       <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-80'></div>
       <div className="absolute top-[50%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
-        <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
+        {/* <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
           {title}
-        </h2>
+        </h2> */}
+        <BannerTitle title={title as string}/>
         {description && <p className="mt-6 text-sm md:text-base lg:text-lg text-gray-300 mx-auto text-center w-full md:w-3/4 lg:w-1/2">
           {description}
         </p>}

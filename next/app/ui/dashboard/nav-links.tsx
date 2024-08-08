@@ -9,7 +9,8 @@ import {
   TagIcon,
   ChatBubbleBottomCenterTextIcon,
   ChartBarIcon,
-  BuildingLibraryIcon
+  BuildingLibraryIcon,
+  FilmIcon
 } from '@heroicons/react/24/outline';
 import { MdSupportAgent } from "react-icons/md";
 import Link from 'next/link';
@@ -54,6 +55,11 @@ const links = [
     name: 'Tags',
     href: '/dashboard/tags/list',
     icon: TagIcon,
+  },
+  {
+    name: 'Banner Slides',
+    href: '/dashboard/bannerslides/list',
+    icon: FilmIcon,
   },
 ];
 

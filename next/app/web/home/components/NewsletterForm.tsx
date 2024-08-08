@@ -83,7 +83,7 @@ const NewsletterForm = () => {
             )}
           />
         </div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{!form.formState.isSubmitting ? 'Submit' : 'Submitting...'}</Button>
       </form>
     </Form>
   );

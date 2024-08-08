@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import CaseStudySwiper from './CaseStudySwiper';
 import prisma from '@/app/lib/prismadb'
+import SectionTitle from './SectionTitle';
+import { Button } from '@/components/ui/moving-border';
+
 
 const CaseStudies = async () => {
 
@@ -9,11 +12,13 @@ const CaseStudies = async () => {
 
     return (
         <div className='container mx-auto py-12 md:py-16 lg:py-20 px-4'>
-            <h2 className="text-3xl font-bold mb-8 text-center tracking-tight sm:text-4xl">Case Studies</h2>
-            <CaseStudySwiper data={data}/>
+            <SectionTitle title='Case Studies' />
+            <CaseStudySwiper data={data} />
             <div className='flex justify-center mt-8'>
-                <Link href="/web/casestudies" className="border border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition">
-                    View Case Studies
+                <Link href="/web/casestudies">
+                    <Button className="bg-white text-gray-800 rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-400 border-blue-400"> 
+                        View More
+                    </Button>
                 </Link>
             </div>
         </div>

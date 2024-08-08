@@ -37,12 +37,12 @@ const CaseStudySwiper = ({ data }: { data: CaseStudy[] }) => {
             {data?.map(
                 (item, index) => {
                     return (
-                        <SwiperSlide key={index}>
-                            <div className='flex flex-col select-none bg-white border-zinc-200 rounded-md shadow-sm border-[1px] h-full p-4 md:p-8'>
-                                <h6 className='text-left font-semibold'>{item.title}</h6>
-                                <div className='overflow-y-auto mb-2'>{shortenText(item?.description as string)}</div>
-                                <div><Image width={400} height={400} src={item.image ?? '/img/data.png'} className='w-full h-48 md:h-96 object-cover mb-4 rounded-md' alt={item.title as string} /></div>
-                                <div className='flex items-start justify-between'>
+                        <SwiperSlide key={index} className='my-4'>
+                            <div className='flex flex-col select-none bg-white rounded-md border-[1px] h-full py-6'>
+                                <h6 className='text-left font-semibold px-4'>{item.title}</h6>
+                                <div className='overflow-y-auto mb-2 px-4'>{shortenText(item?.description as string)}</div>
+                                <div><Image width={400} height={400} src={item.image ?? '/img/data.png'} className='w-full h-48 md:h-96 object-cover mb-4' alt={item.title as string} /></div>
+                                <div className='flex justify-end px-4'>
                                     <Link href={`/web/casestudies/${item?.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-200'>
                                         <span className='border-[1px] p-2 rounded-lg hover:border-blue-600 transition-colors duration-500'>
                                             Read More

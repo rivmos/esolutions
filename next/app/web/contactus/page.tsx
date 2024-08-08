@@ -1,18 +1,18 @@
-"use client"
-
 import Banner from "@/app/ui/web/Banner";
-import { Formik, Form, Field } from "formik";
+import { MdOutlinePhone, MdOutlineAttachEmail } from "react-icons/md";
 import ContactUsForm from "./contactus-form";
 
 export default function Page() {
   return (
     <main>
       <Banner title='Contact Us' isShort bannerImage='/img/banner/laptop-bg.png' bannerImageAlt='Contact Us Banner Image' />
-      <section className="py-10 lg:py-20 bg-gray-50 font-poppins dark:bg-gray-800">
+      <section className="bg-gray-50 font-poppins dark:bg-gray-800">
+
+
         <div className="container py-4 mx-auto lg:py-6 md:px-6">
-          <div className="flex flex-wrap ">
-            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
-              <div>
+
+          <div className="w-full px-4 mb-10 lg:mb-0 ">
+            {/* <div>
                 <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
                   <span className="text-sm text-gray-600 uppercase dark:text-gray-400">Get in Touch</span>
                   <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
@@ -85,13 +85,39 @@ export default function Page() {
                     </div>
                   </div>
                 </div>
+              </div> */}
+            <div className="px-4 py-8">
+              <p className="text-center mb-8">
+              We are here to assist you. Whether you have a question about our services, need support, or just want to give us feedback, feel free to reach out. Our team is dedicated to ensuring you receive the best possible service.
+              </p>
+              <div className="flex flex-col md:flex-row py-12 justify-center items-center gap-12 md:space-x-12">
+                <div className="flex flex-col items-center mb-8 md:mb-0">
+                  <div className="flex justify-center items-center mb-4">
+                    <MdOutlineAttachEmail className="text-blue-600" size={36} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Write To Us On</h3>
+                  <a href="mailto:info@esolutions.co.in" className="text-gray-600">info@esolutions.co.in</a>
+                </div>
+
+                <div className="hidden md:block border-l-[1px] h-32"></div>
+
+                <div className="flex flex-col items-center">
+                  <div className="flex justify-center items-center mb-4">
+                    <MdOutlinePhone  className="text-blue-600" size={36}/>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Let's Talk</h3>
+                  <a href="tel:+91 78888 53170" className="text-gray-600">+91 78888 53170</a>
+                </div>
               </div>
             </div>
-            <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+          </div>
+        </div>
 
-              <div className={'bg-gradient-to-r from-white to-transparent p-4 rounded-xl h-full'}>
-                  <ContactUsForm />
-              </div>
+
+        <div className="bg-zinc-100">
+          <div className="w-full px-4 pt-16 lg:w-1/3 lg:mb-0 mx-auto">
+            <div className={'bg-gradient-to-r from-white to-transparent p-4 rounded-xl h-full'}>
+              <ContactUsForm />
             </div>
           </div>
         </div>

@@ -5,9 +5,9 @@ import {
     HiTag,
     HiUser,
     HiPencil,
-    HiUserGroup
+    HiUserGroup,
 } from 'react-icons/hi'
-import { SiAmazonsimpleemailservice } from "react-icons/si";
+import { SiAmazonsimpleemailservice, SiFujifilm } from "react-icons/si";
 import { ReactNode } from 'react'
 import Link from 'next/link'
 
@@ -49,6 +49,16 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                     size={55}
                     className="bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-100"
                     icon={<SiAmazonsimpleemailservice />}
+                />
+            )
+
+
+        case 'Banner Slides':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-100"
+                    icon={<SiFujifilm />}
                 />
             )
 

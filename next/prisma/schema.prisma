@@ -49,24 +49,23 @@ model Service {
 }
 
 model Tag {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  serviceIds  String[]  @db.ObjectId
-  services Service[] @relation(fields: [serviceIds], references: [id])
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  serviceIds String[]  @db.ObjectId
+  services   Service[] @relation(fields: [serviceIds], references: [id])
 }
 
-
 model Testimonial {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  position   String?
-  message    String
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  position String?
+  message  String
 }
 
 model Subscriber {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  email      String   @unique
-  name       String
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+  name  String
 }
 
 model Blog {
@@ -77,3 +76,11 @@ model Blog {
   content     String
 }
 
+model BannerSlide {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  heading    String
+  subheading String
+  ctaText    String
+  ctaHref    String
+  image      String
+}
