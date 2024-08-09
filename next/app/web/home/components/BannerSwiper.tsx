@@ -11,6 +11,8 @@ import Link from 'next/link';
 import type { BannerSlide } from '@prisma/client'
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { Button } from '@/components/ui/moving-border';
+import CustomButton from '@/app/ui/common/CustomButton';
+
 
 
 const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
@@ -73,11 +75,9 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                                     </p>}
                                     {item.ctaHref && (
                                         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
-                                            <Link href={item.ctaHref}>
-                                                <Button className="bg-transparent text-white rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300 border-white hover:text-blue-400">
+                                            <CustomButton href={item.ctaHref} className=' border-white hover:text-blue-400 bg-transparent text-white'>
                                                     {item.ctaText}
-                                                </Button>
-                                            </Link>
+                                            </CustomButton>
                                         </div>
                                     )}
                                 </div>

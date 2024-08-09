@@ -51,7 +51,7 @@ const BlogSwiper = ({ data }: { data: Blog[] }) => {
                                 <div className='text-left py-4 space-y-3'>
                                     <h6 className='text-lg font-semibold h-20'>{item.title}</h6>
                                     <Link href={`/web/blogs/${item.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-300'>
-                                        <span className='border-2 p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
+                                        <span className='border-[1px] p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
                                             View
                                         </span>
                                     </Link>

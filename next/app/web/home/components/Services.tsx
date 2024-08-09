@@ -4,6 +4,7 @@ import ServiceSwiper from './ServiceSwiper';
 import prisma from '@/app/lib/prismadb'
 import SectionTitle from './SectionTitle';
 import { Button } from '@/components/ui/moving-border';
+import CustomButton from '@/app/ui/common/CustomButton';
 
 const Services = async () => {
 
@@ -19,11 +20,9 @@ const Services = async () => {
                 <SectionTitle title='Our Services' />
                 <ServiceSwiper data={data} />
                 <div className='flex justify-center mt-8'>
-                    <Link href="/web/services">
-                        <Button className="bg-white text-gray-800 rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-400 border-blue-400"> 
-                            View More
-                        </Button>
-                    </Link>
+                    <CustomButton href="/web/services">
+                        View More
+                    </CustomButton>
                 </div>
             </div>
         </>

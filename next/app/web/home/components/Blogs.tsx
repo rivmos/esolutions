@@ -4,6 +4,7 @@ import BlogSwiper from './BlogSwiper';
 import prisma from '@/app/lib/prismadb'
 import { Button } from '@/components/ui/moving-border';
 import SectionTitle from './SectionTitle';
+import CustomButton from '@/app/ui/common/CustomButton';
 
 const Blogs = async () => {
 
@@ -15,11 +16,9 @@ const Blogs = async () => {
             <SectionTitle title='Blogs' />
             <BlogSwiper data={data} />
             <div className='flex justify-center mt-8'>
-                <Link href="/web/blogs">
-                    <Button className="bg-white text-gray-800 rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-400 border-blue-400">
-                        View More
-                    </Button>
-                </Link>
+                <CustomButton href="/web/blogs">
+                    View More
+                </CustomButton>
             </div>
         </div>
     );

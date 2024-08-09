@@ -15,7 +15,7 @@ export default async function Page() {
           {data?.map(
             (item, index) => {
               return (
-                <div className='flex flex-col shadow-lg p-5 my-8 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
+                <div key={item.id} className='flex flex-col shadow-lg p-5 my-8 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
                   <div>
                     <Image
                       width={400}
@@ -28,7 +28,7 @@ export default async function Page() {
                   <div className='text-left py-4 space-y-3'>
                     <h6 className='text-lg font-semibold h-20'>{item.title}</h6>
                     <Link href={`/web/blogs/${item.id}`} className='hover:text-blue-600 text-sm underline-animation transition-colors duration-300'>
-                      <span className='border-2 p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
+                      <span className='border-[1px] p-2 rounded-lg hover:border-blue-600 transition-colors duration-300'>
                         Read More
                       </span>
                     </Link>

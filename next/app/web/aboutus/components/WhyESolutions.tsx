@@ -3,6 +3,7 @@ import React from 'react';
 import { GrStatusGood } from "react-icons/gr";
 import { MultiStepLoader as Loader } from "@/components/ui/multi-step-loader";
 import { Button } from '@/components/ui/moving-border';
+import CustomButton from '@/app/ui/common/CustomButton';
 
 const items = [
   { text: "Highly Skilled and Experienced Team" },
@@ -69,11 +70,9 @@ const WhyESolutions = () => {
           <p className="text-gray-700 text-lg px-4 font-semibold md:font-bold my-8">
             If you have any questions or would like to know more about our services, don&apos;t hesitate to contact us.
           </p>
-          <Link href="/web/contactus">
-            <Button className="bg-white text-gray-800 rounded-md px-4 py-2 sm:px-6 sm:py-3 hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-400 border-blue-400">
+          <CustomButton href='/web/contactus'>
               Get In Touch
-            </Button>
-          </Link>
+          </CustomButton>
         </div>
       </div>
     </section>

@@ -22,7 +22,7 @@ export default async function Page() {
         <div className='container mx-auto py-12 md:py-16 lg:py-20 px-4'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {data?.map(
-              (item, index) => <ServiceCard data={item}/>
+              (item, index) => <ServiceCard key={item.id} data={item}/>
             )}
           </div>
         </div>

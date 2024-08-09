@@ -105,7 +105,7 @@ export default function Page() {
                   <div className="flex justify-center items-center mb-4">
                     <MdOutlinePhone  className="text-blue-600" size={36}/>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Let's Talk</h3>
+                  <h3 className="text-xl font-bold mb-2">Let&apos;s Talk</h3>
                   <a href="tel:+91 78888 53170" className="text-gray-600">+91 78888 53170</a>
                 </div>
               </div>
