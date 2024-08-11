@@ -9,7 +9,7 @@ const Page = () => {
   const board = {
     title: "Engaging Video and Animation Services to Elevate Your Brand",
     description: "Our team specializes in creating compelling videos and animations that captivate your audience and communicate your message effectively. From promotional videos to animated explainer videos, we tailor our services to meet your specific needs and drive engagement.",
-    image: "/img/services/design.png",
+    image: "/img/banner/video-bg.png",
     cards: [
       {
         title: "Promotional Videos",
@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/design-bg.png' title='Video & Animation' isShort />
+      <Banner bannerImage='/img/banner/services-bg.png' title='Video & Animation' isShort />
       <UnderBanner title="Captivating Video and Animation Services for Maximum Impact!" description="Our expert team creates promotional, explainer, and corporate videos tailored to your business needs." btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Video Animation Service Image"} cards={board.cards} />
       <Features image='/img/services/computers.png' imageAlt='Image depicting video production process' features={features}/>

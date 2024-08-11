@@ -1,3 +1,4 @@
+import Newsletter from "@/app/web/home/components/Newsletter";
 import Link from "next/link";
 import { TiSocialPinterest, TiSocialInstagram, TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 
@@ -49,7 +50,7 @@ const Footer = () => {
             <div className="bg-gradient-to-r from-neutral-900 to-neutral-700">
                 <div className="container mx-auto w-full py-8 px-6 lg:py-12 lg:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div className='lg:col-span-2'>
+                        <div>
                             <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Explore</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
@@ -82,7 +83,7 @@ const Footer = () => {
                                     <Link href="/web/casestudies" className="hover:underline font-light text-sm lg:text-base">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/insights" className="hover:underline font-light text-sm lg:text-base">Insights</Link>
+                                    <Link href="/web/blogs" className="hover:underline font-light text-sm lg:text-base">Blogs</Link>
                                 </li>
                             </ul>
                         </div>
@@ -102,6 +103,9 @@ const Footer = () => {
                                     <Link href="/contact-us" className="hover:underline font-light text-sm lg:text-base">Contact Us</Link>
                                 </li>
                             </ul>
+                        </div>
+                        <div>
+                            <Newsletter />
                         </div>
                     </div>
                 </div>

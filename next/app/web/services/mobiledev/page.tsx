@@ -9,7 +9,7 @@ const Page = () => {
   const board = {
     title: "Cutting-Edge Mobile App Solutions Tailored to Your Business Goals",
     description: "Our team of skilled app developers delivers innovative mobile solutions that offer exceptional user experiences. We specialize in developing high-quality apps for both iOS and Android platforms, ensuring your app stands out in the competitive market.",
-    image: "/img/services/design.png",
+    image: "/img/banner/mobiledev-bg.png",
     cards: [
       {
         title: "iOS App Development",
@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/design-bg.png' title='Mobile App Design & Development' isShort />
+      <Banner bannerImage='/img/banner/services-bg.png' title='Mobile App Design & Development' isShort />
       <UnderBanner title="Innovative Mobile App Solutions for a Competitive Edge!" description="Our expert developers create custom mobile apps for iOS, Android, and cross-platform solutions tailored to your business needs." btnText="LET'S START BUILDING" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Mobile App Service Image"} cards={board.cards} />
       <Features image='/img/services/computers.png' imageAlt='Image depicting mobile application development' features={features}/>

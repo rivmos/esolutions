@@ -9,7 +9,7 @@ const Page = () => {
   const board = {
     title: "Comprehensive Digital Marketing and Analytics Services to Grow Your Business",
     description: "Our digital marketing experts use data-driven strategies to enhance your online presence and drive growth. From SEO and PPC to social media and content marketing, we offer a full suite of services designed to increase your visibility and engagement.",
-    image: "/img/services/design.png",
+    image: "/img/banner/digitalmarketing-bg.png",
     cards: [
       {
         title: "Search Engine Optimization (SEO)",
@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/design-bg.png' title='Digital Marketing & Analytics' isShort />
+      <Banner bannerImage='/img/banner/services-bg.png' title='Digital Marketing & Analytics' isShort />
       <UnderBanner title="Expert Digital Marketing Services for Enhanced Online Presence!" description="Our team provides SEO, PPC, social media, and content marketing services to boost your visibility and engagement." btnText="LET'S GROW YOUR BUSINESS" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Digital Marketing Service Image"} cards={board.cards} />
       <Features image='/img/services/computers.png' imageAlt='Image depicting digital marketing analytics' features={features}/>

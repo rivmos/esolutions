@@ -28,10 +28,10 @@ const SubscriberForm = ({ data }: { data?: Subscriber }) => {
     resolver: zodResolver(schema),
     defaultValues: data?.id ? {
       id: data?.id,
-      name: data?.name as string,
+      // name: data?.name as string,
       email: data?.email as string,
     } : {
-      name: "",
+      // name: "",
       email: ""
     },
   });
@@ -55,7 +55,7 @@ const SubscriberForm = ({ data }: { data?: Subscriber }) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
+            {/* <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
@@ -67,7 +67,7 @@ const SubscriberForm = ({ data }: { data?: Subscriber }) => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="email"
@@ -82,7 +82,7 @@ const SubscriberForm = ({ data }: { data?: Subscriber }) => {
               )}
             />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{form.formState.isSubmitting ? 'Submitting' : 'Submit'}</Button>
       </form>
     </Form>
   );

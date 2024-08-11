@@ -8,7 +8,6 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <>
       <Header />
       <div>{children}</div>
-      <Newsletter />
       <Footer />
     </>
   );

@@ -25,7 +25,7 @@ const NewsletterForm = () => {
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
-      name: "",
+      // name: "",
       email: "",
     },
   });
@@ -50,22 +50,22 @@ const NewsletterForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-center">
-        <div className="flex flex-col lg:flex-row items-end gap-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-center w-full">
+        <div className="flex flex-col gap-4">
 
-          <FormField
+          {/* <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel className="sr-only">Name</FormLabel> {/* sr-only class hides the label visually but it's accessible for screen readers */}
+                <FormLabel className="sr-only">Name</FormLabel> 
                 <FormControl>
                   <Input placeholder="Name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
 
           <FormField
             control={form.control}
@@ -74,16 +74,16 @@ const NewsletterForm = () => {
               <FormItem className="w-full">
                 <FormLabel className="sr-only">Email</FormLabel> {/* sr-only class hides the label visually but it's accessible for screen readers */}
                 <FormControl>
-                  <Input placeholder="email" {...field} />
+                  <Input placeholder="Email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+          <Button type="submit" disabled={form.formState.isSubmitting} className="w-1/2 lg:w-full bg-blue-600 text-white">
+            {!form.formState.isSubmitting ? 'Submit' : 'Submitting...'}
+          </Button>
         </div>
-        <Button type="submit" disabled={form.formState.isSubmitting}>
-          {!form.formState.isSubmitting ? 'Submit' : 'Submitting...'}
-        </Button>
       </form>
     </Form>
   );

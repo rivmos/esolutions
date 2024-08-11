@@ -32,9 +32,9 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 
 
-const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
+const ServiceForm = ({ data, tags }: { data?: Service, tags: Tag[] }) => {
 
-  const {toast} = useToast()
+  const { toast } = useToast()
   const router = useRouter();
 
 
@@ -46,6 +46,7 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
         name: data.name,
         description: data.description,
         image: data.image,
+        href: data.href,
         tagIds: data.tagIds || [],
         isActive: data.isActive,
       }
@@ -53,6 +54,7 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
         name: "",
         description: "",
         image: "",
+        href: "",
         tagIds: [],
         isActive: true,
       },
@@ -61,7 +63,7 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
   const onSubmit = async (data: z.infer<typeof schema>) => {
     axios.post("/api/service/save", data).then((res) => {
       router.push('/dashboard/services/list')
-      toast({description:"Service Added Successfully", variant:'success'})
+      toast({ description: "Service Added Successfully", variant: 'success' })
       router.refresh()
     });
   };
@@ -96,6 +98,20 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
                   <FormLabel>Description</FormLabel>
                   <FormControl>
                     <Textarea placeholder="Enter Description" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="href"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Path</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter Path" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -169,7 +185,7 @@ const ServiceForm = ({ data, tags }: { data?: Service, tags:Tag[] }) => {
             />
           </div>
         </div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{form.formState.isSubmitting ? 'Submitting' : 'Submit'}</Button>
       </form>
     </Form>
   );

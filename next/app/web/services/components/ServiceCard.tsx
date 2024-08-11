@@ -31,7 +31,7 @@ const ServiceCard = ({ data }: { data: Service }) => {
                     <CardItem
                         as="p"
                         translateZ="60"
-                        className='text-xs text-left h-auto max-h-24 overflow-hidden'
+                        className='text-sm text-left h-auto max-h-20 overflow-hidden'
                     >
                         {shortenText(data.description)}
                     </CardItem>
@@ -40,7 +40,7 @@ const ServiceCard = ({ data }: { data: Service }) => {
                     <CardItem
                         translateZ="100"
                         as={Link}
-                        href="/web/services"
+                        href={data.href}
                         className='border-[1px] w-32 p-2 rounded-xl text-center text-xs hover:shadow-lg hover:border-blue-400'
                     >
                         View

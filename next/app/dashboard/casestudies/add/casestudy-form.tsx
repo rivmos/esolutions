@@ -125,7 +125,7 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
           </div>
         </div>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{form.formState.isSubmitting ? 'Submitting' : 'Submit'}</Button>
       </form>
     </Form>
   );

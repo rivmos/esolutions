@@ -79,7 +79,7 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6 flex flex-col items-start gap-8">
-                                <NavBarContent onClick={() => setIsClose(true)}/>
+                                <NavBarContent onClick={() => setIsClose(true)} />
                             </div>
                         </div>
                     </div>
@@ -120,17 +120,23 @@ const components: { title: string; href: string; description: string }[] = [
         description:
             "Leverage data-driven digital marketing strategies to enhance your online presence and achieve measurable business growth.",
     },
+    {
+        title: "View All",
+        href: "/web/services",
+        description:
+            "Browser our offered services.",
+    },
 ]
 
 
-const NavBarContent = ({onClick} : {onClick?: () => void}) => {
+const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
 
     const session = useSession()
 
     return (
         <NavigationMenu className='z-50 block'>
             <NavigationMenuList className='space-x-4 flex-col items-start lg:flex-row'>
-                {session.data?.user?.email && <NavigationMenuItem onClick={onClick}>
+                {session.data?.user?.email && <NavigationMenuItem className='ml-4 lg:ml-0' onClick={onClick}>
                     <Link href="/dashboard" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Dashboard
@@ -146,7 +152,7 @@ const NavBarContent = ({onClick} : {onClick?: () => void}) => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                    <NavigationMenuContent className='!w-60 lg:!w-[500px]'>
+                    {/* <NavigationMenuContent className='!w-60 lg:!w-[500px]'>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-2">
                                 <NavigationMenuLink asChild onClick={onClick}>
@@ -162,6 +168,20 @@ const NavBarContent = ({onClick} : {onClick?: () => void}) => {
                                 </NavigationMenuLink>
 
                             </li>
+                            {components.map((component) => (
+                                <ListItem
+                                    key={component.title}
+                                    title={component.title}
+                                    href={component.href}
+                                    onClick={onClick}
+                                >
+                                    {component.description}
+                                </ListItem>
+                            ))}
+                        </ul>
+                    </NavigationMenuContent> */}
+                    <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {components.map((component) => (
                                 <ListItem
                                     key={component.title}

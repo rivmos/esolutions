@@ -66,7 +66,7 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
                                     <CardItem
                                         translateZ="100"
                                         as={Link}
-                                        href="/web/services"
+                                        href={item.href}
                                         className='border-[1px] p-2 rounded-lg hover:border-blue-600 hover:text-blue-600 text-sm underline-animation transition-colors duration-200'
                                     >
                                         View

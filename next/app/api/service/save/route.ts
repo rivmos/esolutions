@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const parsed = schema.safeParse(data);
 
     if (parsed.success) {
-        const { id, name, description, isActive, image, tagIds } = parsed.data;
+        const { id, name, description, isActive, image, tagIds, href } = parsed.data;
 
         try {
             let service;
@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
                         name,
                         description,
                         image,
+                        href,
                         isActive,
                         tagIds: tagIds
                     },
@@ -37,6 +38,7 @@ export async function POST(req: NextRequest) {
                         name,
                         description,
                         image,
+                        href,
                         isActive,
                         tagIds: tagIds,
                     },

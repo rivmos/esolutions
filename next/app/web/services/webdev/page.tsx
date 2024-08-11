@@ -9,7 +9,7 @@ const Page = () => {
   const board = {
     title: "Innovative Web Development Solutions Crafted For Your Unique Business Needs",
     description: "Our seasoned developers excel at creating robust, high-performing websites that drive engagement and conversions. From e-commerce platforms to content management systems, we tailor our development services to meet your specific requirements, ensuring your online presence is not only functional but also impressive.",
-    image: "/img/services/design.png",
+    image: "/img/banner/webdev.png",
     cards: [
       {
         title: "Custom Web Development",
@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/design-bg.png' title='Web Development' isShort />
+      <Banner bannerImage='/img/banner/services-bg.png' title='Web Development' isShort />
       <UnderBanner title="Comprehensive Web Development Services to Elevate Your Online Presence!" description="Our expert developers provide customized solutions for websites, e-commerce, and content management systems tailored to your business needs." btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Web Development Service Image"} cards={board.cards} />
       <Features image='/img/services/computers.png' imageAlt='Image depicting a responsive website on various devices' features={features}/>
