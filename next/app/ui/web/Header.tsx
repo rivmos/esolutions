@@ -57,94 +57,7 @@ export default function Header() {
                         <button onClick={() => setIsClose(true)} className='block lg:hidden items-center mt-4'>
                             <IoIosCloseCircleOutline size={28} className='hover:cursor-pointer' />
                         </button>
-                        <NavigationMenu className='z-50 block'>
-                            <NavigationMenuList className='space-x-4'>
-                                {session.data?.user?.email && <NavigationMenuItem>
-                                    <Link href="/dashboard" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Dashboard
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>}
-                                <NavigationMenuItem>
-                                    <Link href="/web/aboutus" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            About Us
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                                            <li className="row-span-2">
-                                                <NavigationMenuLink asChild>
-                                                    <a
-                                                        className="flex h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                                        href="/web/services"
-                                                    >
-                                                        <Logo />
-                                                        {/* <div className="mb-2 mt-4 text-lg font-medium">
-                                                            Our Services
-                                                        </div> */}
-                                                        <p className="text-sm leading-tight text-muted-foreground mt-4">
-                                                            Discover our expertise in development, design, video, and digital marketing. Tailored solutions for your business.
-                                                        </p>
-                                                    </a>
-                                                </NavigationMenuLink>
-
-                                            </li>
-                                            {components.map((component) => (
-                                                <ListItem
-                                                    key={component.title}
-                                                    title={component.title}
-                                                    href={component.href}
-                                                >
-                                                    {component.description}
-                                                </ListItem>
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem>
-                                {/* <NavigationMenuItem>
-                                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                                    <NavigationMenuContent>
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                                            {components.map((component) => (
-                                                <ListItem
-                                                    key={component.title}
-                                                    title={component.title}
-                                                    href={component.href}
-                                                >
-                                                    {component.description}
-                                                </ListItem>
-                                            ))}
-                                        </ul>
-                                    </NavigationMenuContent>
-                                </NavigationMenuItem> */}
-                                <NavigationMenuItem>
-                                    <Link href="/web/casestudies" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Case Studies
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <Link href="/web/blogs" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Blogs
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>
-                                <NavigationMenuItem>
-                                    <Link href="/web/contactus" legacyBehavior passHref>
-                                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Contact Us
-                                        </NavigationMenuLink>
-                                    </Link>
-                                </NavigationMenuItem>
-                            </NavigationMenuList>
-                        </NavigationMenu>
+                        <NavBarContent />
                     </div>
                 </div>
             </nav>
@@ -166,13 +79,7 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6 flex flex-col items-start gap-8">
-                                {session.data?.user?.email && <LinkComponent href="/dashboard" linkText="Dashboard" />}
-                                <LinkComponent href="/web/aboutus" linkText="About Us" />
-                                <LinkComponent href="/web/services" linkText="Services" />
-                                <LinkComponent href="/web/casestudies" linkText="Case Studies" />
-                                {/* <LinkComponent href="/web/portfolio" linkText="Portfolio" /> */}
-                                <LinkComponent href="/web/blogs" linkText="Blogs" />
-                                <LinkComponent href="/web/contactus" className="hover:text-white text-blue-600 border-primaryColor border-[1px] p-2 rounded-md hover:bg-blue-600 transition-colors duration-300" linkText="Contact Us" />
+                                <NavBarContent />
                             </div>
                         </div>
                     </div>
@@ -215,6 +122,83 @@ const components: { title: string; href: string; description: string }[] = [
     },
 ]
 
+
+const NavBarContent = () => {
+
+    const session = useSession()
+
+    return (
+        <NavigationMenu className='z-50 block'>
+            <NavigationMenuList className='space-x-4 flex-col items-start lg:flex-row'>
+                {session.data?.user?.email && <NavigationMenuItem>
+                    <Link href="/dashboard" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Dashboard
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>}
+                <NavigationMenuItem className='ml-4 lg:ml-0'>
+                    <Link href="/web/aboutus" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            About Us
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                    <NavigationMenuContent className='!w-60 lg:!w-[500px]'>
+                        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                            <li className="row-span-2">
+                                <NavigationMenuLink asChild>
+                                    <a
+                                        className="flex h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        href="/web/services"
+                                    >
+                                        <Logo />
+                                        <p className="text-sm leading-tight text-muted-foreground mt-4">
+                                            Discover our expertise in development, design, video, and digital marketing. Tailored solutions for your business.
+                                        </p>
+                                    </a>
+                                </NavigationMenuLink>
+
+                            </li>
+                            {components.map((component) => (
+                                <ListItem
+                                    key={component.title}
+                                    title={component.title}
+                                    href={component.href}
+                                >
+                                    {component.description}
+                                </ListItem>
+                            ))}
+                        </ul>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/web/casestudies" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Case Studies
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/web/blogs" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Blogs
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/web/contactus" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Contact Us
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </NavigationMenu>
+    )
+}
 
 
 const ListItem = React.forwardRef<

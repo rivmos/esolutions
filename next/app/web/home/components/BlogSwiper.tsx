@@ -38,7 +38,7 @@ const BlogSwiper = ({ data }: { data: Blog[] }) => {
                 (item, index) => {
                     return (
                         <SwiperSlide key={index}>
-                            <div className='flex flex-col shadow-lg p-5 my-8 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
+                            <div className='flex flex-col shadow-md p-5 mb-10 mt-2 rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300'>
                                 <div>
                                     <Image
                                         width={400}

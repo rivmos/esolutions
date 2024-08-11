@@ -38,7 +38,7 @@ export const HoverEffect = ({
           <Link
             href={item.href}
             key={item?.title}
-            className="relative group  block p-2 h-full w-full"
+            className="relative group block p-2 h-full w-full"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -59,7 +59,7 @@ export const HoverEffect = ({
                 />
               )}
             </AnimatePresence>
-            <Card className="bg-white p-6 rounded-lg shadow-sm py-16">
+            <Card className="bg-white rounded-lg shadow-sm">
               <IconComponent size={28} className="text-blue-600 text-3xl md:text-4xl lg:text-5xl mx-auto mb-4" />
               <CardTitle className="text-xl font-semibold mb-2 text-gray-900">{item.title}</CardTitle>
               <CardDescription className="text-gray-700 text-sm">{item.description}</CardDescription>

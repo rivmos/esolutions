@@ -11,7 +11,7 @@ const CheckIcon = ({ className }: { className?: string }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={cn("w-6 h-6 ", className)}
+      className={cn("w-6 h-6", className)}
     >
       <path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
@@ -24,7 +24,7 @@ const CheckFilled = ({ className }: { className?: string }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={cn("w-6 h-6 ", className)}
+      className={cn("w-6 h-6", className)}
     >
       <path
         fillRule="evenodd"
@@ -50,7 +50,7 @@ const LoaderCore = ({
     <div className="flex relative justify-start max-w-xl mx-auto flex-col mt-10">
       {loadingStates.map((loadingState, index) => {
         const distance = Math.abs(index - value);
-        const opacity = Math.max(1 - distance * 0.2, 0); // Minimum opacity is 0, keep it 0.2 if you're sane.
+        const opacity = Math.max(1 - distance * 0.2, 0);
 
         return (
           <motion.div
@@ -72,7 +72,6 @@ const LoaderCore = ({
                       "text-blue-600 dark:text-lime-500 opacity-100"
                   )}
                 />
-                // <GrStatusGood />
               )}
             </div>
             <span
@@ -120,22 +119,17 @@ export const MultiStepLoader = ({
 
     return () => clearTimeout(timeout);
   }, [currentState, loading, loop, loadingStates.length, duration]);
+
   return (
     <AnimatePresence mode="wait">
       {loading && (
         <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 0,
-          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="w-full h-full z-[100] flex items-center justify-center backdrop-blur-2xl"
         >
-          <div className="h-96  relative">
+          <div className="h-auto relative"> {/* Changed from h-96 to h-auto */}
             <LoaderCore value={currentState} loadingStates={loadingStates} />
           </div>
 

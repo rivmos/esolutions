@@ -8,7 +8,7 @@ import SectionTitle from './SectionTitle';
 const Testimonials = async () => {
     const data = await prisma.testimonial.findMany()
     return (
-        <div className='py-4 md:py-16 lg:py-20 px-4 bg-zinc-100 bg-testimonialOverlay bg-no-repeat bg-center'>
+        <div className='py-16 lg:py-20 px-4 bg-zinc-100 bg-testimonialOverlay bg-no-repeat bg-center'>
             <SectionTitle title='What Our Clients Say About Us'/>
                 <TestimonialSwiper data={data}/>
         </div>

@@ -7,6 +7,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -19,7 +20,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 const NewsletterForm = () => {
 
-  const {toast} = useToast()
+  const { toast } = useToast()
 
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
@@ -30,21 +31,17 @@ const NewsletterForm = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
-    // const formData = new FormData()
-    // formData.append('title', data.title)
-    // formData.append('description', data.description)
-    // formData.append('content', data.content)
-
     try {
-        // Save the enquiry to the database
-        await axios.post('/api/subscriber/save', data);
-        form.reset();
-        toast({description:"Subscribed Successfully", variant:'success'})
+      await axios.post('/api/subscriber/save', data);
+      form.reset();
+      toast({ description: "Subscribed Successfully", variant: 'success' })
     }
-    catch(error) {
+    catch (error) {
+      toast({ description: "Subscription Failed. Please try again.", variant: 'destructive' })
       console.error('Error submitting form:', error);
     }
   }
+
 
 
   useEffect(() => {
@@ -54,14 +51,14 @@ const NewsletterForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 justify-center">
-      <div className="flex flex-col lg:flex-row items-end gap-4">
+        <div className="flex flex-col lg:flex-row items-end gap-4">
 
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem className="w-full">
-                {/* <FormLabel>First Name</FormLabel> */}
+                <FormLabel className="sr-only">Name</FormLabel> {/* sr-only class hides the label visually but it's accessible for screen readers */}
                 <FormControl>
                   <Input placeholder="Name" {...field} />
                 </FormControl>
@@ -69,12 +66,13 @@ const NewsletterForm = () => {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem className="w-full">
-                {/* <FormLabel>Last Name</FormLabel> */}
+                <FormLabel className="sr-only">Email</FormLabel> {/* sr-only class hides the label visually but it's accessible for screen readers */}
                 <FormControl>
                   <Input placeholder="email" {...field} />
                 </FormControl>
@@ -83,7 +81,9 @@ const NewsletterForm = () => {
             )}
           />
         </div>
-        <Button type="submit">{!form.formState.isSubmitting ? 'Submit' : 'Submitting...'}</Button>
+        <Button type="submit" disabled={form.formState.isSubmitting}>
+          {!form.formState.isSubmitting ? 'Submit' : 'Submitting...'}
+        </Button>
       </form>
     </Form>
   );

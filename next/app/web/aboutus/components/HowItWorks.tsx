@@ -32,7 +32,6 @@ const HowItWorks = () => {
     <section className="py-16 px-4">
       <div className="container mx-auto text-center">
         <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-12">How It Works?</h2>
-        
           <HoverEffect items={data} />
       </div>
     </section>
