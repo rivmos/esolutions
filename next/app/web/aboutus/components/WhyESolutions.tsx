@@ -15,7 +15,7 @@ const items = [
 const WhyESolutions = () => {
   return (
     <section className="bg-gray-50 py-16">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto px-2">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Why eSolutions is Crucial for Your Brand’s Growth?

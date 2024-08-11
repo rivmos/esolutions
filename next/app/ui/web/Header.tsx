@@ -79,7 +79,7 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6 flex flex-col items-start gap-8">
-                                <NavBarContent />
+                                <NavBarContent onClick={() => setIsClose(true)}/>
                             </div>
                         </div>
                     </div>
@@ -123,21 +123,21 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 
-const NavBarContent = () => {
+const NavBarContent = ({onClick} : {onClick?: () => void}) => {
 
     const session = useSession()
 
     return (
         <NavigationMenu className='z-50 block'>
             <NavigationMenuList className='space-x-4 flex-col items-start lg:flex-row'>
-                {session.data?.user?.email && <NavigationMenuItem>
+                {session.data?.user?.email && <NavigationMenuItem onClick={onClick}>
                     <Link href="/dashboard" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Dashboard
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>}
-                <NavigationMenuItem className='ml-4 lg:ml-0'>
+                <NavigationMenuItem className='ml-4 lg:ml-0' onClick={onClick}>
                     <Link href="/web/aboutus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             About Us
@@ -149,7 +149,7 @@ const NavBarContent = () => {
                     <NavigationMenuContent className='!w-60 lg:!w-[500px]'>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-2">
-                                <NavigationMenuLink asChild>
+                                <NavigationMenuLink asChild onClick={onClick}>
                                     <a
                                         className="flex h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                         href="/web/services"
@@ -167,6 +167,7 @@ const NavBarContent = () => {
                                     key={component.title}
                                     title={component.title}
                                     href={component.href}
+                                    onClick={onClick}
                                 >
                                     {component.description}
                                 </ListItem>
@@ -174,21 +175,21 @@ const NavBarContent = () => {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem onClick={onClick}>
                     <Link href="/web/casestudies" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Case Studies
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem onClick={onClick}>
                     <Link href="/web/blogs" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Blogs
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem onClick={onClick}>
                     <Link href="/web/contactus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Contact Us
