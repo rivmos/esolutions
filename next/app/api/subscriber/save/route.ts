@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     const parsed = schema.safeParse(data);
 
     if (parsed.success) {
-        const { id, name, email } = parsed.data;
+        const { id, email } = parsed.data;
 
         try {
             let subscriber;
@@ -16,7 +16,6 @@ export async function POST(req: NextRequest) {
                 subscriber = await prisma.subscriber.update({
                     where: { id },
                     data: {
-                        name,
                         email
                     }
                 });
@@ -27,7 +26,6 @@ export async function POST(req: NextRequest) {
             } else {
                 subscriber = await prisma.subscriber.create({
                     data: {
-                        name,
                         email
                     }
                 });
