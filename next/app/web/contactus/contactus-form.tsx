@@ -23,7 +23,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 const ContactUsForm = ({ data }: { data?: Enquiry }) => {
 
-  const {toast} = useToast()
+  const { toast } = useToast()
 
   const form = useForm<z.output<typeof schema>>({
     resolver: zodResolver(schema),
@@ -43,14 +43,14 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
     // formData.append('content', data.content)
 
     try {
-        // Save the enquiry to the database
-        await axios.post('/api/enquiry/save', data);
-        // Send the confirmation email
-        await axios.post('/api/mail', data);
-        form.reset();
-        toast({description:"Enquiry Sent Successfully", variant:'success'})
+      // Save the enquiry to the database
+      await axios.post('/api/enquiry/save', data);
+      // Send the confirmation email
+      await axios.post('/api/mail', data);
+      form.reset();
+      toast({ description: "Enquiry Sent Successfully", variant: 'success' })
     }
-    catch(error) {
+    catch (error) {
       console.error('Error submitting form:', error);
     }
   }
@@ -62,62 +62,67 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 !w-full">
         <div className="grid grid-cols-1 gap-4">
 
-          <FormField
-            control={form.control}
-            name="first"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                {/* <FormLabel>First Name</FormLabel> */}
-                <FormControl>
-                  <Input placeholder="Enter First Name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="last"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                {/* <FormLabel>Last Name</FormLabel> */}
-                <FormControl>
-                  <Input placeholder="Enter Last Name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                {/* <FormLabel>Email</FormLabel> */}
-                <FormControl>
-                  <Input placeholder="Enter Email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center gap-4">
+            <FormField
+              control={form.control}
+              name="first"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  {/* <FormLabel>First Name</FormLabel> */}
+                  <FormControl>
+                    <Input placeholder="Enter First Name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="last"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  {/* <FormLabel>Last Name</FormLabel> */}
+                  <FormControl>
+                    <Input placeholder="Enter Last Name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-          <FormField
-            control={form.control}
-            name="mobile"
-            render={({ field }) => (
-              <FormItem className="w-full">
-                {/* <FormLabel>Mobile Number</FormLabel> */}
-                <FormControl>
-                  <Input type="number" placeholder="Enter Mobile Number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="flex items-center gap-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  {/* <FormLabel>Email</FormLabel> */}
+                  <FormControl>
+                    <Input placeholder="Enter Email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="mobile"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  {/* <FormLabel>Mobile Number</FormLabel> */}
+                  <FormControl>
+                    <Input type="number" placeholder="Enter Mobile Number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
           <FormField
             control={form.control}
@@ -133,7 +138,10 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
             )}
           />
         </div>
-        <Button type="submit">{form.formState.isSubmitting ? 'Submitting' : 'Submit'}</Button>
+
+        <div className="flex justify-center">
+          <Button type="submit" className="bg-blue-600 w-40">{form.formState.isSubmitting ? 'Submitting' : 'Submit'}</Button>
+        </div>
       </form>
     </Form>
   );

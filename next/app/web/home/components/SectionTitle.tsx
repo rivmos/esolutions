@@ -18,7 +18,7 @@ const SectionTitle = ({ title, colored }: { title: string, colored?: boolean }) 
                 duration: 0.5,
                 ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-12 text-center leading-normal"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-12 text-center leading-normal"
         >
             {
                 colored

@@ -48,7 +48,7 @@ const Footer = () => {
     return (
         <>
             <div className="bg-gradient-to-r from-neutral-900 to-neutral-700">
-                <div className="container mx-auto w-full py-8 px-6 lg:py-12 lg:px-16">
+                <div className="container mx-auto w-full py-8 px-6 lg:py-12 lg:px-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
                             <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Explore</h2>

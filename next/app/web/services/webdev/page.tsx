@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/services-bg.png' title='Web Development' isShort />
+      <Banner bannerImage='/img/banner/services-bg1.png' title='Web Development' isShort />
       <UnderBanner title="Comprehensive Web Development Services to Elevate Your Online Presence!" description="Our expert developers provide customized solutions for websites, e-commerce, and content management systems tailored to your business needs." btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Web Development Service Image"} cards={board.cards} />
       <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403523/grpqbmwzawuapvwnnvyw.jpg' imageAlt='Image depicting a responsive website on various devices' features={features}/>

@@ -135,7 +135,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
 
     return (
         <NavigationMenu className='z-50 block'>
-            <NavigationMenuList className='space-x-4 flex-col items-start lg:flex-row'>
+            <NavigationMenuList className='space-x-8 flex-col items-start lg:flex-row'>
                 {session.data?.user?.email && <NavigationMenuItem className='ml-4 lg:ml-0' onClick={onClick}>
                     <Link href="/dashboard" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -209,7 +209,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem onClick={onClick}>
+                <NavigationMenuItem onClick={onClick} className='border-[1px] rounded-lg border-blue-600 text-blue-600'>
                     <Link href="/web/contactus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Contact Us

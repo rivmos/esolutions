@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/services-bg.png' title='Digital Marketing & Analytics' isShort />
+      <Banner bannerImage='/img/banner/services-bg1.png' title='Digital Marketing & Analytics' isShort />
       <UnderBanner title="Expert Digital Marketing Services for Enhanced Online Presence!" description="Our team provides SEO, PPC, social media, and content marketing services to boost your visibility and engagement." btnText="LET'S GROW YOUR BUSINESS" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Digital Marketing Service Image"} cards={board.cards} />
       <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403818/ruik2o7fp8lwzpitpyw2.jpg' imageAlt='Image depicting digital marketing analytics' features={features}/>

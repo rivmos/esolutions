@@ -21,12 +21,12 @@ const CaseStudy = async ({ params }: { params: { id: string } }) => {
               src={data?.image ?? '/img/upload/upload-widget.png'}
               alt="Case Study Image"
               className="rounded-lg"
-              width={1200}
+              width={800}
               height={400}
             />
           </div>
           <div className="text-left space-y-4 sm:space-y-6 md:space-y-8">
-            <div id='blog-content' className='text-left lg:text-center' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
+            <div id='blog-content' className='text-left' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
             <div className="text-center !mt-12">
               <Link href="/web/casestudies" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
                   Back to Case Studies

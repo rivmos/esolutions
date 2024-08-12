@@ -5,8 +5,8 @@ import ContactUsForm from "./contactus-form";
 export default function Page() {
   return (
     <main>
-      <Banner title='Contact Us' isShort bannerImage='/img/banner/contactus-bg.png' bannerImageAlt='Contact Us Banner Image' />
-      <section className="bg-gray-50 font-poppins dark:bg-gray-800 pb-12">
+      <Banner title='Contact Us' isShort bannerImage='/img/banner/contactus-bg1.png' bannerImageAlt='Contact Us Banner Image' />
+      <section className="bg-gray-50 font-poppins dark:bg-gray-800 py-16">
 
 
         <div className="container py-4 mx-auto lg:py-6 md:px-6">
@@ -114,9 +114,9 @@ export default function Page() {
         </div>
 
 
-        <div className="bg-zinc-100">
-          <div className="w-full px-4 pt-16 lg:w-1/3 lg:mb-0 mx-auto">
-            <div className={'bg-gradient-to-r from-white to-transparent p-4 rounded-xl h-full'}>
+        <div className="bg-zinc-100 container">
+          <div className="w-full px-4 py-16 lg:w-2/3 lg:mb-0 mx-auto">
+            <div className={'p-4 h-full'}>
               <ContactUsForm />
             </div>
           </div>

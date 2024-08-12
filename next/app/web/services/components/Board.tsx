@@ -12,7 +12,7 @@ const Board = ({title, description, image, imageAlt ,cards} : {title:string, des
                     alt={imageAlt as string}
                     className={'w-full h-auto object-cover'}
                 />
-                <div className="p-4">
+                <div className="p-8">
                     <h2 className="text-xl md:text-2xl font-bold mb-4 capitalize">
                         {title}
                     </h2>
@@ -25,7 +25,7 @@ const Board = ({title, description, image, imageAlt ,cards} : {title:string, des
                 {
                     cards.map(card => {
                         return(
-                            <div key={card.title} className="border-l-2 pl-4 md:pl-6">
+                            <div key={card.title} className="border-l-[1px] border-gray-600 pl-4 md:pl-6">
                                 <h3 className="text-lg md:text-2xl font-semibold mb-3">{card.title}</h3>
                                 <p className="text-sm md:text-base">
                                     {card.description}

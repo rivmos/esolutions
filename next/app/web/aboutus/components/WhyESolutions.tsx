@@ -14,7 +14,7 @@ const items = [
 
 const WhyESolutions = () => {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-zinc-100 py-16">
       <div className="max-w-6xl mx-auto px-2">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -27,7 +27,7 @@ const WhyESolutions = () => {
               We offer you a tailored approach to effectively reach and resonate with your target audience. Our digital services serve as a critical bridge connecting brands with their audiences, making them indispensable for sustained growth. By utilizing social media advertising, search engine optimization, and targeted marketing, we can help brands tailor their messages across demographics. Here are the top reasons why our customers prefer to choose us:
             </p>
           </div>
-          <div className="space-y-4 border-l-[1px] px-4 lg:px-16">
+          <div className="space-y-4 border-l-[2px] border-gray-500 px-4 lg:px-16">
             <Loader loadingStates={items} loading={true} duration={2000} />
           </div>
         </div>

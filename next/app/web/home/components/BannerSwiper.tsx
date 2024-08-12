@@ -24,7 +24,7 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                 dynamicBullets: true,
             }}
             autoplay={{
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: true
             }}
             modules={[Pagination, Autoplay]}

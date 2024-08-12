@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/services-bg.png' title='Mobile App Design & Development' isShort />
+      <Banner bannerImage='/img/banner/services-bg1.png' title='Mobile App Design & Development' isShort />
       <UnderBanner title="Innovative Mobile App Solutions for a Competitive Edge!" description="Our expert developers create custom mobile apps for iOS, Android, and cross-platform solutions tailored to your business needs." btnText="LET'S START BUILDING" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Mobile App Service Image"} cards={board.cards} />
       <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403741/wvrjo8x1wdrr6rplxj7n.jpg' imageAlt='Image depicting mobile application development' features={features}/>

@@ -67,3 +67,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+#blog-content ul {
+  @apply list-disc ml-8
+}
+
+#blog-content ol {
+  @apply list-decimal ml-8
+}
+
+#blog-content h1 {
+  @apply text-3xl
+}
+
+#blog-content h2 {
+  @apply text-2xl
+}
+
+#blog-content h3 {
+  @apply text-xl
+}

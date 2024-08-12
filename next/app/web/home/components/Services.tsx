@@ -16,7 +16,7 @@ const Services = async () => {
 
     return (
         <>
-            <div className='py-12 md:py-16 lg:py-20 bg-zinc-100'>
+            <div className='py-10 md:py-12 lg:py-20 bg-zinc-100'>
                 <SectionTitle title='Our Services' />
                 <ServiceSwiper data={data} />
                 <div className='flex justify-center mt-4'>

@@ -20,7 +20,7 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
                 dynamicBullets: true,
             }}
             modules={[Pagination]}
-            className="h-auto w-full px-4 md:px-8 lg:px-16 container"
+            className="h-auto w-full px-4 md:px-8 lg:px-16"
             spaceBetween={16}
             breakpoints={{
                 // when window width is >= 320px
@@ -36,38 +36,38 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
 
                 // when window width is >= 1024px
                 1024: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
                     spaceBetween: 40
                 }
             }}
         >
             {data.map((item, index) => {
                 return (
-                    <SwiperSlide key={index} className='py-0'>
-                        <CardContainer className="inter-var mx-4 md:mx-0">
-                            <CardBody className="bg-white shadow-sm relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black w-full h-auto rounded-xl p-4 md:p-6 lg:p-8 border transition-transform duration-300 hover:scale-105">
-                                <CardItem translateZ="100" className="w-full mt-4">
+                    <SwiperSlide key={index}>
+                        <CardContainer>
+                            <CardBody className="bg-white flex-col space-y-4 py-4 md:py-12 text-center flex items-center shadow-sm relative group/card w-full rounded-sm transition-transform duration-300 hover:scale-105">
+                                <CardItem translateZ="100" className="w-full mt-4 flex justify-center">
                                     <Image
                                         src={item.image}
                                         height="1000"
                                         width="1000"
-                                        className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                                        className="h-60 w-60 object-cover rounded-xl"
                                         alt={item.name}
                                     />
                                 </CardItem>
-                                <CardItem className='text-left py-4 space-y-2'>
+                                <CardItem className='flex flex-col items-center px-4'>
                                     <CardItem
                                         as="p"
                                         translateZ="60"
-                                        className='text-lg font-medium h-20 text-left'
+                                        className='text-xl lg:text-2xl font-bold h-20'
                                     >
                                         {item.name}
                                     </CardItem>
                                     <CardItem
-                                        translateZ="100"
+                                        translateZ="50"
                                         as={Link}
                                         href={item.href}
-                                        className='border-[1px] p-2 rounded-lg hover:border-blue-600 hover:text-blue-600 text-sm underline-animation transition-colors duration-200'
+                                        className='border-b-[1px] text-base text-center p-2 mt-4 hover:border-blue-600 hover:text-blue-600 underline-animation transition-colors duration-200'
                                     >
                                         View
                                     </CardItem>

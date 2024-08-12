@@ -39,7 +39,7 @@ const Page = () => {
 
   return (
     <div>
-      <Banner bannerImage='/img/banner/services-bg.png' title='Video & Animation' isShort />
+      <Banner bannerImage='/img/banner/services-bg1.png' title='Video & Animation' isShort />
       <UnderBanner title="Captivating Video and Animation Services for Maximum Impact!" description="Our expert team creates promotional, explainer, and corporate videos tailored to your business needs." btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Video Animation Service Image"} cards={board.cards} />
       <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403681/awbm3lreqtcw12qj6jun.jpg' imageAlt='Image depicting video production process' features={features}/>

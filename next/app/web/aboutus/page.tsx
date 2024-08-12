@@ -7,7 +7,7 @@ import HowItWorks from "./components/HowItWorks";
 export default function Page() {
   return (
     <div>
-      <Banner bannerImage="/img/banner/about-bg.png" bannerImageAlt="Banner image for about us page" title="About Us" isShort />
+      <Banner bannerImage="/img/banner/about-bg1.png" bannerImageAlt="Banner image for about us page" title="About Us" isShort />
       <UnderBanner />
       <WhyESolutions />
       <HowItWorks />
