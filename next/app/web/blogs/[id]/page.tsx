@@ -18,7 +18,7 @@ const Blog = async ({ params }: { params: { id: string } }) => {
             src={data?.image ?? '/img/upload/upload-widget.png'}
             alt="Blog Image"
             className="rounded-lg"
-            width={1200}
+            width={800}
             height={400}
           />
         </div>
