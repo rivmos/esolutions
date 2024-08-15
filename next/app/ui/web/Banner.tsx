@@ -37,7 +37,7 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
           className='opacity-60 h-[400px] md:h-[600px] lg:h-[800px] w-full object-cover'
         />}
       </div>
-      <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-80'></div>
+      <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-70'></div>
       <div className="absolute top-[50%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
         {/* <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
           {title}
