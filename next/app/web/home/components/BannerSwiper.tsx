@@ -74,7 +74,7 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                                         {item.subheading}
                                     </p>}
                                     {item.ctaHref && (
-                                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
+                                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
                                             <CustomButton href={item.ctaHref} className=' border-white hover:text-blue-400 bg-transparent text-white'>
                                                     {item.ctaText}
                                             </CustomButton>

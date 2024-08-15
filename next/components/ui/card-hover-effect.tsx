@@ -1,6 +1,7 @@
 "use client"
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaCalendarAlt, FaChartLine, FaClipboardCheck } from 'react-icons/fa';
@@ -13,7 +14,7 @@ export const HoverEffect = ({
     title: string;
     description: string;
     href: string
-    icon: React.ReactNode;
+    iconSrc: string;
   }[];
   className?: string;
 }) => {
@@ -27,7 +28,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-3 gap-8  py-10",
+        "grid grid-cols-1 lg:grid-cols-3 gap-8  py-10",
         className
       )}
     >
@@ -60,8 +61,11 @@ export const HoverEffect = ({
               )}
             </AnimatePresence>
             <Card className="bg-white rounded-lg">
-              <IconComponent size={28} className="text-blue-600 text-3xl md:text-4xl lg:text-5xl mx-auto mb-4" />
-              <CardTitle className="text-xl font-semibold mb-2 text-gray-900">{item.title}</CardTitle>
+              {/* <IconComponent size={28} className="text-blue-600 text-3xl md:text-4xl lg:text-5xl mx-auto mb-4" /> */}
+              <div className="flex justify-center mb-8">
+                <Image src={`/img/icons/${item.iconSrc}`} alt="icon" width={80} height={80}/>
+              </div>
+              <CardTitle className="text-xl font-semibold text-gray-900">{item.title}</CardTitle>
               <CardDescription className="text-gray-700 text-sm">{item.description}</CardDescription>
             </Card>
           </Link>
@@ -99,7 +103,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-5", className)}>
       {children}
     </h4>
   );
@@ -114,7 +118,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        "mt-6 text-zinc-400 tracking-wide leading-relaxed text-sm lg:px-6",
         className
       )}
     >

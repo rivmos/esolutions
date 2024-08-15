@@ -12,19 +12,19 @@ const Features = ({image, imageAlt, features} : {image:string, imageAlt: string,
                             height={850}
                             src={image}
                             alt={imageAlt}
-                            className={'w-96 h-auto object-cover rounded-full -mt-24 md:-mt-40 lg:-mt-64'}
+                            className={'w-96 h-auto object-cover rounded-full -mt-24 md:-mt-44 lg:-mt-48'}
                         />
                     </div>
-                    <div className="mt-8 text-center space-y-8">
+                    <div className="mt-16 text-center ">
                         {
-                            features.map(feature => {
+                            features.map((feature, index) => {
                                 return(
-                                    <>
-                                        <h2 className="text-2xl font-bold mb-4 capitalize">{feature.title}</h2>
+                                    <div key={feature.title} className='mb-16 last:mb-0'>
+                                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 capitalize">{feature.title}</h2>
                                         <p className="text-base md:text-lg">
                                             {feature.description}
                                         </p>
-                                    </>
+                                    </div>
                                 )
                             })
                         }

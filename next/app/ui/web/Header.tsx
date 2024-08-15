@@ -38,7 +38,7 @@ export default function Header() {
 
     return (
         <div className='shadow-xl'>
-            <nav className="mx-auto flex container items-center justify-between px-4 h-20 md:h-32" aria-label="Global">
+            <nav className="mx-auto flex items-center justify-between px-8 h-20 md:h-32" aria-label="Global">
                 <div className="flex items-center">
                     <Logo />
                 </div>
@@ -209,7 +209,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem onClick={onClick} className='lg:border-[1px] rounded-lg lg:border-blue-600 text-blue-600'>
+                <NavigationMenuItem onClick={onClick} className='lg:border-[1px] rounded-lg lg:border-blue-700 text-blue-700 font-medium'>
                     <Link href="/web/contactus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Contact Us

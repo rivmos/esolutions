@@ -20,8 +20,7 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
                 dynamicBullets: true,
             }}
             modules={[Pagination]}
-            className="h-auto w-full px-4 md:px-8 lg:px-16"
-            spaceBetween={16}
+            className="h-auto w-full"
             breakpoints={{
                 // when window width is >= 320px
                 320: {
@@ -43,31 +42,29 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
         >
             {data.map((item, index) => {
                 return (
-                    <SwiperSlide key={index}>
-                        <CardContainer>
-                            <CardBody className="bg-white flex-col space-y-4 py-4 md:py-12 text-center flex items-center shadow-sm relative group/card w-full rounded-sm transition-transform duration-300 hover:scale-105">
-                                <CardItem translateZ="100" className="w-full mt-4 flex justify-center">
+                    <SwiperSlide key={index} className='w-[600px]'>
+                        <CardContainer >
+                            <CardBody className="bg-white flex-col space-y-4 !p-0 text-center flex items-center shadow-sm relative group/card !w-full rounded-sm transition-transform duration-300">
+                                <CardItem className="w-full flex justify-center">
                                     <Image
                                         src={item.image}
-                                        height="1000"
-                                        width="1000"
-                                        className="h-60 w-60 object-cover rounded-xl"
+                                        height="300"
+                                        width="600"
+                                        className="h-[300px] w-[600px] object-cover"
                                         alt={item.name}
                                     />
                                 </CardItem>
-                                <CardItem className='flex flex-col items-center px-4'>
+                                <CardItem className='flex flex-col items-center py-8'>
                                     <CardItem
                                         as="p"
-                                        translateZ="60"
-                                        className='text-xl lg:text-2xl font-bold h-20'
+                                        className='text-xl lg:text-2xl font-bold'
                                     >
                                         {item.name}
                                     </CardItem>
                                     <CardItem
-                                        translateZ="50"
                                         as={Link}
                                         href={item.href}
-                                        className='border-b-[1px] text-base text-center p-2 mt-4 hover:border-blue-600 hover:text-blue-600 underline-animation transition-colors duration-200'
+                                        className='border-b-[1px] border-gray-400 text-gray-400 text-base text-center p-2 mt-3 mb-4 hover:border-blue-600 hover:text-blue-600 underline-animation transition-colors duration-200'
                                     >
                                         View
                                     </CardItem>

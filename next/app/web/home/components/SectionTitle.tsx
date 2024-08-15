@@ -3,7 +3,7 @@ import Link from "next/link"
 import { motion } from "framer-motion";
 import { Highlight } from "@/components/ui/hero-highlight";
 
-const SectionTitle = ({ title, colored }: { title: string, colored?: boolean }) => {
+const SectionTitle = ({ title, colored, className }: { title: string, colored?: boolean, className?: string  }) => {
     return (
         <motion.h1
             initial={{
@@ -18,7 +18,7 @@ const SectionTitle = ({ title, colored }: { title: string, colored?: boolean }) 
                 duration: 0.5,
                 ease: [0.4, 0.0, 0.2, 1],
             }}
-            className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-12 text-center leading-normal"
+            className={`text-xl md:text-2xl lg:text-4xl font-bold mb-4 lg:mb-7 text-center leading-normal ${className}`}
         >
             {
                 colored

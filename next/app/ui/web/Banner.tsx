@@ -25,7 +25,7 @@ const Banner = ({ overlayImage, overlayImageAlt, bannerImage, bannerImageAlt, ti
         height={850}
         src={bannerImage}
         alt={bannerImageAlt ?? 'Banner Image'}
-        className={clsx('w-full object-cover', { 'h-[400px] md:h-[600px] lg:h-[800px]': !isShort }, { 'h-[200px] md:h-[300px] lg:h-[400px]': isShort })}
+        className={clsx('w-full object-cover', { 'h-[400px] md:h-[600px] lg:h-[800px]': !isShort }, { 'h-[200px] md:h-[300px] lg:h-[500px]': isShort })}
       />}
       <div className='absolute top-0 left-0 w-full h-full'>
         {overlayImage && <Image

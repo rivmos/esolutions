@@ -9,7 +9,7 @@ import Image from 'next/image';
 const Testimonials = async () => {
     const data = await prisma.testimonial.findMany()
     return (
-        <div className='relative py-10 md:py-16 lg:py-20 px-4 bg-zinc-100 bg-testimonialOverlay bg-no-repeat bg-center'>
+        <div className='relative py-12 md:py-16 lg:py-20 px-4 bg-gray-100 bg-testimonialOverlay bg-no-repeat bg-center'>
             <div className='absolute top-0 left-[50%] -translate-x-[50%] w-full h-full overflow-hidden lg:container flex justify-center'>
                 <Image
                     priority={false}
@@ -21,7 +21,7 @@ const Testimonials = async () => {
                 />
             </div>
             {/* <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-80'></div> */}
-            <SectionTitle title='What Our Clients Say About Us' />
+            <SectionTitle title='What Our Clients Say About Us' className='!mb-12'/>
             <TestimonialSwiper data={data} />
         </div>
     );

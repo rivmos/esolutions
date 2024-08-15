@@ -27,18 +27,18 @@ const socialLinks = [
 
 const FooterEnd = () => {
     return (
-        <div className='flex flex-col gap-4 justify-center py-6 md:py-8 bg-zinc-100'>
-            <div className='flex justify-center gap-4'>
+        <div className='flex flex-col gap-4 justify-center py-6 md:py-8 bg-gray-100'>
+            <div className='flex justify-center gap-2'>
                 {
                     socialLinks.map((social, index) => (
-                        <a href={social.link} key={index} aria-label={social.title} className='p-1 md:p-2 rounded-full border-[1px] text-blue-700 border-blue-700 hover:bg-blue-700 hover:text-white transition-colors duration-300'>
+                        <a href={social.link} key={index} aria-label={social.title} className='p-1 md:p-2 rounded-full border-[1px] text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white transition-colors duration-300'>
                             {social.icon}
                         </a>
                     ))
                 }
             </div>
-            <div className='text-center text-xs md:text-base text-gray-600'>
-                &copy;2024 eSolutions. All Rights Reserved.
+            <div className='text-center text-sm md:text-base text-gray-600'>
+                Copyright &copy; 2024 eSolutions.  All Rights Reserved.   
             </div>
         </div>
     )
@@ -47,7 +47,7 @@ const FooterEnd = () => {
 const Footer = () => {
     return (
         <>
-            <div className="bg-gradient-to-r from-neutral-900 to-neutral-700">
+            <div className="bg-gradient-to-r from-[#111111] to-[#373737]">
                 <div className="container mx-auto w-full py-8 px-6 lg:py-12 lg:px-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>

@@ -11,7 +11,7 @@ export default function CustomButton({ href, children, className } : {href: stri
                     h-12 w-32 text-sm 
                     sm:h-14 sm:w-36 sm:text-base 
                     md:h-14 md:w-36 md:text-base 
-                    hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-400 border-blue-400 ${className}`}>
+                    hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-600 border-blue-400 ${className}`}>
         {children}
       </Button>
     </Link>

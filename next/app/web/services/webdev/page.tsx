@@ -7,40 +7,45 @@ import Features from '../components/Features'
 const Page = () => {
 
   const board = {
-    title: "Innovative Web Development Solutions Crafted For Your Unique Business Needs",
-    description: "Our seasoned developers excel at creating robust, high-performing websites that drive engagement and conversions. From e-commerce platforms to content management systems, we tailor our development services to meet your specific requirements, ensuring your online presence is not only functional but also impressive.",
+    title: "Built for Unique Experience",
+    description: ["eSolutions has got a dedicated team of web developers who are always willing to work with you to make your business accessible through an engaging and functional website. We have built websites using the very best open source platforms keeping your business secure."],
     image: "/img/banner/webdev-bg.png",
     cards: [
       {
-        title: "Custom Web Development",
-        description: "Our team builds custom websites that are not only visually appealing but also feature-rich, scalable, and secure. We prioritize performance and user experience to help you achieve your business goals."
+        title: "Experienced Developers",
+        description: "No matter what your requirements are, our developers will get to grips with your project and deliver commendable results."
       },
       {
-        title: "E-commerce Solutions",
-        description: "We create powerful e-commerce platforms tailored to your business needs, equipped with intuitive navigation, secure payment gateways, and a seamless shopping experience to boost your online sales."
+        title: "Custom Built",
+        description: "Looking to build a website from scratch? Work with our in-house team to develop high-quality bespoke websites and applications to match the individual needs of your business."
       },
       {
-        title: "Content Management Systems",
-        description: "Manage your website with ease using our customized content management systems (CMS). Our solutions are user-friendly, flexible, and designed to streamline your content workflows."
+        title: "Open-Source",
+        description: "We believe and trust in best open source platforms therefore, we use Joomla, WordPress for the sites we develop. This means your website would be robust, and up-to-date to meet your business requirements."
+      },
+      {
+        title: "Secure",
+        description: "Online security is paramount in the development process and we know it is a priority for your business too. The websites we develop won't compromise on security and are completely secure."
       },
     ]
   }
 
   const features = [
     {
-      title: 'SEO Optimization',
-      description: 'We integrate SEO best practices into your website development to enhance your search engine visibility and drive organic traffic. Our techniques ensure your site ranks well and attracts the right audience.'
+      title: 'WE ARE MORE THAN JUST DEVELOPMENT TEAM',
+      description: 'We are here to help you gain traction from your online customers. From the start, we will take time learning about your business and understand your brand and objectives, so that we can design and develop the best website for your business!'
     },
     {
-      title: 'Responsive Web Development',
-      description: 'Our responsive web development ensures your site looks great and functions perfectly on all devices, providing an optimal user experience regardless of the screen size or browser.'
+      title:"Why Choose eSolutions As Your Web Development Agency?",
+      description:"We will help you shape experiences, by utilising the skills of our in-house experts. As web development experts we have developed various websites using a range of tools and state of the art technology. From simple CMS to straight forward sites to web portals and custom built apps, our web developers have successfully catered to all the requirements."
     }
   ]
 
   return (
     <div>
       <Banner bannerImage='/img/banner/services-bg1.png' title='Web Development' isShort />
-      <UnderBanner title="Comprehensive Web Development Services to Elevate Your Online Presence!" description="Our expert developers provide customized solutions for websites, e-commerce, and content management systems tailored to your business needs." btnText="START YOUR PROJECT" />
+      <UnderBanner title="WEB DEVELOPMENT SOLUTIONS!" description="You know what makes your business great and we will help you reflect it!
+" btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Web Development Service Image"} cards={board.cards} />
       <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403523/grpqbmwzawuapvwnnvyw.jpg' imageAlt='Image depicting a responsive website on various devices' features={features}/>
     </div>

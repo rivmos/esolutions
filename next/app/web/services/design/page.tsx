@@ -8,7 +8,7 @@ const Page = () => {
 
   const board = {
     title: "State-Of-The-Art Designs Tailored To Your Business Vision And Requirements",
-    description: " We are a team of experienced designers focused on how the project looks, performs, and works to engage with the end-users. Our experts plan and deliver exceptional designs, from bespoke web designs to graphics and videos. Through close collaboration, our specialists work together to provide a comprehensive package of design services, allowing us to deliver consistent branding and quality which means we can support you with all of your design needs under one roof.",
+    description: ["We are a team of experienced designers focused on how the project looks, performs and works to engage with the end-users. Our experts plan and deliver exceptional designs, from bespoke web designs, to graphics and videos. Through close collaboration, our specialists work together to provide comprehensive package of design services, allowing us to deliver consistent branding and quality which means we can suport you with all of your design needs under one roof."],
     image: "/img/banner/design-bg.png",
     cards: [
       {
