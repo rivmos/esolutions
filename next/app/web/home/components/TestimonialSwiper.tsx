@@ -27,7 +27,7 @@ const TestimonialSwiper = ({ data }: { data: Testimonial[] }) => {
                     disableOnInteraction: true
                 }}
                 modules={[Pagination, Autoplay]}
-                className="h-80"
+                className="h-72 lg:h-80"
                 spaceBetween={24}
                 breakpoints={{
                     640: {
