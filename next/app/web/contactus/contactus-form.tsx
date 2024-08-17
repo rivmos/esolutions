@@ -73,7 +73,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
                 <FormItem className="w-full">
                   {/* <FormLabel>First Name</FormLabel> */}
                   <FormControl>
-                    <Input placeholder="First Name*" {...field} className="shadow-sm !placeholder-[#828282]"/>
+                    <Input placeholder="First Name*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -86,7 +86,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
                 <FormItem className="w-full">
                   {/* <FormLabel>Last Name</FormLabel> */}
                   <FormControl>
-                    <Input placeholder="Last Name*" {...field} className="shadow-sm !placeholder-[#828282]"/>
+                    <Input placeholder="Last Name*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -102,7 +102,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
                 <FormItem className="w-full">
                   {/* <FormLabel>Email</FormLabel> */}
                   <FormControl>
-                    <Input placeholder="Email*" {...field} className="shadow-sm !placeholder-[#828282]"/>
+                    <Input placeholder="Email*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -116,7 +116,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
                 <FormItem className="w-full">
                   {/* <FormLabel>Mobile Number</FormLabel> */}
                   <FormControl>
-                    <Input type="number" placeholder="Phone*" {...field} className="shadow-sm !placeholder-[#828282]"/>
+                    <Input type="number" placeholder="Phone*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -131,7 +131,7 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
               <FormItem className="w-full">
                 {/* <FormLabel>Message</FormLabel> */}
                 <FormControl>
-                  <Textarea placeholder="Enter Your Message" {...field} className="shadow-sm !placeholder-[#828282]"/>
+                  <Textarea placeholder="Enter Your Message" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>

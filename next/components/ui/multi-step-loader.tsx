@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { IoCheckmarkCircleSharp } from "react-icons/io5";
 
 const CheckIcon = ({ className }: { className?: string }) => {
   return (
@@ -62,21 +63,23 @@ const LoaderCore = ({
           >
             <div>
               {index > value && (
-                <CheckIcon className="text-black dark:text-white" />
+                // <CheckIcon className="text-black dark:text-white" />
+                <IoCheckmarkCircleSharp className="-mt-2 text-blue-400" size={40}/>
               )}
               {index <= value && (
-                <CheckFilled
-                  className={cn(
-                    "text-blue-400 dark:text-white",
-                    value === index &&
-                      "text-blue-600 dark:text-lime-500 opacity-100"
-                  )}
-                />
+                // <CheckFilled
+                //   className={cn(
+                //     "text-blue-400 dark:text-white",
+                //     value === index &&
+                //       "text-blue-600 dark:text-lime-500 opacity-100"
+                //   )}
+                // />
+                <IoCheckmarkCircleSharp className="-mt-2 text-blue-600" size={40}/>
               )}
             </div>
             <span
               className={cn(
-                "text-black dark:text-white",
+                "text-black dark:text-white uppercase text-base font-semibold",
                 value === index && "text-black dark:text-lime-500 opacity-100"
               )}
             >

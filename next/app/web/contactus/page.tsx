@@ -9,11 +9,11 @@ export default function Page() {
 
       <div className="py-12 md:py-16 lg:py-20">
 
-        <div className="w-full container mx-auto px-4">
+        <div className="w-full container mx-auto px-4 mb-16">
           <p className="text-center mb-8">
             We are here to assist you. Whether you have a question about our services, need support, or just want to give us feedback, feel free to reach out. Our team is dedicated to ensuring you receive the best possible service.
           </p>
-          <div className="flex flex-col md:flex-row py-12 justify-center items-center gap-12 md:space-x-12">
+          <div className="flex flex-col md:flex-row py-12 justify-center items-center gap-28 md:space-x-12">
             <div className="flex flex-col items-center mb-8 md:mb-0">
               <div className="flex justify-center items-center mb-4">
                 <MdOutlineAttachEmail className="text-blue-600" size={80} />
@@ -35,9 +35,10 @@ export default function Page() {
         </div>
 
 
-        <div className="bg-gray-100 max-w-[1700px] mx-auto">
-          <div className="w-full px-4 py-16 lg:w-2/3 lg:mb-0 mx-auto">
-            <div className={'p-4 h-full'}>
+        <div className="bg-[#f5f5f5] max-w-[1700px] mx-auto">
+          <div className="w-full px-4 py-20 lg:w-2/3 lg:mb-0 mx-auto">
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold">We are here to help you</div>
+            <div className={'pb-4 pt-16 h-full'}>
               <ContactUsForm />
             </div>
           </div>

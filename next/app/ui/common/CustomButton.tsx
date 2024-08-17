@@ -1,19 +1,20 @@
-// components/CustomButton.js
 import Link from "next/link";
 import { Button } from "@/components/ui/moving-border";
 import { ReactNode } from "react";
+import clsx from "clsx";
 
-export default function CustomButton({ href, children, className } : {href: string, children: ReactNode, className?: string}) {
+export default function CustomButton({ href, children, className, variant='filled' } : {href: string, children: ReactNode, className?: string, variant?:'bordered' | 'filled' | 'card'}) {
   return (
     <Link href={href}>
-      <Button
+      {/* <Button
         className={`bg-white text-gray-800 rounded-md 
                     h-12 w-32 text-sm 
                     sm:h-14 sm:w-36 sm:text-base 
                     md:h-14 md:w-36 md:text-base 
                     hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-600 border-blue-400 ${className}`}>
         {children}
-      </Button>
+      </Button> */}
+      <button type="button" className={clsx("py-3 px-9 rounded-md font-medium transition-all duration-300", {"text-white bg-blue-600" : variant === 'filled'}, {"text-blue-600 border-blue-600 border-[1px]" : variant === 'bordered'}, {"text-gray-400 border-gray-400 border-b-[1px] rounded-none !py-2 !px-0 hover:text-blue-600 hover:border-blue-600 !font-normal" : variant === 'card'})}>{children}</button>
     </Link>
   );
 }

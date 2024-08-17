@@ -4,7 +4,7 @@ import { shortenText } from '@/app/lib/utils/string';
 import Image from 'next/image';
 import Banner from '@/app/ui/web/Banner';
 import prisma from '@/app/lib/prismadb'
-import ServiceCard from './components/ServiceCard';
+import CustomButton from '@/app/ui/common/CustomButton';
 
 
 export default async function Page() {
@@ -20,9 +20,40 @@ export default async function Page() {
       <Banner title='Services' isShort bannerImage='/img/banner/services-bg1.png' bannerImageAlt='Services Banner Image' />
       <div className='bg-gray-100'>
         <div className='container mx-auto py-12 md:py-16 lg:py-20 px-4'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {data?.map(
-              (item, index) => <ServiceCard key={item.id} data={item}/>
+              (item, index) => {
+                return (
+                  <div className='bg-white relative'>
+                    <div className="w-full flex justify-center">
+                      <Image
+                        src={item.image}
+                        height="300"
+                        width="650"
+                        className="h-[250px] object-cover"
+                        alt={item.name}
+                      />
+                    </div>
+                    <div className='flex flex-col items-center py-12'>
+                      <div
+                        className='text-xl lg:text-2xl font-bold mb-8 text-center h-12'
+                      >
+                        {item.name}
+                      </div>
+                      <div
+                        className='text-sm lg:text-base max-w-sm mb-8 text-center'
+                      >
+                        {shortenText(item.description)}
+                      </div>
+                      <div className='absolute left-[50%] -translate-x-[50%] bottom-6'>
+                        <CustomButton href={item.href} variant='card'>
+                          View
+                        </CustomButton>
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
             )}
           </div>
         </div>

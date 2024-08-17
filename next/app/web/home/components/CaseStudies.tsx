@@ -7,17 +7,17 @@ import { Button } from '@/components/ui/moving-border';
 import CustomButton from '@/app/ui/common/CustomButton';
 
 
-const CaseStudies = async () => {
+const CaseStudies = async ({title='Case Studies'} : {title:string}) => {
 
     const data = await prisma.caseStudy.findMany()
 
     return (
         <div className='max-w-[1700px] mx-auto py-12 md:py-16 lg:py-20 px-4'>
-            <SectionTitle title='Case Studies' />
+            <SectionTitle title={title} />
             <CaseStudySwiper data={data} />
             <div className='flex justify-center mt-8'>
-                <CustomButton href="/web/casestudies">
-                    View More
+                <CustomButton href="/web/casestudies" variant='bordered'>
+                    View Case Studies
                 </CustomButton>
             </div>
         </div>

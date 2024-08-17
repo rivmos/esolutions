@@ -18,7 +18,7 @@ const SectionTitle = ({ title, colored, className }: { title: string, colored?: 
                 duration: 0.5,
                 ease: [0.4, 0.0, 0.2, 1],
             }}
-            className={`text-xl md:text-2xl lg:text-4xl font-bold mb-4 lg:mb-7 text-center leading-normal ${className}`}
+            className={`text-xl -mt-8 md:text-2xl lg:text-4xl font-bold mb-8 lg:mb-11 text-center leading-normal ${className}`}
         >
             {
                 colored

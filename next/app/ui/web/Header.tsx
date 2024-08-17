@@ -38,7 +38,7 @@ export default function Header() {
 
     return (
         <div className='shadow-xl'>
-            <nav className="mx-auto flex items-center justify-between px-8 h-20 md:h-32" aria-label="Global">
+            <nav className="mx-auto flex items-center justify-between px-8 h-20 md:h-28" aria-label="Global">
                 <div className="flex items-center">
                     <Logo />
                 </div>
@@ -205,7 +205,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                 <NavigationMenuItem onClick={onClick}>
                     <Link href="/web/blogs" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Blogs
+                            Insights
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

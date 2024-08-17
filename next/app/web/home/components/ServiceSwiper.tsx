@@ -7,9 +7,7 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import type { Service } from '@prisma/client';
-
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import Link from 'next/link';
+import CustomButton from '@/app/ui/common/CustomButton';
 
 const ServiceSwiper = ({ data }: { data: Service[] }) => {
     return (
@@ -42,35 +40,26 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
         >
             {data.map((item, index) => {
                 return (
-                    <SwiperSlide key={index} className='w-[600px]'>
-                        <CardContainer >
-                            <CardBody className="bg-white flex-col space-y-4 !p-0 text-center flex items-center shadow-sm relative group/card !w-full rounded-sm transition-transform duration-300">
-                                <CardItem className="w-full flex justify-center">
-                                    <Image
-                                        src={item.image}
-                                        height="300"
-                                        width="600"
-                                        className="h-[300px] w-[600px] object-cover"
-                                        alt={item.name}
-                                    />
-                                </CardItem>
-                                <CardItem className='flex flex-col items-center py-8'>
-                                    <CardItem
-                                        as="p"
-                                        className='text-xl lg:text-2xl font-bold'
-                                    >
-                                        {item.name}
-                                    </CardItem>
-                                    <CardItem
-                                        as={Link}
-                                        href={item.href}
-                                        className='border-b-[1px] border-gray-400 text-gray-400 text-base text-center p-2 mt-3 mb-4 hover:border-blue-600 hover:text-blue-600 underline-animation transition-colors duration-200'
-                                    >
-                                        View
-                                    </CardItem>
-                                </CardItem>
-                            </CardBody>
-                        </CardContainer>
+                    <SwiperSlide key={index} className='w-[600px] h-[480px] mb-6 bg-white'>
+                        <div className="w-full flex justify-center">
+                            <Image
+                                src={item.image}
+                                height="300"
+                                width="650"
+                                className="h-[300px] w-[650px] object-cover"
+                                alt={item.name}
+                            />
+                        </div>
+                        <div className='flex flex-col items-center py-12'>
+                            <div
+                                className='text-xl lg:text-2xl font-bold mb-2'
+                            >
+                                {item.name}
+                            </div>
+                            <CustomButton href={item.href} variant='card'>
+                                View
+                            </CustomButton>
+                        </div>
                     </SwiperSlide>
                 );
             })}

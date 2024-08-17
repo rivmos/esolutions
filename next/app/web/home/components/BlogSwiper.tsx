@@ -9,6 +9,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import Link from 'next/link';
 import type { Blog } from '@prisma/client'
+import CustomButton from '@/app/ui/common/CustomButton';
+import dayjs from 'dayjs';
 
 
 const BlogSwiper = ({ data }: { data: Blog[] }) => {
@@ -68,12 +70,11 @@ const BlogSwiper = ({ data }: { data: Blog[] }) => {
                                     />
                                 </div>
                                 <div className='text-center py-4 px-8 space-y-3'>
-                                    <h6 className='text-lg font-semibold h-20 mb-2'>{item.title}</h6>
-                                    <Link href={`/web/blogs/${item.id}`} className='hover:text-blue-600 text-base underline-animation transition-colors duration-300'>
-                                        <span className='border-b-[1px] p-2 hover:border-blue-700 hover:text-blue-700 transition-colors duration-300 text-gray-400'>
-                                            View
-                                        </span>
-                                    </Link>
+                                    <div className='text-center text-sm text-gray-400'>{dayjs(item.createdAt).format('MMM DD, YYYY')}</div>
+                                    <h6 className='text-lg font-semibold h-16'>{item.title}</h6>
+                                    <CustomButton href={`/web/blogs/${item.id}`} variant='card'>
+                                        Read More
+                                    </CustomButton>
                                 </div>
                             </div>
 

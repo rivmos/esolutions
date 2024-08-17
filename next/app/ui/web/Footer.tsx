@@ -6,32 +6,32 @@ const socialLinks = [
     {
         title: 'Instagram',
         link: '',
-        icon: <TiSocialInstagram />
+        icon: <TiSocialInstagram className="font-semibold" size={20}/>
     },
     {
         title: 'Pinterest',
         link: '',
-        icon: <TiSocialPinterest />
+        icon: <TiSocialPinterest className="font-semibold" size={20}/>
     },
     {
         title: 'Facebook',
         link: '',
-        icon: <TiSocialFacebook />
+        icon: <TiSocialFacebook className="font-semibold" size={20}/>
     },
     {
         title: 'LinkedIn',
         link: '',
-        icon: <TiSocialLinkedin />
+        icon: <TiSocialLinkedin className="font-semibold" size={20}/>
     },
 ]
 
 const FooterEnd = () => {
     return (
-        <div className='flex flex-col gap-4 justify-center py-6 md:py-8 bg-gray-100'>
+        <div className='flex flex-col gap-4 justify-center py-6 md:py-8 bg-[#f5f5f5]'>
             <div className='flex justify-center gap-2'>
                 {
                     socialLinks.map((social, index) => (
-                        <a href={social.link} key={index} aria-label={social.title} className='p-1 md:p-2 rounded-full border-[1px] text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white transition-colors duration-300'>
+                        <a href={social.link} key={index} aria-label={social.title} className='p-1 md:p-2 rounded-full border-[1px] text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-300'>
                             {social.icon}
                         </a>
                     ))
@@ -48,10 +48,10 @@ const Footer = () => {
     return (
         <>
             <div className="bg-gradient-to-r from-[#111111] to-[#373737]">
-                <div className="container mx-auto w-full py-8 px-6 lg:py-12 lg:px-10">
+                <div className="max-w-6xl mx-auto w-full py-8 px-6 lg:py-12 lg:px-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div>
-                            <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Explore</h2>
+                            <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Explore</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
                                     <Link href="/web/services/webdev" className="hover:underline font-light text-sm lg:text-base">Web Development</Link>
@@ -71,7 +71,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Quick Links</h2>
+                            <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Quick Links</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
                                     <Link href="/web/aboutus" className="hover:underline font-light text-sm lg:text-base">About Us</Link>
@@ -88,7 +88,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-4 lg:mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
+                            <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Legal</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
                                     <Link href="/privacy-policy" className="hover:underline font-light text-sm lg:text-base">Privacy Policy</Link>

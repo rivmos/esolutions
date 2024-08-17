@@ -49,12 +49,12 @@ const TestimonialSwiper = ({ data }: { data: Testimonial[] }) => {
                                 <div className='border-l-[1px] border-blue-600 pl-4 text-4xl text-blue-600'>
                                     <Image src="/img/icons/epos.svg" width={25} height={25} className='h-[12px] w-[12px] md:h-[25px] md:w-[25px]' alt='epostophe'/>
                                 </div>
-                                <p className='text-base md:text-base lg:text-lg mb-4 text-justify'>{item.message}</p>
+                                <p className='text-base md:text-base lg:text-[20px] !leading-normal font-normal mb-4 text-justify'>{item.message}</p>
                             </div>
                             <div className='!text-right flex flex-col mt-4'>
                                 <div className='flex items-center gap-2 justify-end'>
-                                    <hr className='w-4 z-[1000] h-[3px] bg-blue-500 opacity-100' />
-                                    <p className='text-sm md:text-base uppercase text-blue-600 flex items-center justify-end gap-2'>
+                                    <hr className='w-6 z-[1000] h-[2px] bg-blue-500 opacity-100' />
+                                    <p className='text-sm md:text-base lg:text-lg uppercase text-blue-700 font-medium flex items-center justify-end gap-2'>
                                         {item.name}
                                     </p>
                                 </div>

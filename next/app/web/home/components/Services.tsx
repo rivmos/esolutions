@@ -16,14 +16,9 @@ const Services = async () => {
 
     return (
         <>
-            <div className='py-12 md:py-16 lg:py-20 px-0 bg-gray-100'>
+            <div className='pb-8 md:pb-12 lg:pb-16 pt-12 md:pt-16 lg:pt-20 bg-[#f5f5f5]'>
                 <SectionTitle title='Our Services' />
                 <ServiceSwiper data={data} />
-                <div className='flex justify-center mt-4'>
-                    <CustomButton href="/web/services">
-                        View More
-                    </CustomButton>
-                </div>
             </div>
         </>
     )

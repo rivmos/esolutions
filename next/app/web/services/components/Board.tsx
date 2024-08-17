@@ -4,7 +4,7 @@ import React from 'react';
 const Board = ({ title, description, image, imageAlt, cards }: { title: string, description: string[], image: string, imageAlt?: string, cards: { title: string, description: string }[] }) => {
     return (
         <div className="max-w-[1700px] mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-gray-50">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-[#f5f5f5]">
                 <Image
                     width={850}
                     height={550}

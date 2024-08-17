@@ -64,17 +64,19 @@ model Testimonial {
 }
 
 model Subscriber {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  email String  @unique
   name  String?
 }
 
 model Blog {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   image       String?
   description String?
   content     String
+  createdAt   DateTime @default(now())
+  lastUpdated DateTime @updatedAt
 }
 
 model BannerSlide {

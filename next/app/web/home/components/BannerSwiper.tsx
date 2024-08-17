@@ -52,7 +52,7 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                                     height={850}
                                     src={item.image}
                                     alt={'Banner Image'}
-                                    className={'w-full object-cover h-[400px] md:h-[600px] lg:h-[800px]'}
+                                    className={'w-full object-cover h-[400px] md:h-[550px] lg:h-[750px]'}
                                 />}
                                 <div className='absolute top-0 left-0 w-full h-full'>
                                     <Image
@@ -65,16 +65,18 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                                     />
                                 </div>
                                 <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-50'></div>
-                                <div className="absolute top-[50%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
+                                <div className="absolute top-[55%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
                                     {/* <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
                                         {item.heading}
                                     </h2> */}
-                                    <TextGenerateEffect words={item.heading} />
-                                    {item.subheading && <p className="mt-6 text-sm md:text-base lg:text-lg text-gray-300 mx-auto text-center w-full md:w-3/4 lg:w-1/2">
+                                    <div className='max-w-5xl mx-auto'>
+                                        <TextGenerateEffect words={item.heading} />
+                                    </div>
+                                    {item.subheading && <p className="mt-6 text-sm md:text-base lg:text-lg text-gray-300 mx-auto text-center w-full">
                                         {item.subheading}
                                     </p>}
                                     {item.ctaHref && (
-                                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
+                                        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-4">
                                             <CustomButton href={item.ctaHref} className=' border-white hover:text-blue-400 bg-transparent text-white'>
                                                     {item.ctaText}
                                             </CustomButton>
