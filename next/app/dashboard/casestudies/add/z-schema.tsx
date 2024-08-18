@@ -11,5 +11,6 @@ export const schema = z.object({
     content: z.string().min(1, {
         message: 'Content is required'
     }),
-    image: z.string()
+    image: z.string(),
+    url : z.string().url().optional()
 })

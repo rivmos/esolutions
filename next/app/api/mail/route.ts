@@ -12,87 +12,790 @@ export async function POST(req: NextRequest) {
         const { first, last, email, mobile, message } = parsed.data;
 
 
-        const mailData = {
+        const clientMail = {
             from: 'contact@esolutions.com',
             to: email,
             subject: `Enquiry Sent To Esolutions`,
             text: `We will reach out to you soon`,
-            html: `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Email Confirmation</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
-                    margin: 0;
-                    padding: 0;
-                    color: #333333;
-                }
-                .container {
-                    width: 100%;
-                    max-width: 600px;
-                    margin: 0 auto;
-                    background-color: #ffffff;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                }
-                .header {
-                    text-align: center;
-                    padding-bottom: 20px;
-                }
-                .header img {
-                    width: 100px;
-                }
-                .header h1 {
-                    margin: 0;
-                    font-size: 24px;
-                    color: #333333;
-                }
-                .content {
-                    padding: 20px 0;
-                }
-                .content p {
-                    margin: 0 0 10px;
-                    line-height: 1.6;
-                }
-                .footer {
-                    text-align: center;
-                    padding-top: 20px;
-                    font-size: 12px;
-                    color: #777777;
-                }
-                .footer a {
-                    color: #007BFF;
-                    text-decoration: none;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="header">
-                    <img src="https://via.placeholder.com/100" alt="Company Logo">
-                    <h1>Thank You for Contacting Esolutions</h1>
-                </div>
-                <div class="content">
-                    <p>Dear Customer,</p>
-                    <p>Thank you for reaching out to us. We have received your inquiry and will get back to you as soon as possible.</p>
-                    <p>Your message:</p>
-                    <p style="font-style: italic;">${message}</p>
-                    <p>If you have any urgent concerns, feel free to contact us directly at <a href="mailto:support@example.com">support@example.com</a>.</p>
-                    <p>Best regards,</p>
-                    <p>The Esolutions Team</p>
-                </div>
-                <div class="footer">
-                    <p>&copy; 2024 Esolutions. All rights reserved.</p>
-                    <p><a href="https://www.example.com">Visit our website</a></p>
-                </div>
+            html: `
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Simple Transactional Email</title>
+    <style media="all" type="text/css">
+    /* -------------------------------------
+    GLOBAL RESETS
+------------------------------------- */
+    
+    body {
+      font-family: Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.3;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    table {
+      border-collapse: separate;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      width: 100%;
+    }
+    
+    table td {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      vertical-align: top;
+    }
+    /* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+    
+    body {
+      background-color: #f4f5f6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .body {
+      background-color: #f4f5f6;
+      width: 100%;
+    }
+    
+    .container {
+      margin: 0 auto !important;
+      max-width: 600px;
+      padding: 0;
+      padding-top: 24px;
+      width: 600px;
+    }
+    
+    .content {
+      box-sizing: border-box;
+      display: block;
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 0;
+    }
+    /* -------------------------------------
+    HEADER, FOOTER, MAIN
+------------------------------------- */
+    
+    .main {
+      background: #ffffff;
+      border: 1px solid #eaebed;
+      border-radius: 16px;
+      width: 100%;
+    }
+    
+    .wrapper {
+      box-sizing: border-box;
+      padding: 24px;
+    }
+    
+    .footer {
+      clear: both;
+      padding-top: 24px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .footer td,
+    .footer p,
+    .footer span,
+    .footer a {
+      color: #9a9ea6;
+      font-size: 16px;
+      text-align: center;
+    }
+    /* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+    
+    p {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+    
+    a {
+      color: #0867ec;
+      text-decoration: underline;
+    }
+    /* -------------------------------------
+    BUTTONS
+------------------------------------- */
+    
+    .btn {
+      box-sizing: border-box;
+      min-width: 100% !important;
+      width: 100%;
+    }
+    
+    .btn > tbody > tr > td {
+      padding-bottom: 16px;
+    }
+    
+    .btn table {
+      width: auto;
+    }
+    
+    .btn table td {
+      background-color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .btn a {
+      background-color: #ffffff;
+      border: solid 2px #0867ec;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #0867ec;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      padding: 12px 24px;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    
+    .btn-primary table td {
+      background-color: #0867ec;
+    }
+    
+    .btn-primary a {
+      background-color: #0867ec;
+      border-color: #0867ec;
+      color: #ffffff;
+    }
+
+    .logo {
+      box-sizing: border-box;
+      min-width: 100% !important;
+      width: 100%;
+    }
+    
+    .logo > tbody > tr > td {
+      padding-bottom: 16px;
+    }
+    
+    .logo table {
+      width: auto;
+    }
+    
+    .logo table td {
+      background-color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    
+    @media all {
+      .btn-primary table td:hover {
+        background-color: #ec0867 !important;
+      }
+      .btn-primary a:hover {
+        background-color: #ec0867 !important;
+        border-color: #ec0867 !important;
+      }
+    }
+    
+    /* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
+    
+    .last {
+      margin-bottom: 0;
+    }
+    
+    .first {
+      margin-top: 0;
+    }
+    
+    .align-center {
+      text-align: center;
+    }
+    
+    .align-right {
+      text-align: right;
+    }
+    
+    .align-left {
+      text-align: left;
+    }
+    
+    .text-link {
+      color: #0867ec !important;
+      text-decoration: underline !important;
+    }
+    
+    .clear {
+      clear: both;
+    }
+    
+    .mt0 {
+      margin-top: 0;
+    }
+    
+    .mb0 {
+      margin-bottom: 0;
+    }
+    
+    .preheader {
+      color: transparent;
+      display: none;
+      height: 0;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      mso-hide: all;
+      visibility: hidden;
+      width: 0;
+    }
+    
+    .powered-by a {
+      text-decoration: none;
+    }
+    
+    /* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
+    
+    @media only screen and (max-width: 640px) {
+      .main p,
+      .main td,
+      .main span {
+        font-size: 16px !important;
+      }
+      .wrapper {
+        padding: 8px !important;
+      }
+      .content {
+        padding: 0 !important;
+      }
+      .container {
+        padding: 0 !important;
+        padding-top: 8px !important;
+        width: 100% !important;
+      }
+      .main {
+        border-left-width: 0 !important;
+        border-radius: 0 !important;    
+        border-right-width: 0 !important;
+      }
+      .btn table {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .btn a {
+        font-size: 16px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+    /* -------------------------------------
+    PRESERVE THESE STYLES IN THE HEAD
+------------------------------------- */
+    
+    @media all {
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      .apple-link a {
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        text-decoration: none !important;
+      }
+      #MessageViewBody a {
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+          <div class="content">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <span class="preheader">Enquiry Sent To Esolutions</span>
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main">
+
+              <!-- START MAIN CONTENT AREA -->
+              <tr>
+              <td class="wrapper">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="logo">
+                    <tbody>
+                                              <tr>
+                        <td align="center">
+                          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td> <img src="https://esolutions-next.vercel.app/img/logo/logo.svg" /></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                                                  </tbody>
+                          </table>
+                  <p>Hi, ${first} ${last}</p>
+                  <p>You have successfuly submitted an enquiry to our esolutions portal, we will be getting back to you as soon as possible:)</p>
+                  <p>Your Enquiry : ${message}</p>
+                  <p>Thank You!</p>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                    <tbody>
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td> <a href="http://esolutions-next.vercel.app" target="_blank">Explore ESolutions</a> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- END MAIN CONTENT AREA -->
+              </table>
+
+            <!-- START FOOTER -->
+            <div class="footer">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="content-block">
+                    <span class="apple-link">Chandigarh, India</span>
+                  </td>
+                </tr>
+              </table>
             </div>
-        </body>
-        </html>`,
+
+            <!-- END FOOTER -->
+            
+<!-- END CENTERED WHITE CONTAINER --></div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>`,
+        };
+
+        const adminMail = {
+            from: email,
+            to: 'contact@esolutions.com',
+            subject: `Enquiry Recieved`,
+            text: `We will reach out to you soon`,
+            html: `
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Simple Transactional Email</title>
+    <style media="all" type="text/css">
+    /* -------------------------------------
+    GLOBAL RESETS
+------------------------------------- */
+    
+    body {
+      font-family: Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.3;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    table {
+      border-collapse: separate;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      width: 100%;
+    }
+    
+    table td {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      vertical-align: top;
+    }
+    /* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+    
+    body {
+      background-color: #f4f5f6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .body {
+      background-color: #f4f5f6;
+      width: 100%;
+    }
+    
+    .container {
+      margin: 0 auto !important;
+      max-width: 600px;
+      padding: 0;
+      padding-top: 24px;
+      width: 600px;
+    }
+    
+    .content {
+      box-sizing: border-box;
+      display: block;
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 0;
+    }
+    /* -------------------------------------
+    HEADER, FOOTER, MAIN
+------------------------------------- */
+    
+    .main {
+      background: #ffffff;
+      border: 1px solid #eaebed;
+      border-radius: 16px;
+      width: 100%;
+    }
+    
+    .wrapper {
+      box-sizing: border-box;
+      padding: 24px;
+    }
+    
+    .footer {
+      clear: both;
+      padding-top: 24px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .footer td,
+    .footer p,
+    .footer span,
+    .footer a {
+      color: #9a9ea6;
+      font-size: 16px;
+      text-align: center;
+    }
+    /* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+    
+    p {
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 0;
+      margin-bottom: 16px;
+    }
+    
+    a {
+      color: #0867ec;
+      text-decoration: underline;
+    }
+    /* -------------------------------------
+    BUTTONS
+------------------------------------- */
+    
+    .btn {
+      box-sizing: border-box;
+      min-width: 100% !important;
+      width: 100%;
+    }
+    
+    .btn > tbody > tr > td {
+      padding-bottom: 16px;
+    }
+    
+    .btn table {
+      width: auto;
+    }
+    
+    .btn table td {
+      background-color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .btn a {
+      background-color: #ffffff;
+      border: solid 2px #0867ec;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #0867ec;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      padding: 12px 24px;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    
+    .btn-primary table td {
+      background-color: #0867ec;
+    }
+    
+    .btn-primary a {
+      background-color: #0867ec;
+      border-color: #0867ec;
+      color: #ffffff;
+    }
+
+    .logo {
+      box-sizing: border-box;
+      min-width: 100% !important;
+      width: 100%;
+    }
+    
+    .logo > tbody > tr > td {
+      padding-bottom: 16px;
+    }
+    
+    .logo table {
+      width: auto;
+    }
+    
+    .logo table td {
+      background-color: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    
+    @media all {
+      .btn-primary table td:hover {
+        background-color: #ec0867 !important;
+      }
+      .btn-primary a:hover {
+        background-color: #ec0867 !important;
+        border-color: #ec0867 !important;
+      }
+    }
+    
+    /* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
+    
+    .last {
+      margin-bottom: 0;
+    }
+    
+    .first {
+      margin-top: 0;
+    }
+    
+    .align-center {
+      text-align: center;
+    }
+    
+    .align-right {
+      text-align: right;
+    }
+    
+    .align-left {
+      text-align: left;
+    }
+    
+    .text-link {
+      color: #0867ec !important;
+      text-decoration: underline !important;
+    }
+    
+    .clear {
+      clear: both;
+    }
+    
+    .mt0 {
+      margin-top: 0;
+    }
+    
+    .mb0 {
+      margin-bottom: 0;
+    }
+    
+    .preheader {
+      color: transparent;
+      display: none;
+      height: 0;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      mso-hide: all;
+      visibility: hidden;
+      width: 0;
+    }
+    
+    .powered-by a {
+      text-decoration: none;
+    }
+    
+    /* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
+    
+    @media only screen and (max-width: 640px) {
+      .main p,
+      .main td,
+      .main span {
+        font-size: 16px !important;
+      }
+      .wrapper {
+        padding: 8px !important;
+      }
+      .content {
+        padding: 0 !important;
+      }
+      .container {
+        padding: 0 !important;
+        padding-top: 8px !important;
+        width: 100% !important;
+      }
+      .main {
+        border-left-width: 0 !important;
+        border-radius: 0 !important;    
+        border-right-width: 0 !important;
+      }
+      .btn table {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .btn a {
+        font-size: 16px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+    }
+    /* -------------------------------------
+    PRESERVE THESE STYLES IN THE HEAD
+------------------------------------- */
+    
+    @media all {
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      .apple-link a {
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+        text-decoration: none !important;
+      }
+      #MessageViewBody a {
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container">
+          <div class="content">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <span class="preheader">Enquiry Recieved</span>
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="main">
+
+              <!-- START MAIN CONTENT AREA -->
+              <tr>
+              <td class="wrapper">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="logo">
+                    <tbody>
+                                              <tr>
+                        <td align="center">
+                          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <td> <img src="https://esolutions-next.vercel.app/img/logo/logo.svg" /></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                                                  </tbody>
+                          </table>
+                  <p>You have recieved a new enquiry on your portal! From ${first} ${last}</p>
+                  <p>Name : ${first} ${last}</p>
+                  <p>Email : ${email}</p>
+                  <p>Enquiry : ${message}</p>
+                  <p>Mobile : ${mobile}</p>
+                </td>
+              </tr>
+
+              <!-- END MAIN CONTENT AREA -->
+              </table>
+
+            <!-- START FOOTER -->
+            <div class="footer">
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="content-block">
+                    <span class="apple-link">Chandigarh, India</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- END FOOTER -->
+            
+<!-- END CENTERED WHITE CONTAINER --></div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>`,
         };
 
 
@@ -105,7 +808,12 @@ export async function POST(req: NextRequest) {
             },
         });
 
-        transport.sendMail(mailData, (error, info) => {
+        transport.sendMail(clientMail, (error, info) => {
+            if (error) console.log(error);
+            console.log(`Message sent: ${info.messageId}`);
+        });
+
+        transport.sendMail(adminMail, (error, info) => {
             if (error) console.log(error);
             console.log(`Message sent: ${info.messageId}`);
         });

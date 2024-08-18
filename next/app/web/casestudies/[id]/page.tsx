@@ -16,12 +16,13 @@ const CaseStudy = async ({ params }: { params: { id: string } }) => {
 
   const casestudies = await prisma?.caseStudy.findMany()
 
-  return (  
+  return (
     <>
       {/* <Banner title={data?.title} isShort bannerImage='/img/banner/laptop-bg.png' bannerImageAlt='Case Studies Banner Image'/> */}
       <section className="pt-8 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="container mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-8">{data?.title}</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">{data?.title}</h1>
+          <Link href={data?.url as string} target='_blank'>({data?.url})</Link>
           <div className="w-full flex justify-center my-8 md:my-12 lg:my-20">
             <Image
               src={data?.image ?? '/img/upload/upload-widget.png'}
@@ -35,15 +36,15 @@ const CaseStudy = async ({ params }: { params: { id: string } }) => {
             <div id='blog-content' className='text-left' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
             <div className="text-center !mt-12">
               <Link href="/web/casestudies" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
-                  Back to Case Studies
+                Back to Case Studies
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <div className='max-w-[1700px] mx-auto py-12 md:py-16 lg:py-20 px-4'>
-        <SectionTitle title={"Related Case Studies"} />
+      {/* <div className='max-w-[1700px] mx-auto py-12 md:py-16 lg:py-20 px-4'>
+        <SectionTitle title={"Other Case Studies"} />
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {casestudies?.map(
             (item, index) => {
@@ -62,6 +63,9 @@ const CaseStudy = async ({ params }: { params: { id: string } }) => {
             }
           )}
         </div>
+      </div> */}
+      <div className='bg-[#f5f5f5]'>
+        <CaseStudies title='Other Case Studies' />
       </div>
     </>
   );

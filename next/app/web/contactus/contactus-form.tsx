@@ -19,6 +19,8 @@ import { useEffect } from "react";
 import type { Enquiry } from '@prisma/client'
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { PhoneInput } from "@/components/ui/phone-input";
+
 
 
 const ContactUsForm = ({ data }: { data?: Enquiry }) => {
@@ -116,13 +118,16 @@ const ContactUsForm = ({ data }: { data?: Enquiry }) => {
                 <FormItem className="w-full">
                   {/* <FormLabel>Mobile Number</FormLabel> */}
                   <FormControl>
-                    <Input type="number" placeholder="Phone*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
+                    {/* <Input type="number" placeholder="Phone*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/> */}
+                    <PhoneInput placeholder="Phone*" {...field} className="shadow-sm px-2 py-6 !placeholder-[#828282]"/>
+                    
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
+          
 
           <FormField
             control={form.control}

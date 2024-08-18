@@ -25,7 +25,7 @@ import { useToast } from "@/components/ui/use-toast";
 
 const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
 
-  const {toast} = useToast()
+  const { toast } = useToast()
   const router = useRouter()
 
   const form = useForm<z.output<typeof schema>>({
@@ -36,11 +36,13 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
       description: data?.description as string,
       content: data?.content as string,
       image: data?.image as string,
+      url: data?.url as string
     } : {
       title: "",
       description: "",
       content: "",
-      image: ""
+      image: "",
+      url: ""
     },
   });
 
@@ -51,7 +53,7 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
     // formData.append('content', data.content)
     axios.post('/api/casestudy/save', data).then(res => {
       router.push('/dashboard/casestudies/list')
-      toast({description:"Case Study Added Successfully", variant:'success'})
+      toast({ description: "Case Study Added Successfully", variant: 'success' })
       router.refresh()
     })
   }
@@ -86,6 +88,20 @@ const CaseStudyForm = ({ data }: { data?: CaseStudy }) => {
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Input placeholder="" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="url"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Website</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>

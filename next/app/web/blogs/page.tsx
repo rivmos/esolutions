@@ -5,6 +5,7 @@ import Image from 'next/image';
 import prisma from '@/app/lib/prismadb'
 import CustomButton from '@/app/ui/common/CustomButton';
 import dayjs from 'dayjs';
+import Blogs from '../home/components/Blogs';
 
 export default async function Page() {
 
@@ -29,7 +30,12 @@ export default async function Page() {
                   </div>
                   <div className='text-center p-4 space-y-3'>
                     <div className='text-center'>{dayjs(item.createdAt).format('MMM DD YY')}</div>
-                    <h6 className='text-lg font-semibold h-20'>{item.title}</h6>
+                    <h6 className='text-lg font-semibold h-16'>{item.title}</h6>
+                    {/* <CustomButton href={`/web/blogs/${item.id}`} variant='card'>
+                      Read More
+                    </CustomButton> */}
+                  </div>
+                  <div className='flex justify-center px-4'>
                     <CustomButton href={`/web/blogs/${item.id}`} variant='card'>
                       Read More
                     </CustomButton>

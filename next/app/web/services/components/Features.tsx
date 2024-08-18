@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import CaseStudies from '../../home/components/CaseStudies';
+import Services from '../../home/components/Services';
 
 const Features = ({image, imageAlt, features} : {image:string, imageAlt: string, features: {title: string, description:string}[]}) => {
     return (
@@ -34,7 +35,8 @@ const Features = ({image, imageAlt, features} : {image:string, imageAlt: string,
                     </div>
                 </div>
             </div>
-            <CaseStudies title="Related Case Studies"/>
+            {/* <CaseStudies title="Related Case Studies"/> */}
+            <Services />
         </>
 
     );

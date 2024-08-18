@@ -10,6 +10,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     }
   })
 
+  console.log(data)
+
   return (
     <div>
       <CaseStudyForm data={data as CaseStudy}/>
