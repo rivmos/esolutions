@@ -16,7 +16,7 @@ const Services = async () => {
 
     return (
         <>
-            <div className='pb-8 md:pb-12 lg:pb-16 pt-12 md:pt-16 lg:pt-20 bg-[#f5f5f5]'>
+            <div className='pb-8 md:pb-12 lg:pb-16 pt-16 lg:pt-20 bg-[#f5f5f5]'>
                 <SectionTitle title='Our Services' />
                 <ServiceSwiper data={data} />
             </div>

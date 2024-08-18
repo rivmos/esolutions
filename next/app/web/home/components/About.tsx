@@ -6,7 +6,7 @@ import CustomButton from "@/app/ui/common/CustomButton";
 
 const About = () => {
   return (
-    <div className="container mx-auto py-12 md:py-16 lg:py-24 px-6 text-center">
+    <div className="container mx-auto py-16 lg:py-24 px-6 text-center">
       <SectionTitle title="About Us" />
       <p className="text-base md:text-xl lg:text-2xl font-light mb-7">
         eSolutions&apos; story began with one mission – “to develop effective solutions and deliver creative strategies for businesses who want to grow their customer base and get more leads.”

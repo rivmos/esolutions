@@ -12,7 +12,7 @@ const CaseStudies = async ({title='Case Studies'} : {title:string}) => {
     const data = await prisma.caseStudy.findMany()
 
     return (
-        <div className='max-w-[1700px] mx-auto py-12 md:py-16 lg:py-20 px-4'>
+        <div className='max-w-[1700px] mx-auto py-16 lg:py-20 px-4'>
             <SectionTitle title={title} />
             <CaseStudySwiper data={data} />
             <div className='flex justify-center mt-8'>

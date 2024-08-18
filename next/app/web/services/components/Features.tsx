@@ -14,7 +14,7 @@ const Features = ({image, imageAlt, features} : {image:string, imageAlt: string,
                                 height={850}
                                 src={'/img/services/computers.png'}
                                 alt={imageAlt}
-                                className={'w-[970px] h-auto object-cover rounded-full -mt-32 md:-mt-44 lg:-mt-56'}
+                                className={'w-[970px] h-auto object-cover rounded-full -mt-28 md:-mt-44 lg:-mt-56'}
                             />
                         </div>
                         <div className="mt-16 text-center ">

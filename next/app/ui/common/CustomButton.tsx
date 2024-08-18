@@ -14,7 +14,7 @@ export default function CustomButton({ href, children, className, variant='fille
                     hover:bg-blue-600-dark transition-colors duration-300 hover:text-blue-600 border-blue-400 ${className}`}>
         {children}
       </Button> */}
-      <button type="button" className={clsx("py-3 px-9 rounded-md font-medium transition-all duration-300", {"text-white bg-blue-600" : variant === 'filled'}, {"text-blue-600 border-blue-600 border-[1px]" : variant === 'bordered'}, {"text-gray-400 border-gray-400 border-b-[1px] rounded-none !py-2 !px-0 hover:text-blue-600 hover:border-blue-600 !font-normal" : variant === 'card'})}>{children}</button>
+      <button type="button" className={clsx("h-12 w-40 text-sm sm:h-12 sm:w-40 md:h-12 md:w-44 md:text-base rounded-md font-medium transition-all duration-300", {"text-white bg-blue-600" : variant === 'filled'}, {"text-blue-600 border-blue-600 border-[1px]" : variant === 'bordered'}, {"text-gray-400 border-gray-400 border-b-[1px] rounded-none !py-2 !px-0 hover:text-blue-600 hover:border-blue-600 !h-full !w-full !font-normal" : variant === 'card'})}>{children}</button>
     </Link>
   );
 }

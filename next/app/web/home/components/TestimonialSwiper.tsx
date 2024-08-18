@@ -65,10 +65,10 @@ const TestimonialSwiper = ({ data }: { data: Testimonial[] }) => {
                 ))}
             </Swiper>
             <div>
-                <div className="text-blue-500 absolute left-8 md:left-16 lg:left-20 bottom-8 xl:top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slidePrev()}>
+                <div className="text-blue-500 absolute left-8 md:left-16 lg:left-20 bottom-0 xl:top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slidePrev()}>
                     <Image src="/img/icons/arrow.svg" width={45} height={45} alt='epostophe' className='rotate-180'/>
                 </div>
-                <div className="text-blue-500 absolute right-8 md:right-16 lg:right-20 bottom-8 xl:top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slideNext()}>
+                <div className="text-blue-500 absolute right-8 md:right-16 lg:right-20 bottom-0 xl:top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => swiper.slideNext()}>
                     <Image src="/img/icons/arrow.svg" width={45} height={45} alt='epostophe'/>
                 </div>
             </div>

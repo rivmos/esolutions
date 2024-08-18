@@ -52,7 +52,7 @@ const ServiceSwiper = ({ data }: { data: Service[] }) => {
                         </div>
                         <div className='flex flex-col items-center py-12'>
                             <div
-                                className='text-xl lg:text-2xl font-bold mb-2'
+                                className='text-xl lg:text-2xl text-center font-bold mb-2'
                             >
                                 {item.name}
                             </div>

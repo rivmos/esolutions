@@ -41,7 +41,7 @@ export default async function Page() {
                         {item.name}
                       </div>
                       <div
-                        className='text-sm lg:text-base max-w-sm mb-8 text-center'
+                        className='text-sm lg:text-base max-w-sm mb-8 text-center px-2'
                       >
                         {shortenText(item.description)}
                       </div>

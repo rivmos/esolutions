@@ -65,7 +65,7 @@ const BannerSwiper = ({ data }: { data: BannerSlide[] }) => {
                                     />
                                 </div>
                                 <div className='absolute top-0 left-0 w-full h-full bg-[#000] opacity-50'></div>
-                                <div className="absolute top-[55%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
+                                <div className="absolute top-[50%] -translate-y-[50%] left-0 right-0 z-20 mx-auto container text-[#fff] px-4">
                                     {/* <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center">
                                         {item.heading}
                                     </h2> */}

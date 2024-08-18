@@ -12,7 +12,7 @@ export default function Home() {
       <Banner />
       <About />
       <Services />
-      <CaseStudies />
+      <CaseStudies title="Case Studies"/>
       <Testimonials />
       {/* <Insights /> */}
       <Blogs />
