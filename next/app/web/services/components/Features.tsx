@@ -36,7 +36,7 @@ const Features = ({image, imageAlt, features} : {image:string, imageAlt: string,
                 </div>
             </div>
             {/* <CaseStudies title="Related Case Studies"/> */}
-            <Services />
+            <Services title='Other Services'/>
         </>
 
     );

@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       <Banner />
       <About />
-      <Services />
+      <Services title="Our Services"/>
       <CaseStudies title="Case Studies"/>
       <Testimonials />
       {/* <Insights /> */}
