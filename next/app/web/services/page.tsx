@@ -24,7 +24,7 @@ export default async function Page() {
             {data?.map(
               (item, index) => {
                 return (
-                  <div className='bg-white relative'>
+                  <div key={item.id} className='bg-white relative'>
                     <div className="w-full flex justify-center">
                       <Image
                         src={item.image}

@@ -37,7 +37,7 @@ const HowItWorks = () => {
           {
             data.map(item => {
               return (
-                <div className="bg-white rounded-sm shadow-md relative py-16 group block p-2 h-full w-full border-[2px] cursor-pointer hover:border-blue-300 hover:shadow-blue-300 hover:shadow-lg transition-all duration-300">
+                <div key={item.title} className="bg-white rounded-sm shadow-md relative py-16 group block p-2 h-full w-full border-[2px] cursor-pointer hover:border-blue-300 hover:shadow-blue-300 hover:shadow-lg transition-all duration-300">
                   {/* <IconComponent size={28} className="text-blue-600 text-3xl md:text-4xl lg:text-5xl mx-auto mb-4" /> */}
                   <div className="flex justify-center mb-6">
                     <Image src={`/img/icons/${item.iconSrc}`} alt="icon" width={80} height={80} />
