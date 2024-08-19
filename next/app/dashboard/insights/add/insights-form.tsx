@@ -17,13 +17,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Blog } from "@prisma/client";
+import { Insight } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import ImageUpload from "../../casestudies/add/image-upload";
 import { useToast } from "@/components/ui/use-toast";
 
 
-const BlogForm = ({ data }: { data?: Blog }) => {
+const InsightForm = ({ data }: { data?: Insight }) => {
 
   const {toast} = useToast()
   const router = useRouter()
@@ -49,9 +49,9 @@ const BlogForm = ({ data }: { data?: Blog }) => {
     // formData.append('title', data.title)
     // formData.append('description', data.description)
     // formData.append('content', data.content)
-    axios.post('/api/blog/save', data).then(res => {
-      router.push('/dashboard/blogs/list')
-      toast({description:"Blog Saved Successfully", variant:'success'})
+    axios.post('/api/insight/save', data).then(res => {
+      router.push('/dashboard/insights/list')
+      toast({description:"Insight Saved Successfully", variant:'success'})
       router.refresh()
     })
   }
@@ -131,4 +131,4 @@ const BlogForm = ({ data }: { data?: Blog }) => {
   );
 };
 
-export default BlogForm
+export default InsightForm

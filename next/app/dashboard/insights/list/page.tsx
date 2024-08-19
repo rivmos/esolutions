@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/button'
 
 const Page = async () => {
 
-  const data = await prisma.blog.findMany()
+  const data = await prisma.insight.findMany()
 
   return (
     <>
       <div>
         <h1 className={`mb-4 text-xl md:text-2xl`}>
-          Blogs
+          Insights
         </h1>
         <Table data={data} />
       </div>

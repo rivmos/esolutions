@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { schema } from '@/app/dashboard/casestudies/add/z-schema';
 import prisma from '@/app/lib/prismadb';
+import slugify from 'slugify'
 
 export async function POST(req: NextRequest) {
     const data = await req.json();
@@ -10,39 +11,43 @@ export async function POST(req: NextRequest) {
     if (parsed.success) {
         const { id, title, description, content, image } = parsed.data;
 
+        const slug = slugify(title, {lower:true})
+
         try {
-            let blog;
+            let insight;
 
             if (id) {
                 // Update existing case study
-                blog = await prisma.blog.update({
+                insight = await prisma.insight.update({
                     where: { id },
                     data: {
                         title,
                         description,
                         content,
-                        image
+                        image,
+                        slug
                     }
                 });
 
-                if (!blog) {
-                    return NextResponse.json({ message: 'Blog not found' }, { status: 404 });
+                if (!insight) {
+                    return NextResponse.json({ message: 'Insight not found' }, { status: 404 });
                 }
             } else {
                 // Create new case study
-                blog = await prisma.blog.create({
+                insight = await prisma.insight.create({
                     data: {
                         title,
                         description,
                         content,
-                        image
+                        image,
+                        slug
                     }
                 });
             }
 
-            return NextResponse.json({ message: id ? 'Blog updated' : 'Blog saved', data: blog }, { status: 201 });
+            return NextResponse.json({ message: id ? 'Insight updated' : 'Insight saved', data: insight }, { status: 201 });
         } catch (err) {
-            return NextResponse.json({ message: 'Error saving blog', error: err }, { status: 500 });
+            return NextResponse.json({ message: 'Error saving Insight', error: err }, { status: 500 });
         }
     } else {
         return NextResponse.json({ message: 'Data is invalid', data: parsed.error }, { status: 400 });

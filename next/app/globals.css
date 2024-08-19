@@ -68,22 +68,22 @@
   }
 }
 
-#blog-content ul {
+#insight-content ul {
   @apply list-disc ml-8
 }
 
-#blog-content ol {
+#insight-content ol {
   @apply list-decimal ml-8
 }
 
-#blog-content h1 {
+#insight-content h1 {
   @apply text-3xl
 }
 
-#blog-content h2 {
+#insight-content h2 {
   @apply text-2xl
 }
 
-#blog-content h3 {
+#insight-content h3 {
   @apply text-xl
 }

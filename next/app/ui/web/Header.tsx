@@ -203,7 +203,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem onClick={onClick}>
-                    <Link href="/web/blogs" legacyBehavior passHref>
+                    <Link href="/web/insights" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Insights
                         </NavigationMenuLink>

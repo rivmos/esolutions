@@ -2,9 +2,9 @@ import Banner from "./components/Banner";
 import About from "./components/About"
 import Services from "./components/Services"
 import CaseStudies from "./components/CaseStudies"
-import Insights from "./components/Insights";
+import Insights from "./components/Insightss";
 import Testimonials from "./components/Testimonials";
-import Blogs from "./components/Blogs";
+import Blogs from "./components/Insights";
 
 export default function Home() {
   return (

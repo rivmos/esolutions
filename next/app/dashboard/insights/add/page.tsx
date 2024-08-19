@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogForm from './blog-form'
+import BlogForm from './insights-form'
 
 const Page = () => {
   return (

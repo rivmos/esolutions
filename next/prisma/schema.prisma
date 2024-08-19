@@ -80,6 +80,17 @@ model Blog {
   lastUpdated DateTime @updatedAt
 }
 
+model Insight {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  image       String?
+  description String?
+  content     String
+  slug        String
+  createdAt   DateTime @default(now())
+  lastUpdated DateTime @updatedAt
+}
+
 model BannerSlide {
   id         String @id @default(auto()) @map("_id") @db.ObjectId
   heading    String

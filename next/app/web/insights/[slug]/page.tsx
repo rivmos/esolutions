@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import prisma from '@/app/lib/prismadb'
 import Link from 'next/link';
-import Blogs from '../../home/components/Blogs';
+import Insights from '../../home/components/Insights';
+import slugify from 'slugify';
 
-const Blog = async ({ params }: { params: { id: string } }) => {
-  const data = await prisma?.blog.findUnique({
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const data = await prisma?.insight.findFirst({
     where: {
-      id: params.id
+      slug: params.slug
     }
   });
 
@@ -18,27 +19,27 @@ const Blog = async ({ params }: { params: { id: string } }) => {
           <div className="w-full flex justify-center my-8 md:my-12 lg:my-20">
             <Image
               src={data?.image ?? '/img/upload/upload-widget.png'}
-              alt="Blog Image"
+              alt="Insight Image"
               className="rounded-lg"
               width={800}
               height={400}
             />
           </div>
           <div className="text-left space-y-4 sm:space-y-6 md:space-y-8">
-            <div id='blog-content' className='text-left' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
+            <div id='insight-content' className='text-left' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
             <div className="text-center !mt-12">
-              <Link href="/web/blogs" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
-                  Back to Blogs
+              <Link href="/web/insights" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
+                  Back to Insights
               </Link>
             </div>
           </div>
         </div>
       </section>
       <div className='bg-[#f5f5f5]'>
-        <Blogs title='Other Insights' />
+        <Insights title='Other Insights' />
       </div>
     </>
   );
 };
 
-export default Blog;
+export default Page;

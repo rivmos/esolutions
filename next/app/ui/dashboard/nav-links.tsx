@@ -27,8 +27,8 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   {
-    name: 'Blogs',
-    href: '/dashboard/blogs/list',
+    name: 'Insights',
+    href: '/dashboard/insights/list',
     icon: BuildingLibraryIcon,
   },
   {

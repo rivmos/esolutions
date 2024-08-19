@@ -83,7 +83,7 @@ const Footer = () => {
                                     <Link href="/web/casestudies" className="hover:underline font-light text-sm lg:text-base">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/blogs" className="hover:underline font-light text-sm lg:text-base">Blogs</Link>
+                                    <Link href="/web/insights" className="hover:underline font-light text-sm lg:text-base">Insights</Link>
                                 </li>
                             </ul>
                         </div>

@@ -18,13 +18,13 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { Blog } from '@prisma/client'
+import { Insight } from '@prisma/client'
 import Link from 'next/link'
 import { HiEye, HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi'
 
 
 
-const columnHelper = createColumnHelper<Blog>()
+const columnHelper = createColumnHelper<Insight>()
 const columns = [
   columnHelper.accessor(row => row.title, {
     id: 'title',
@@ -45,13 +45,13 @@ const columns = [
           <span
             className={`cursor-pointer p-2`}
           >
-            <Link href={`/dashboard/blogs/${row.original.id}`}><HiOutlinePencil /></Link>
+            <Link href={`/dashboard/insights/${row.original.id}`}><HiOutlinePencil /></Link>
           </span>
           <span
             className={`cursor-pointer p-2 hover:text-gray-400`}
             
           >
-            <Link href={`/web/blogs/${row.original.id}`}><HiEye /></Link>
+            <Link href={`/web/insights/${row.original.id}`}><HiEye /></Link>
             
           </span>
           <span
@@ -67,7 +67,7 @@ const columns = [
 ]
 
 
-function CaseStudyTable(props: { data: Blog[] }) {
+function CaseStudyTable(props: { data: Insight[] }) {
   const [data, _setData] = React.useState(() => [...props.data])
   const rerender = React.useReducer(() => ({}), {})[1]
 

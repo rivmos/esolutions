@@ -1,10 +1,10 @@
-import { Blog } from "@prisma/client";
-import BlogForm from "../add/blog-form";
+import { Insight } from "@prisma/client";
+import InsightForm from "../add/insights-form";
 import prisma from '@/app/lib/prismadb'
 
 export default async function Page({ params }: { params: { id: string } }) {
 
-  const data = await prisma?.blog.findUnique({
+  const data = await prisma?.insight.findUnique({
     where: {
       id:params.id
     }
@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <div>
-      <BlogForm data={data as Blog}/>
+      <InsightForm data={data as Insight}/>
     </div>
   )
 }

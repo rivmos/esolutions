@@ -71,7 +71,7 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                 />
             )
 
-        case 'Blogs':
+        case 'Insights':
             return (
                 <Avatar
                     size={55}
