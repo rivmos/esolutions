@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { schema } from '@/app/dashboard/casestudies/add/z-schema';
 import prisma from '@/app/lib/prismadb';
+import slugify from 'slugify';
 
 export async function POST(req: NextRequest) {
     const data = await req.json();
@@ -9,6 +10,8 @@ export async function POST(req: NextRequest) {
 
     if (parsed.success) {
         const { id, title, description, content, image, url } = parsed.data;
+
+        const slug = slugify(title, {lower:true})
 
         try {
             let casestudy;
@@ -22,7 +25,8 @@ export async function POST(req: NextRequest) {
                         description,
                         content,
                         image,
-                        url
+                        url,
+                        slug
                     }
                 });
 
@@ -37,7 +41,8 @@ export async function POST(req: NextRequest) {
                         description,
                         content,
                         image,
-                        url
+                        url,
+                        slug
                     }
                 });
             }

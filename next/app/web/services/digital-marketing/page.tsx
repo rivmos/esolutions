@@ -55,7 +55,7 @@ const Page = () => {
       <UnderBanner title="Best Digital Marketing & Analytics Services!" description="Result Oriented, Data Driven, Affordable- SEO, SMM, PPC Services and more.
 " btnText="LET'S GROW YOUR BUSINESS" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Digital Marketing Service Image"} cards={board.cards} />
-      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403818/ruik2o7fp8lwzpitpyw2.jpg' imageAlt='Image depicting digital marketing analytics' features={features}/>
+      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403818/ruik2o7fp8lwzpitpyw2.jpg' imageAlt='Image depicting digital marketing analytics' features={features} slugToExclude='digital-marketing'/>
     </div>
   )
 }

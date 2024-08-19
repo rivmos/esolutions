@@ -58,7 +58,7 @@ const InsightsSwiper = ({ data }: { data: Insight[] }) => {
                                     </CustomButton> */}
                                 </div>
                                 <div className='flex justify-center px-4 mb-6'>
-                                    <CustomButton href={`/web/insights/${item.id}`} variant='card'>
+                                    <CustomButton href={`/web/insights/${item.slug}`} variant='card'>
                                         Read More
                                     </CustomButton>
                                 </div>

@@ -36,7 +36,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         </div>
       </section>
       <div className='bg-[#f5f5f5]'>
-        <Insights title='Other Insights' />
+        <Insights title='Other Insights' slugToExclude={params.slug}/>
       </div>
     </>
   );

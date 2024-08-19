@@ -6,11 +6,14 @@ import SectionTitle from './SectionTitle';
 import { Button } from '@/components/ui/moving-border';
 import CustomButton from '@/app/ui/common/CustomButton';
 
-const Services = async ({title} : {title: string}) => {
+const Services = async ({title, slugToExclude} : {title: string, slugToExclude?: string}) => {
 
     const data = await prisma.service.findMany({
         where: {
-            isActive: true
+            isActive: true,
+            NOT: {
+                href: `/web/services/${slugToExclude}`
+            }
         }
     })
 

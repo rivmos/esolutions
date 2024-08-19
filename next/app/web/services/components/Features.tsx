@@ -3,7 +3,7 @@ import React from 'react';
 import CaseStudies from '../../home/components/CaseStudies';
 import Services from '../../home/components/Services';
 
-const Features = ({image, imageAlt, features} : {image:string, imageAlt: string, features: {title: string, description:string}[]}) => {
+const Features = ({image, imageAlt, features, slugToExclude} : {image:string, imageAlt: string, features: {title: string, description:string}[], slugToExclude?: string}) => {
     return (
         <>
             <div className='bg-gray-50'>
@@ -36,7 +36,7 @@ const Features = ({image, imageAlt, features} : {image:string, imageAlt: string,
                 </div>
             </div>
             {/* <CaseStudies title="Related Case Studies"/> */}
-            <Services title='Other Services'/>
+            <Services title='Other Services' slugToExclude={slugToExclude}/>
         </>
 
     );

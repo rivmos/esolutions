@@ -42,7 +42,7 @@ const Page = () => {
       <Banner bannerImage='/img/banner/services-bg1.png' title='Designing Services' isShort />
       <UnderBanner title="Exceptional Design Services for Exceptional User Experience!" description="Our expert designers provide web design, graphic design, 3D modelling, video and animation services to suit your business needs." btnText="LETS GET STARTED!" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Design Service Image"} cards={board.cards} />
-      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403668/pvlrlesbq1lpkzpqvex4.jpg' imageAlt='Image depicting application in various screen sizes' features={features}/>
+      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403668/pvlrlesbq1lpkzpqvex4.jpg' imageAlt='Image depicting application in various screen sizes' features={features} slugToExclude="designing-services"/>
     </div>
   )
 }

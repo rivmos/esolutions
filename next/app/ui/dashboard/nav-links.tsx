@@ -42,7 +42,7 @@ const links = [
     icon: ServerIcon,
   },
   {
-    name: 'Testinomials',
+    name: 'Testimonials',
     href: '/dashboard/testimonials/list',
     icon: ChartBarIcon,
   },

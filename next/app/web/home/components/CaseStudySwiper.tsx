@@ -44,7 +44,7 @@ const CaseStudySwiper = ({ data }: { data: CaseStudy[] }) => {
                                 <div><Image width={850} height={450} src={item.image ?? '/img/data.png'} className='w-full h-[250px] md:h-[450PX] object-cover mb-4' alt={item.title as string} /></div>
                                 <div className='overflow-y-auto max-w-xl mx-auto text-base text-center mb-4 px-4 pt-6'>{shortenText(item?.description as string)}</div>
                                 <div className='flex justify-center px-4 mb-6'>
-                                    <CustomButton href={`/web/casestudies/${item?.id}`} variant='card'>
+                                    <CustomButton href={`/web/casestudies/${item?.slug}`} variant='card'>
                                         Read More
                                     </CustomButton>
                                 </div>

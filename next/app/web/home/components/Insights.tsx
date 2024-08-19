@@ -6,9 +6,15 @@ import { Button } from '@/components/ui/moving-border';
 import SectionTitle from './SectionTitle';
 import CustomButton from '@/app/ui/common/CustomButton';
 
-const Blogs = async ({title} : {title?:string}) => {
+const Blogs = async ({title, slugToExclude} : {title?:string, slugToExclude?: string}) => {
 
-    const data = await prisma.insight.findMany()
+    const data = await prisma.insight.findMany({
+        where: {
+            NOT: {
+                slug:slugToExclude
+            }
+        }
+    })
 
     return (
         <div className='max-w-6xl mx-auto py-16 lg:py-20 px-4'>

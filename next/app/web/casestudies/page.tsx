@@ -22,7 +22,7 @@ export default async function Page() {
                   <div><Image width={550} height={300} src={item.image ?? '/img/data.png'} className='w-full h-[200px] md:h-[300PX] object-cover mb-4' alt={item.title as string} /></div>
                   <div className='overflow-y-auto max-w-md mx-auto text-base text-center mb-4 px-4 pt-6 text-[#111111]'>{shortenText(item?.description as string)}</div>
                   <div className='flex justify-center px-4'>
-                    <CustomButton href={`/web/casestudies/${item?.id}`} variant='card'>
+                    <CustomButton href={`/web/casestudies/${item?.slug}`} variant='card'>
                         Read More
                     </CustomButton>
                   </div>

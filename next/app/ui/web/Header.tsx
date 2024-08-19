@@ -92,31 +92,31 @@ export default function Header() {
 const components: { title: string; href: string; description: string }[] = [
     {
         title: "Web Development",
-        href: "/web/services/webdev",
+        href: "/web/services/web-developement",
         description:
             "Build responsive and dynamic websites tailored to your business needs using the latest web technologies.",
     },
     {
         title: "Mobile App Design & Development",
-        href: "/web/services/mobiledev",
+        href: "/web/services/mobile-developement",
         description:
             "Create seamless, user-friendly mobile applications for iOS and Android platforms, ensuring optimal performance and user experience.",
     },
     {
         title: "Designing Services",
-        href: "/web/services/design",
+        href: "/web/services/designing-services",
         description:
             "Craft visually appealing and intuitive designs that resonate with your brand identity and engage your audience.",
     },
     {
         title: "Video & Animation Services",
-        href: "/web/services/video",
+        href: "/web/services/video-services",
         description:
             "Produce compelling video content and animations to effectively communicate your message and captivate your audience.",
     },
     {
         title: "Digital Marketing & Analytics Services",
-        href: "/web/services/digitalmarketing",
+        href: "/web/services/digital-marketing",
         description:
             "Leverage data-driven digital marketing strategies to enhance your online presence and achieve measurable business growth.",
     },

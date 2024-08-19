@@ -47,7 +47,7 @@ const Page = () => {
       <UnderBanner title="WEB DEVELOPMENT SOLUTIONS!" description="You know what makes your business great and we will help you reflect it!
 " btnText="START YOUR PROJECT" />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Web Development Service Image"} cards={board.cards} />
-      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403523/grpqbmwzawuapvwnnvyw.jpg' imageAlt='Image depicting a responsive website on various devices' features={features}/>
+      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403523/grpqbmwzawuapvwnnvyw.jpg' imageAlt='Image depicting a responsive website on various devices' features={features} slugToExclude='web-developement'/>
     </div>
   )
 }

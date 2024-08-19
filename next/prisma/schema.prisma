@@ -19,6 +19,7 @@ model CaseStudy {
   image       String?
   description String?
   content     String
+  slug        String
   url         String?
 }
 

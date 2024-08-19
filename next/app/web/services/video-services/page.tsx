@@ -71,7 +71,7 @@ const Page = () => {
       <UnderBanner title="High-Quality Video Animation Services" description="Our expert team creates promotional, explainer, and corporate videos tailored to your business needs." btnText="Get Free Consultation Today
 " />
       <Board title={board.title} description={board.description} image={board.image} imageAlt={"Video Animation Service Image"} cards={board.cards} />
-      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403681/awbm3lreqtcw12qj6jun.jpg' imageAlt='Image depicting video production process' features={features}/>
+      <Features image='https://res.cloudinary.com/dbgcgbsgh/image/upload/v1723403681/awbm3lreqtcw12qj6jun.jpg' imageAlt='Image depicting video production process' features={features} slugToExclude='video-services'/>
     </div>
   )
 }

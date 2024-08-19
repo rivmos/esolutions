@@ -7,9 +7,15 @@ import { Button } from '@/components/ui/moving-border';
 import CustomButton from '@/app/ui/common/CustomButton';
 
 
-const CaseStudies = async ({title='Case Studies'} : {title:string}) => {
+const CaseStudies = async ({title='Case Studies', slugToExclude} : {title:string, slugToExclude?: string}) => {
 
-    const data = await prisma.caseStudy.findMany()
+    const data = await prisma.caseStudy.findMany({
+        where: {
+            NOT: {
+                slug: slugToExclude
+            }
+        }
+    })
 
     return (
         <div className='max-w-[1700px] mx-auto py-16 lg:py-20 px-4'>
