@@ -91,10 +91,10 @@ const Footer = () => {
                             <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Legal</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
-                                    <Link href="/privacy-policy" className="hover:underline font-light text-sm lg:text-base">Privacy Policy</Link>
+                                    <Link href="/legal/privacy-and-policy" className="hover:underline font-light text-sm lg:text-base">Privacy Policy</Link>
                                 </li>
                                 <li>
-                                    <Link href="/terms-conditions" className="hover:underline font-light text-sm lg:text-base">Terms & Conditions</Link>
+                                    <Link href="/legal/disclaimer" className="hover:underline font-light text-sm lg:text-base">Disclaimer</Link>
                                 </li>
                                 <li>
                                     <Link href="/contactus" className="hover:underline font-light text-sm lg:text-base">Contact Us</Link>

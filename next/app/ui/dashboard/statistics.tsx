@@ -6,7 +6,9 @@ import {
     HiUser,
     HiPencil,
     HiUserGroup,
+
 } from 'react-icons/hi'
+import { GoLaw } from "react-icons/go";
 import { SiAmazonsimpleemailservice, SiFujifilm } from "react-icons/si";
 import { ReactNode } from 'react'
 import Link from 'next/link'
@@ -96,6 +98,15 @@ const StatisticIcon = ({ type }: { type?: string }) => {
                     size={55}
                     className="bg-pink-100 text-pink-600 dark:bg-pink-500/20 dark:text-pink-100"
                     icon={<HiTag />}
+                />
+            )
+
+        case 'Legal':
+            return (
+                <Avatar
+                    size={55}
+                    className="bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-100"
+                    icon={<GoLaw />}
                 />
             )
         default:
