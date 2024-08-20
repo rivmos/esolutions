@@ -55,8 +55,8 @@ const columns = [
     header: () => 'Actions',
     cell: ({ row }) => {
 
-      const router = useRouter()
-      const { toast } = useToast()
+      // const router = useRouter()
+      // const { toast } = useToast()
 
       async function onDelete() {
         try {
@@ -66,8 +66,8 @@ const columns = [
 
           if (response.status === 200) {
             // router.push('/dashboard/testimonials/list')
-            toast({ description: "Testimonial Deleted Successfully", variant: 'success' })
-            router.refresh()
+            // toast({ description: "Testimonial Deleted Successfully", variant: 'success' })
+            // router.refresh()
           } else {
             console.error('Error:', response.data.message);
           }
