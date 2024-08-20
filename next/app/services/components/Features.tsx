@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import CaseStudies from '../../home/components/CaseStudies';
 import Services from '../../home/components/Services';
 
 const Features = ({image, imageAlt, features, slugToExclude} : {image:string, imageAlt: string, features: {title: string, description:string}[], slugToExclude?: string}) => {
@@ -35,7 +34,6 @@ const Features = ({image, imageAlt, features, slugToExclude} : {image:string, im
                     </div>
                 </div>
             </div>
-            {/* <CaseStudies title="Related Case Studies"/> */}
             <Services title='Other Services' slugToExclude={slugToExclude}/>
         </>
 

@@ -12,7 +12,7 @@ const Services = async ({title, slugToExclude} : {title: string, slugToExclude?:
         where: {
             isActive: true,
             NOT: {
-                href: `/web/services/${slugToExclude}`
+                href: `/services/${slugToExclude}`
             }
         }
     })

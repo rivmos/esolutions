@@ -5,6 +5,8 @@ import NextTopLoader from "nextjs-toploader";
 import SessionProvider from "@/app/components/SessionProvider"
 import { getServerSession } from "next-auth";
 import { Toaster } from "@/components/ui/toaster"
+import Header from "@/app/ui/web/Header";
+import Footer from "@/app/ui/web/Footer";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -26,8 +28,10 @@ export default async function RootLayout({
       <body className={inter.className}>
         <NextTopLoader />
         <SessionProvider session={session}>
+          <Header />
           {children}
-        </SessionProvider> 
+          <Footer />
+        </SessionProvider>
         <Toaster />
       </body>
     </html>

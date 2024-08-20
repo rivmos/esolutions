@@ -1,5 +1,4 @@
 import Banner from "@/app/ui/web/Banner";
-import Image from "next/image";
 
 export default function Page() {
   return (

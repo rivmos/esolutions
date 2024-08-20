@@ -51,7 +51,7 @@ const columns = [
             className={`cursor-pointer p-2 hover:text-gray-400`}
             
           >
-            <Link href={`/web/insights/${row.original.id}`}><HiEye /></Link>
+            <Link href={`/insights/${row.original.id}`}><HiEye /></Link>
             
           </span>
           <span

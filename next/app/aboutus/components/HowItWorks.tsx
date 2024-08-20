@@ -16,14 +16,14 @@ const data = [
     description:
       "We then outline the messaging, advertising platforms, and media we think would be most effective to help you accomplish your goals.",
     iconSrc: "plan.svg",
-    href: "/web/contactus"
+    href: "/contactus"
   },
   {
     title: "Review Results",
     description:
       "After the plans are in motion, we provide easy to understand reports to help you see what you are getting for what you are spending.",
     iconSrc: "results.svg",
-    href: "/web/casestudies"
+    href: "/casestudies"
   }
 ];
 

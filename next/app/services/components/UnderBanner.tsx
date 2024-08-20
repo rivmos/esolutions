@@ -9,7 +9,7 @@ const UnderBanner = ({title, description, btnText} : {title: string, description
             <p className="text-sm md:text-base mx-auto mb-4 sm:mb-5 md:mb-7 lg:mb-9">
                 {description}
             </p>
-            <CustomButton href="/web/contactus" className="!w-64">
+            <CustomButton href="/contactus" className="!w-64">
                 {btnText}
             </CustomButton>
         </div>

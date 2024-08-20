@@ -1,4 +1,4 @@
-import Newsletter from "@/app/web/home/components/Newsletter";
+import Newsletter from "@/app/home/components/Newsletter";
 import Link from "next/link";
 import { TiSocialPinterest, TiSocialInstagram, TiSocialLinkedin, TiSocialFacebook } from "react-icons/ti";
 
@@ -54,19 +54,19 @@ const Footer = () => {
                             <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Explore</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
-                                    <Link href="/web/services/webdev" className="hover:underline font-light text-sm lg:text-base">Web Development</Link>
+                                    <Link href="/services/web-developement" className="hover:underline font-light text-sm lg:text-base">Web Development</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/services/mobiledev" className="hover:underline font-light text-sm lg:text-base">Mobile App Design & Development</Link>
+                                    <Link href="/services/mobile-developement" className="hover:underline font-light text-sm lg:text-base">Mobile App Design & Development</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/services/design" className="hover:underline font-light text-sm lg:text-base">Designing Services</Link>
+                                    <Link href="/services/designing-services" className="hover:underline font-light text-sm lg:text-base">Designing Services</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/services/video" className="hover:underline font-light text-sm lg:text-base">Video & Animation Services</Link>
+                                    <Link href="/services/video-services" className="hover:underline font-light text-sm lg:text-base">Video & Animation Services</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/services/digitalmarketing" className="hover:underline font-light text-sm lg:text-base">Digital Marketing & Analytics Services</Link>
+                                    <Link href="/services/digital-marketing" className="hover:underline font-light text-sm lg:text-base">Digital Marketing & Analytics Services</Link>
                                 </li>
                             </ul>
                         </div>
@@ -74,16 +74,16 @@ const Footer = () => {
                             <h2 className="mb-4 lg:mb-6 text-lg font-semibold text-white uppercase">Quick Links</h2>
                             <ul className="text-white space-y-2 lg:space-y-4">
                                 <li>
-                                    <Link href="/web/aboutus" className="hover:underline font-light text-sm lg:text-base">About Us</Link>
+                                    <Link href="/aboutus" className="hover:underline font-light text-sm lg:text-base">About Us</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/services" className="hover:underline font-light text-sm lg:text-base">Services</Link>
+                                    <Link href="/services" className="hover:underline font-light text-sm lg:text-base">Services</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/casestudies" className="hover:underline font-light text-sm lg:text-base">Case Studies</Link>
+                                    <Link href="/casestudies" className="hover:underline font-light text-sm lg:text-base">Case Studies</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/insights" className="hover:underline font-light text-sm lg:text-base">Insights</Link>
+                                    <Link href="/insights" className="hover:underline font-light text-sm lg:text-base">Insights</Link>
                                 </li>
                             </ul>
                         </div>
@@ -97,7 +97,7 @@ const Footer = () => {
                                     <Link href="/terms-conditions" className="hover:underline font-light text-sm lg:text-base">Terms & Conditions</Link>
                                 </li>
                                 <li>
-                                    <Link href="/web/contactus" className="hover:underline font-light text-sm lg:text-base">Contact Us</Link>
+                                    <Link href="/contactus" className="hover:underline font-light text-sm lg:text-base">Contact Us</Link>
                                 </li>
                             </ul>
                         </div>

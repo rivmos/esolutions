@@ -32,12 +32,9 @@ export default async function Page() {
                   <div className='text-center p-4 space-y-3'>
                     <div className='text-center'>{dayjs(item.createdAt).format('MMM DD, YYYY')}</div>
                     <h6 className='text-lg font-semibold h-16'>{item.title}</h6>
-                    {/* <CustomButton href={`/web/blogs/${item.id}`} variant='card'>
-                      Read More
-                    </CustomButton> */}
                   </div>
                   <div className='flex justify-center px-4'>
-                    <CustomButton href={`/web/insights/${item.slug}`} variant='card'>
+                    <CustomButton href={`/insights/${item.slug}`} variant='card'>
                       Read More
                     </CustomButton>
                   </div>

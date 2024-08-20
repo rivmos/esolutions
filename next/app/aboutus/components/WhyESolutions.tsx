@@ -35,7 +35,7 @@ const WhyESolutions = () => {
           <p className="text-gray-700 text-base px-4 font-semibold md:font-bold mb-10">
             If you have any questions or would like to know more about our services, don&apos;t hesitate to contact us.
           </p>
-          <CustomButton href='/web/contactus' variant='bordered'>
+          <CustomButton href='/contactus' variant='bordered'>
             Get In Touch
           </CustomButton>
         </div>

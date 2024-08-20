@@ -22,7 +22,7 @@ const CaseStudies = async ({title='Case Studies', slugToExclude} : {title:string
             <SectionTitle title={title} />
             <CaseStudySwiper data={data} />
             <div className='flex justify-center mt-8'>
-                <CustomButton href="/web/casestudies" variant='bordered'>
+                <CustomButton href="/casestudies" variant='bordered'>
                     View Case Studies
                 </CustomButton>
             </div>

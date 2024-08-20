@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { schema } from '@/app/web/contactus/z-schema'
+import { schema } from '@/app/contactus/z-schema'
 import prisma from '@/app/lib/prismadb';
 import nodemailer from 'nodemailer'
 

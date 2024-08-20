@@ -53,12 +53,9 @@ const InsightsSwiper = ({ data }: { data: Insight[] }) => {
                                 <div className='text-center py-4 px-8 space-y-3'>
                                     <div className='text-center text-sm text-gray-400'>{dayjs(item.createdAt).format('MMM DD, YYYY')}</div>
                                     <h6 className='text-lg font-semibold h-16'>{item.title}</h6>
-                                    {/* <CustomButton href={`/web/Insights/${item.id}`} variant='card'>
-                                        Read More
-                                    </CustomButton> */}
                                 </div>
                                 <div className='flex justify-center px-4 mb-6'>
-                                    <CustomButton href={`/web/insights/${item.slug}`} variant='card'>
+                                    <CustomButton href={`/insights/${item.slug}`} variant='card'>
                                         Read More
                                     </CustomButton>
                                 </div>

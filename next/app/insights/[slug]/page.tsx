@@ -28,7 +28,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
           <div className="text-left space-y-4 sm:space-y-6 md:space-y-8">
             <div id='insight-content' className='text-left' dangerouslySetInnerHTML={{ __html: data?.content as TrustedHTML }} />
             <div className="text-center !mt-12">
-              <Link href="/web/insights" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
+              <Link href="/insights" className="bg-blue-600 text-white py-2 px-4 md:px-6 rounded-md transition hover:bg-blue-700 whitespace-nowrap">
                   Back to Insights
               </Link>
             </div>

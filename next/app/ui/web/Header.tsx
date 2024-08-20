@@ -92,37 +92,37 @@ export default function Header() {
 const components: { title: string; href: string; description: string }[] = [
     {
         title: "Web Development",
-        href: "/web/services/web-developement",
+        href: "/services/web-developement",
         description:
             "Build responsive and dynamic websites tailored to your business needs using the latest web technologies.",
     },
     {
         title: "Mobile App Design & Development",
-        href: "/web/services/mobile-developement",
+        href: "/services/mobile-developement",
         description:
             "Create seamless, user-friendly mobile applications for iOS and Android platforms, ensuring optimal performance and user experience.",
     },
     {
         title: "Designing Services",
-        href: "/web/services/designing-services",
+        href: "/services/designing-services",
         description:
             "Craft visually appealing and intuitive designs that resonate with your brand identity and engage your audience.",
     },
     {
         title: "Video & Animation Services",
-        href: "/web/services/video-services",
+        href: "/services/video-services",
         description:
             "Produce compelling video content and animations to effectively communicate your message and captivate your audience.",
     },
     {
         title: "Digital Marketing & Analytics Services",
-        href: "/web/services/digital-marketing",
+        href: "/services/digital-marketing",
         description:
             "Leverage data-driven digital marketing strategies to enhance your online presence and achieve measurable business growth.",
     },
     {
         title: "View All",
-        href: "/web/services",
+        href: "/services",
         description:
             "Browser our offered services.",
     },
@@ -144,7 +144,7 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                     </Link>
                 </NavigationMenuItem>}
                 <NavigationMenuItem onClick={onClick}>
-                    <Link href="/web/aboutus" legacyBehavior passHref>
+                    <Link href="/aboutus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             About Us
                         </NavigationMenuLink>
@@ -196,21 +196,21 @@ const NavBarContent = ({ onClick }: { onClick?: () => void }) => {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem onClick={onClick}>
-                    <Link href="/web/casestudies" legacyBehavior passHref>
+                    <Link href="/casestudies" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Case Studies
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem onClick={onClick}>
-                    <Link href="/web/insights" legacyBehavior passHref>
+                    <Link href="/insights" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Insights
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem onClick={onClick} className='lg:border-[1px] rounded-lg lg:border-blue-700 text-blue-700 font-medium'>
-                    <Link href="/web/contactus" legacyBehavior passHref>
+                    <Link href="/contactus" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Contact Us
                         </NavigationMenuLink>
